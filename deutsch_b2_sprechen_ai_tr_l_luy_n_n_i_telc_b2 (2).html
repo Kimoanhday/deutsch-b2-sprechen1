@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DEUTSCH B2 SPRECHEN AI – Trợ lý Luyện Nói telc B2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            navy: { 800: '#1e293b', 900: '#0f172a', 950: '#090d16' }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .custom-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 9999px; }
+    .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    .custom-scroll::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+    .mic-recording { animation: pulseRing 1.5s infinite; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-200 selection:text-navy-900">
+
+  <!-- Toast Notification -->
+  <div id="toast-container" class="fixed top-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <div class="min-h-screen flex flex-col lg:flex-row">
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="w-full lg:w-72 bg-navy-900 text-slate-200 flex flex-col shrink-0 lg:min-h-screen">
+      <div class="p-5 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-red-500 to-slate-900 flex items-center justify-center text-white font-extrabold text-sm shadow">
+            B2
+          </div>
+          <div>
+            <h1 class="font-extrabold text-white text-base tracking-tight leading-tight">DEUTSCH B2<br/><span class="text-amber-400">SPRECHEN AI</span></h1>
+          </div>
+        </div>
+        <button id="mobile-menu-toggle" class="lg:hidden p-2 rounded-xl bg-slate-800 text-slate-200 hover:bg-slate-700" aria-label="Menu">
+          ☰
+        </button>
+      </div>
+
+      <nav id="sidebar-nav" class="hidden lg:flex flex-col gap-1.5 p-4 flex-1">
+        <button data-view="dashboard" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition bg-amber-500 text-navy-950 shadow-sm">
+          <span>📊</span>
+          <span>1. Trang chủ (Dashboard)</span>
+        </button>
+        <button data-view="arena" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-300 hover:bg-slate-800 hover:text-white">
+          <span>🎙️</span>
+          <span>2. Phòng luyện nói (Arena)</span>
+        </button>
+        <button data-view="note-builder" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-300 hover:bg-slate-800 hover:text-white">
+          <span>📝</span>
+          <span>3. Erfahrung NOTE (Teil 2)</span>
+        </button>
+        <button data-view="coach-library" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-300 hover:bg-slate-800 hover:text-white">
+          <span>📚</span>
+          <span>4. Redemittel & Từ vựng B2</span>
+        </button>
+        <button data-view="history" class="nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-300 hover:bg-slate-800 hover:text-white">
+          <span>🗂️</span>
+          <span>5. Lịch sử & Phân tích lỗi</span>
+        </button>
+
+        <div class="mt-auto pt-4 border-t border-slate-800">
+          <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/70 text-xs space-y-1.5">
+            <div class="font-bold text-amber-400 flex items-center gap-1.5">
+              <span>🎯</span> Triết lý telc B2
+            </div>
+            <p class="text-slate-300 leading-relaxed">
+              Không học thuộc bài mẫu. Ưu tiên ý tưởng logic, tương tác tự nhiên và tự diễn đạt đúng trình độ B2.
+            </p>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+
+      <!-- ========================================================= -->
+      <!-- VIEW 1: DASHBOARD                                         -->
+      <!-- ========================================================= -->
+      <section id="view-dashboard" class="app-view space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold">telc Deutsch B2 Allgemein</span>
+            <h2 class="text-2xl font-extrabold text-navy-900 mt-1">Tổng quan quá trình luyện nói</h2>
+            <p class="text-sm text-slate-500">Theo dõi tiến độ 3 phần thi, lỗi ngữ pháp cá nhân và mức độ đa dạng Redemittel.</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="goToArenaWithMode('teil2-diskussion')" class="px-4 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold shadow-sm transition">
+              ⚖️ Luyện Teil 2 (40 Đề)
+            </button>
+            <button onclick="goToArenaWithMode('teil3')" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-navy-950 text-xs font-bold shadow-sm transition">
+              🤝 Luyện Teil 3 (40 Đề)
+            </button>
+          </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div id="dashboard-kpis" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+
+        <!-- Progress & Personalized Profile -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+            <h3 class="font-bold text-navy-900 text-base flex items-center gap-2">
+              <span>📈</span> Tiến độ theo từng phần thi
+            </h3>
+            <div id="dashboard-part-progress" class="space-y-3.5"></div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+            <h3 class="font-bold text-navy-900 text-base flex items-center gap-2">
+              <span>⚠️</span> Lỗi ngữ pháp & Kỹ năng cần cải thiện
+            </h3>
+            <div id="dashboard-weaknesses" class="space-y-2.5"></div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 space-y-4">
+            <h3 class="font-bold text-navy-900 text-base flex items-center gap-2">
+              <span>✨</span> Redemittel & Từ vựng B2 nổi bật
+            </h3>
+            <div id="dashboard-vocab-summary" class="space-y-3"></div>
+          </div>
+        </div>
+
+        <!-- Recent History -->
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-navy-900 text-base">🕒 Lịch sử luyện tập gần đây</h3>
+            <button onclick="switchView('history')" class="text-xs font-semibold text-amber-600 hover:text-amber-700">Xem tất cả →</button>
+          </div>
+          <div id="dashboard-recent-history" class="space-y-2.5"></div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 2: PRACTICE ARENA                                    -->
+      <!-- ========================================================= -->
+      <section id="view-arena" class="app-view hidden space-y-5">
+        <!-- Mode Selector -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-slate-200">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div>
+              <h2 class="text-lg font-extrabold text-navy-900">Phòng luyện nói cùng Đối tác AI (Lukas)</h2>
+              <p class="text-xs text-slate-500">Giao tiếp 100% tiếng Đức • Không ngắt lời sửa lỗi giữa chừng • Phân tích chi tiết sau khi kết thúc.</p>
+            </div>
+            <div class="flex flex-wrap gap-2" id="practice-mode-buttons">
+              <button data-mode="conversation" class="mode-btn px-3.5 py-2 rounded-xl text-xs font-semibold border transition bg-navy-900 text-white border-navy-900">
+                💬 Conversation Mode
+              </button>
+              <button data-mode="teil1" class="mode-btn px-3.5 py-2 rounded-xl text-xs font-semibold border transition bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
+                🎤 Teil 1: Thema vorstellen
+              </button>
+              <button data-mode="teil2-diskussion" class="mode-btn px-3.5 py-2 rounded-xl text-xs font-semibold border transition bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
+                ⚖️ Teil 2: Diskussion (40 Đề)
+              </button>
+              <button data-mode="teil3" class="mode-btn px-3.5 py-2 rounded-xl text-xs font-semibold border transition bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
+                🤝 Teil 3: Gemeinsam planen (40 Đề)
+              </button>
+            </div>
+          </div>
+
+          <!-- 40-TOPIC SELECTOR BAR (Visible in Teil 2 & Teil 3) -->
+          <div id="exam-topic-selector-bar" class="hidden mt-4 pt-4 border-t border-slate-100">
+            <div class="flex flex-col md:flex-row items-stretch md:items-center gap-2.5">
+              <div class="relative flex-1">
+                <input id="topic-search-input" type="text" placeholder="🔍 Tìm đề theo số (1-40) hoặc từ khóa (VD: Kinderuniversität, Pflege-WG, Fast Food, Trinkgeld, Handy...)" class="w-full rounded-xl border border-slate-300 bg-slate-50 px-3.5 py-2 text-xs text-navy-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-amber-500" />
+              </div>
+              <select id="exam-topic-dropdown" class="md:w-96 rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500"></select>
+              <button id="btn-random-exam-topic" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-navy-950 text-xs font-bold shadow-sm transition shrink-0">
+                🎲 Bốc thăm ngẫu nhiên
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Arena Grid: Left Scenario / Lesetext, Right Chat -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          <!-- Left Column: Scenario & Reading Text -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span id="arena-badge" class="px-2.5 py-1 rounded-md bg-navy-900 text-white text-[11px] font-bold">Conversation Mode</span>
+                <div class="flex items-center gap-2">
+                  <button id="btn-read-lesetext" class="hidden text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
+                    🔊 Nghe đề/bài đọc
+                  </button>
+                  <button id="btn-next-scenario" class="text-xs font-semibold text-amber-600 hover:text-amber-700">
+                    🔄 Đề kế tiếp
+                  </button>
+                </div>
+              </div>
+
+              <h3 id="arena-topic-title" class="font-bold text-base text-navy-900 mt-2"></h3>
+              <div id="arena-topic-details" class="mt-3 text-xs text-slate-700 space-y-2 leading-relaxed max-h-80 overflow-y-auto custom-scroll pr-1"></div>
+
+              <!-- Sync to NOTE Builder (Teil 2 only) -->
+              <div id="sync-to-note-box" class="hidden mt-3">
+                <button id="btn-sync-to-note" class="w-full py-2.5 px-3 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-800 border border-indigo-200 text-xs font-bold transition">
+                  📝 Chuyển đề này sang bảng Erfahrung NOTE →
+                </button>
+              </div>
+
+              <!-- Vietnamese Strategy Box -->
+              <div id="arena-vietnamese-guide" class="mt-4 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs text-amber-950 leading-relaxed"></div>
+            </div>
+
+            <!-- Quick Redemittel Chips -->
+            <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200">
+              <div class="text-xs font-bold text-navy-900 mb-2">💡 Gợi ý Redemittel phù hợp ngữ cảnh (nhấn để chèn):</div>
+              <div id="arena-redemittel-chips" class="flex flex-wrap gap-1.5"></div>
+            </div>
+          </div>
+
+          <!-- Right Column: Live German Chat with Lukas -->
+          <div class="lg:col-span-7 bg-white rounded-2xl shadow-sm border border-slate-200 flex flex-col h-[600px]">
+            <!-- Chat Header -->
+            <div class="p-4 border-b border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-navy-900 text-amber-400 font-bold flex items-center justify-center text-sm">L</div>
+                <div>
+                  <div class="font-bold text-sm text-navy-900">Lukas (Gesprächspartner / Prüfer)</div>
+                  <div class="text-[11px] text-emerald-600 font-medium">● Trực tuyến • Tiếng Đức chuẩn B2</div>
+                </div>
+              </div>
+              <button id="btn-finish-session" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition">
+                ✅ Kết thúc & Phân tích lỗi
+              </button>
+            </div>
+
+            <!-- Chat Messages -->
+            <div id="chat-messages-box" class="flex-1 p-4 overflow-y-auto custom-scroll space-y-3 bg-slate-50/60"></div>
+
+            <!-- Chat Input & Voice Controls -->
+            <div class="p-3.5 border-t border-slate-200 bg-white rounded-b-2xl space-y-2">
+              <div id="voice-status-bar" class="hidden text-xs text-red-600 font-semibold flex items-center gap-2 px-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-red-600 animate-ping"></span>
+                <span>Đang nghe giọng nói tiếng Đức (de-DE)... Hãy nói rõ ràng.</span>
+              </div>
+              <div class="flex items-end gap-2">
+                <button id="btn-mic-toggle" type="button" title="Nói tiếng Đức bằng Micro" class="p-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition shrink-0">
+                  🎤
+                </button>
+                <textarea id="chat-user-input" rows="2" placeholder="Nhập hoặc nói câu trả lời tiếng Đức của bạn tại đây..." class="flex-1 rounded-xl border border-slate-300 px-3.5 py-2 text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500 resize-none"></textarea>
+                <button id="btn-send-chat" type="button" class="px-4 py-3 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold shrink-0 transition">
+                  Gửi ➤
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Post-Session AI Analysis Panel -->
+        <div id="post-session-analysis-panel" class="hidden bg-white rounded-2xl p-6 shadow-md border-2 border-amber-400 space-y-6"></div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 3: TEIL 2 ERFAHRUNG NOTE BUILDER                     -->
+      <!-- ========================================================= -->
+      <section id="view-note-builder" class="app-view hidden space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-5">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100">
+            <div>
+              <span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-800 text-xs font-bold">Teil 2 – Erfahrung Development</span>
+              <h2 class="text-xl font-extrabold text-navy-900 mt-1">Triển khai trải nghiệm cá nhân bằng phương pháp NOTE</h2>
+              <p class="text-xs text-slate-500">Tự xây dựng bài nói mạch lạc từ 6 ý chính thay vì học thuộc lòng bài mẫu.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <select id="erfahrung-topic-select" class="text-xs border border-slate-300 rounded-xl px-3 py-2 bg-slate-50 font-semibold text-navy-900 max-w-md focus:outline-none focus:ring-2 focus:ring-amber-500"></select>
+              <button id="btn-random-erfahrung" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-600 text-navy-950 text-xs font-bold">
+                🎲 Đổi đề ngẫu nhiên
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 1: Prompt Analysis -->
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="text-xs font-bold uppercase text-amber-700">Bước 1: Phân tích đề bài</div>
+            <div id="erf-prompt-de" class="text-base font-bold text-navy-900"></div>
+            <p id="erf-analysis-vi" class="text-xs text-slate-600 leading-relaxed"></p>
+          </div>
+
+          <!-- Step 2 & 3: NOTE Table + Guiding Questions -->
+          <div>
+            <div class="text-xs font-bold uppercase text-amber-700 mb-2">Bước 2 & 3: Bảng NOTE ý chính & Câu hỏi gợi mở phát triển ý</div>
+            <div class="overflow-x-auto border border-slate-200 rounded-xl">
+              <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr class="bg-navy-900 text-white">
+                    <th class="p-3 font-semibold w-32">Hạng mục</th>
+                    <th class="p-3 font-semibold w-64">NOTE (Từ khóa tiếng Đức)</th>
+                    <th class="p-3 font-semibold">Hướng dẫn mở rộng ý (Tiếng Việt)</th>
+                  </tr>
+                </thead>
+                <tbody id="erf-note-tbody" class="divide-y divide-slate-200 bg-white"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Step 4: Learner Self-Production -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <label for="erf-user-draft" class="text-xs font-bold uppercase text-amber-700">Bước 4: Bạn tự viết hoặc nói phần Erfahrung dựa trên bảng NOTE</label>
+              <button id="btn-erf-mic" type="button" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-xs font-semibold text-navy-900">
+                🎤 Nói bằng Micro (de-DE)
+              </button>
+            </div>
+            <textarea id="erf-user-draft" rows="4" placeholder="Ví dụ: Bisher habe ich mich hauptsächlich auf mein Studium konzentriert, deshalb hatte ich noch keine Gelegenheit, ein Praktikum zu machen..." class="w-full rounded-xl border border-slate-300 p-3.5 text-sm text-navy-900 focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+            <div class="flex flex-wrap gap-2">
+              <button id="btn-evaluate-erf" type="button" class="px-5 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold shadow-sm transition">
+                ✨ Bước 5: Đánh giá & Hoàn thiện Erfahrung
+              </button>
+              <button id="btn-clear-erf" type="button" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold">
+                Xóa nháp
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 5: Result -->
+          <div id="erf-feedback-box" class="hidden p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-4"></div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 4: REDEMITTEL & B2 VOCABULARY COACH                  -->
+      <!-- ========================================================= -->
+      <section id="view-coach-library" class="app-view hidden space-y-6">
+        <!-- Redemittel Coach -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <h2 class="text-xl font-extrabold text-navy-900">Redemittel Coach – 10 nhóm cấu trúc B2</h2>
+              <p class="text-xs text-slate-500">Hạn chế lặp lại „Ich schlage vor“ hay „Ich finde gut“ bằng các mẫu câu đa dạng.</p>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold">Nhấn 🔊 để nghe phát âm</span>
+          </div>
+          <div id="redemittel-groups-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+
+        <!-- B2 Vocabulary Coach -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <h2 class="text-xl font-extrabold text-navy-900">B2 Vocabulary & Kollokationen theo chủ đề</h2>
+              <p class="text-xs text-slate-500">Cụm từ cố định dùng trực tiếp trong bài thi nói telc B2.</p>
+            </div>
+            <select id="vocab-topic-filter" class="text-xs border border-slate-300 rounded-xl px-3.5 py-2 bg-slate-50 font-semibold text-navy-900">
+              <option value="Bildung & Schule">Chủ đề: Bildung & Schule (Giáo dục)</option>
+              <option value="Gesundheit & Ernährung">Chủ đề: Gesundheit & Ernährung (Sức khỏe & Dinh dưỡng)</option>
+              <option value="Arbeitswelt & Beruf">Chủ đề: Arbeitswelt & Beruf (Công việc)</option>
+              <option value="Medien & Digitalisierung">Chủ đề: Medien & Digitalisierung (Truyền thông & Số hóa)</option>
+              <option value="Umwelt & Wohnen">Chủ đề: Umwelt & Wohnen (Môi trường & Đời sống)</option>
+              <option value="Gesellschaft & Soziales">Chủ đề: Gesellschaft & Soziales (Xã hội)</option>
+            </select>
+          </div>
+          <div id="vocab-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+      </section>
+
+      <!-- ========================================================= -->
+      <!-- VIEW 5: PRACTICE HISTORY                                  -->
+      <!-- ========================================================= -->
+      <section id="view-history" class="app-view hidden space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-xl font-extrabold text-navy-900">Lịch sử luyện tập & Tiến bộ cá nhân</h2>
+              <p class="text-xs text-slate-500">Lưu trữ toàn bộ các buổi mô phỏng thi, bản sửa lỗi và phiên bản nâng cấp B2.</p>
+            </div>
+            <button id="btn-reset-history" class="px-3.5 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-700 text-xs font-semibold border border-red-200">
+              Đặt lại dữ liệu mẫu
+            </button>
+          </div>
+          <div id="full-history-list" class="space-y-4"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 1. STATE & STORAGE MANAGEMENT
+    // =========================================================================
+    const STORAGE_KEY = 'deutsch_b2_sprechen_ai_v2';
+
+    const DEFAULT_STATE = {
+      stats: {
+        totalSessions: 12,
+        completedExercises: 10,
+        averageScore: 76,
+        streakDays: 4,
+        partProgress: {
+          conversation: 80,
+          teil1: 72,
+          teil2: 68,
+          teil3: 82
+        }
+      },
+      frequentGrammarErrors: [
+        { topic: 'Vị trí động từ sau liên từ phụ thuộc (weil, dass, obwohl)', count: 6, tip: 'Động từ chia phải đẩy xuống cuối mệnh đề phụ.' },
+        { topic: 'Đảo ngữ sau trạng từ nối (deshalb, trotzdem, außerdem)', count: 4, tip: 'Động từ đứng ngay vị trí số 2 trước chủ ngữ.' },
+        { topic: 'Giống của danh từ (der/die/das) & đuôi tính từ', count: 3, tip: 'Học danh từ luôn kèm mạo từ xác định.' }
+      ],
+      overusedRedemittel: [
+        { phrase: 'Ich schlage vor, dass ...', count: 8, replacement: 'Wie wäre es, wenn ...? / Wir könnten doch ...' },
+        { phrase: 'Das finde ich gut.', count: 6, replacement: 'Da stimme ich dir voll zu. / Das ist ein überzeugendes Argument.' }
+      ],
+      masteredVocab: [
+        'die Klassengemeinschaft stärken',
+        'Chancengleichheit fördern',
+        'Verantwortung übernehmen',
+        'einen Kompromiss finden',
+        'Vor- und Nachteile abwägen'
+      ],
+      skillsToImprove: [
+        'Mở rộng phần Erfahrung trong Teil 2 bằng lý do và hệ quả cụ thể.',
+        'Sử dụng đa dạng cấu trúc phản đối lịch sự (Widerspruch) trong Teil 2 & 3.'
+      ],
+      history: [
+        {
+          id: 'hist-1',
+          date: 'Hôm qua, 20:15',
+          mode: 'Teil 2: Diskussion',
+          topic: 'Đề 3: Fast Food kann süchtig machen',
+          score: 78,
+          original: 'Ich denke Fast Food ist nicht gut weil es hat viele Fett und Zucker.',
+          corrected: 'Ich denke, dass Fast Food ungesund ist, weil es viel Fett und Zucker enthält.',
+          improved: 'Meiner Ansicht nach wirkt sich regelmäßiger Fast-Food-Konsum negativ auf die Gesundheit aus, da stark fetthaltige Speisen zu Übergewicht führen können.',
+          explanation: 'Sau „weil“ động từ chia (hat/enthält) phải đứng ở cuối câu; „Fett“ là danh từ không đếm được giống trung nên dùng „viel Fett“.',
+          redemittelUsed: ['Meiner Ansicht nach ...', 'Ich denke, dass ...']
+        },
+        {
+          id: 'hist-2',
+          date: '2 ngày trước, 19:40',
+          mode: 'Teil 3: Gemeinsam planen',
+          topic: 'Đề 1: Ein interkulturelles Sportfest organisieren',
+          score: 82,
+          original: 'Ich schlage vor, dass wir machen das Fest am Samstag im Stadtpark.',
+          corrected: 'Ich schlage vor, dass wir das Fest am Samstag im Stadtpark veranstalten.',
+          improved: 'Wie wäre es, wenn wir das Sportfest am kommenden Samstag im Stadtpark veranstalten würden?',
+          explanation: 'Trong mệnh đề phụ với „dass“, động từ chia „machen/veranstalten“ phải chuyển xuống cuối câu.',
+          redemittelUsed: ['Wie wäre es, wenn ...?', 'Da stimme ich dir zu.']
+        }
+      ]
+    };
+
+    let appState = loadState();
+    let currentView = 'dashboard';
+    let currentMode = 'conversation';
+    let currentScenarioIndex = 0;
+    let chatTranscript = [];
+    let isRecording = false;
+    let recognition = null;
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          return Object.assign({}, DEFAULT_STATE, parsed);
+        }
+      } catch (e) {
+        console.warn('LocalStorage read fallback:', e);
+      }
+      return JSON.parse(JSON.stringify(DEFAULT_STATE));
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        console.warn('LocalStorage write fallback:', e);
+      }
+    }
+
+    // =========================================================================
+    // 2. COMPLETE 40-TOPIC TELC B2 BANK (TEIL 2 & TEIL 3 FROM PDF)
+    // =========================================================================
+    const TELC_40_TOPICS = [
+      {
+        id: 1,
+        t2Title: "Die Kleinen wollen's wissen (Kinderuniversität)",
+        t2Text: "Lernen in den Ferien? Für über 500 Kinder, die sich im großen Hörsaal der Tübinger Universität versammelt haben, beginnt eine aufregende Zeit. Seit 2002 bietet die Universität Tübingen als erste deutsche Universität Lehrveranstaltungen für Kinder an. Gelernt wird hier in den Sommerferien ohne Schulstress und Noten. Der Besuch ist freiwillig und richtet sich an Kinder im Alter von acht bis zwölf Jahren. Typische Themen sind etwa: Warum ist Spielen wichtig? Warum sind wir schlauer als Roboter? Heute gibt es über 50 Kinderuniversitäten in Deutschland. Doch Kinderarzt Dr. Kleinschmied warnt, dass sportliche Aktivitäten in den Ferien nicht zu kurz kommen dürfen. Zudem kritisieren Eltern wie Michael König, dass meist nur gute Schüler teilnehmen, während lernschwache Schüler dringend innovative Lernkonzepte bräuchten.",
+        t2Opening: "Hallo! Ich finde die Idee einer Kinderuniversität in den Ferien eigentlich super spannend, weil Kinder dort ohne Notendruck lernen können. Andererseits hat der Kinderarzt recht, dass Bewegung in den Ferien sehr wichtig ist. Wie siehst du das?",
+        erfQuestion: "Haben Sie als Kind an besonderen Lernprogrammen oder Ferienkursen teilgenommen?",
+        erfNotes: [
+          { label: "Situation", note: "In den Sommerferien einen Sprach- oder Sportkurs besucht", guide: "Bạn đã từng tham gia khóa học hoặc hoạt động ngoại khóa nào vào dịp hè chưa?" },
+          { label: "Grund", note: "Neugierig sein und neue Dinge ausprobieren", guide: "Lý do bạn tham gia hoạt động đó là gì?" },
+          { label: "Meinung", note: "Spielerisches Lernen ohne Notendruck ist sehr sinnvoll", guide: "Quan điểm của bạn về việc học kiến thức khoa học mà không bị áp lực điểm số." },
+          { label: "Begründung", note: "Kinder sind von Natur aus neugierig und stellen viele Fragen", guide: "Giải thích tại sao cách học này hiệu quả." },
+          { label: "Nutzen", note: "Interesse wecken, aber Sport und Bewegung nicht vergessen", guide: "Cần cân bằng giữa học tập và vận động như thế nào?" },
+          { label: "Zukunft", note: "Auch lernschwache Schüler gezielt fördern", guide: "Đề xuất giải pháp cho tương lai." }
+        ],
+        t3Title: "Ein interkulturelles Sportfest in Ihrer Stadt organisieren",
+        t3Prompt: "In Ihrer Stadt organisieren Sie ein interkulturelles Sportfest. Sie sollen bei der Planung helfen. Überlegen Sie, was Sie tun können, und planen Sie gemeinsam, was Sie organisieren können.",
+        t3Leitpunkte: ["Wann und wo soll das Sportfest stattfinden?", "Welche Sportarten und Spiele bieten wir für verschiedene Kulturen an?", "Essen, Getränke und Musik aus verschiedenen Ländern", "Werbung, Einladungen und Aufgabenverteilung"],
+        t3Opening: "Hallo! Wir sollen ja zusammen das interkulturelle Sportfest in unserer Stadt planen. Hast du schon eine Idee, wann und wo wir das Fest am besten veranstalten könnten?"
+      },
+      {
+        id: 2,
+        t2Title: "Alternative Lebensform im Alter (Pflege-WGs)",
+        t2Text: "Das Leben in einer Wohngemeinschaft (WG): Man liebt es oder man hasst es. Während unter Studenten Berge ungespülten Geschirrs zum Zank führen, sind die Reibungspunkte zwischen älteren Menschen andere. Dennoch lässt das Ideal der Pflege-WGs vieles erstrebenswert erscheinen: ein selbstbestimmtes, möglichst unabhängiges Leben in Gemeinschaft führen, der gefürchteten Alterseinsamkeit entgehen und trotzdem professionelle Unterstützung erhalten. Sozialverbände fürchten hingegen eine Verschlechterung der Pflegesituation und warnen davor, dass schwer pflegebedürftige Menschen aus Kostengründen in WGs abgeschoben werden könnten.",
+        t2Opening: "Ich glaube, eine Senioren-WG ist eine tolle Alternative zum klassischen Altersheim, weil man dort nicht so einsam ist. Allerdings frage ich mich, ob das auch bei schweren Krankheiten funktioniert. Was denkst du darüber?",
+        erfQuestion: "Wie leben ältere Menschen in Ihrem Heimatland und haben Sie Erfahrungen mit Wohngemeinschaften?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam leben Großeltern oft mit der Familie zusammen", guide: "Ở Việt Nam người cao tuổi thường sống cùng con cháu hay ở riêng?" },
+          { label: "Grund", note: "Familiärer Zusammenhalt und gegenseitige Unterstützung", guide: "Lý do văn hóa hoặc kinh tế của mô hình đó." },
+          { label: "Meinung", note: "Pflege-WGs sind eine gute moderne Alternative", guide: "Bạn nghĩ sao về mô hình nhà ở chung (WG) cho người cao tuổi?" },
+          { label: "Begründung", note: "Vermeidet Alterseinsamkeit und fördert Selbstständigkeit", guide: "Lợi ích lớn nhất về mặt tinh thần là gì?" },
+          { label: "Nutzen", note: "Professionelle Pflege und soziale Kontakte verbinden", guide: "Điều kiện cần thiết để Pflege-WG hoạt động tốt." },
+          { label: "Zukunft", note: "Mehr staatliche Kontrolle für gute Pflegequalität", guide: "Giải pháp đảm bảo chất lượng chăm sóc." }
+        ],
+        t3Title: "Eine Buchmesse im Kulturzentrum planen",
+        t3Prompt: "In einem Kulturzentrum in Ihrer Stadt soll eine Buchmesse stattfinden. Sie wollen bei der Planung helfen. Überlegen Sie, was Sie tun können. Denken Sie beispielsweise an Informationsmaterial oder Poster.",
+        t3Leitpunkte: ["Termin, Öffnungszeiten und Raumaufteilung im Kulturzentrum", "Rahmenprogramm (Lesungen, Autorengespräche, Kinderbereich)", "Informationsmaterial, Poster und Werbung in der Stadt", "Aufgabenverteilung und Verpflegung (Büchercafé)"],
+        t3Opening: "Hi! Bald findet ja die Buchmesse in unserem Kulturzentrum statt und wir helfen bei der Organisation. Sollen wir zuerst überlegen, wie wir mit Postern und Flyern Werbung machen können?"
+      },
+      {
+        id: 3,
+        t2Title: "Fast Food kann süchtig machen",
+        t2Text: "Unappetitliches Ergebnis eines Tierversuchs: Fettiges und stark kalorienreiches Essen kann offenbar ebenso süchtig machen wie Drogen. US-Forscher fütterten Ratten mit Würstchen, Schinkenspeck und Käsekuchen. Der Konsum aktiviert das Belohnungssystem des Gehirns und sorgt für Wohlgefühl. Doch je mehr man konsumiert, desto mehr Nachschub verlangt das Gehirn, um das gleiche Glücksgefühl zu erzeugen. Selbst leichte Elektroschocks hielten die Ratten nicht davon ab, weiterzufressen. Die Studie zeigt, dass übermäßiger Konsum von Junk Food suchtähnliche Reaktionen auslösen kann.",
+        t2Opening: "Es ist schon erschreckend, dass Fast Food ähnliche Reaktionen im Gehirn auslösen kann wie Nikotin oder Drogen. Viele greifen im stressigen Alltag trotzdem ständig zu Burgern und Pizza. Wie stehst du zu diesem Thema?",
+        erfQuestion: "Wie oft essen Sie Fast Food und wie achten Sie im Alltag auf eine gesunde Ernährung?",
+        erfNotes: [
+          { label: "Situation", note: "Ab und zu Fast Food essen, wenn wenig Zeit bleibt", guide: "Thói quen ăn uống của bạn khi bận rộn học tập/làm việc." },
+          { label: "Grund", note: "Schnell, günstig und überall verfügbar", guide: "Tại sao đồ ăn nhanh lại hấp dẫn nhiều người?" },
+          { label: "Meinung", note: "Regelmäßiger Konsum schadet der Gesundheit massiv", guide: "Quan điểm của bạn về tác hại của Fast Food." },
+          { label: "Begründung", note: "Zu viel Fett, Zucker und Salz führen zu Übergewicht", guide: "Giải thích nguyên nhân gây nghiện và bệnh tật." },
+          { label: "Nutzen", note: "Selbst kochen spart Geld und hält fit", guide: "Lợi ích khi tự chuẩn bị bữa ăn." },
+          { label: "Zukunft", note: "Gesunde Snacks für unterwegs vorbereiten", guide: "Giải pháp thực tế cho bản thân." }
+        ],
+        t3Title: "Ein Überraschungsfest für Ihre Lehrerin organisieren",
+        t3Prompt: "Ihre Kursteilnehmer möchten ein Überraschungsfest für Ihre Lehrerin organisieren. Sie sollen bei der Planung helfen. Überlegen Sie gemeinsam, was Sie tun können.",
+        t3Leitpunkte: ["Wann und wo findet das Fest statt (ohne dass die Lehrerin es merkt)?", "Essen, Getränke und Dekoration", "Ein gemeinsames Geschenk oder eine Dankeskarte", "Musik, Spiele und Aufgabenverteilung im Kurs"],
+        t3Opening: "Hallo! Unser Kurs möchte ja ein Überraschungsfest für unsere Lehrerin organisieren. Hast du schon eine Idee, wo wir feiern könnten, damit es wirklich eine Überraschung bleibt?"
+      },
+      {
+        id: 4,
+        t2Title: "Englisch als weltweite Unternehmenssprache",
+        t2Text: "Für international tätige Firmen ist die Konzernsprache Englisch selbst in anderssprachigen lokalen Märkten selbstverständlich geworden. Befürworter argumentieren, dass Englisch das Anknüpfen globaler Kontakte erleichtert und beträchtliche Kosten für Dolmetscher spart. Kritiker wenden jedoch ein, dass viele Mitarbeiter sich in einer Fremdsprache eingeschränkt fühlen, einen Teil ihrer Ausdrucksfähigkeit verlieren und ihre Ideen nicht voll einbringen können. Deshalb fordern Experten, die Sprachenvielfalt im Unternehmen zu bewahren.",
+        t2Opening: "In globalen Konzernen scheint Englisch unverzichtbar zu sein, aber ich verstehe gut, dass sich manche Mitarbeiter unsicher fühlen, wenn sie nicht in ihrer Muttersprache diskutieren können. Welche Erfahrungen hast du mit Fremdsprachen gemacht?",
+        erfQuestion: "Welche Erfahrungen haben Sie beim Lernen und Anwenden von Fremdsprachen (Englisch/Deutsch) gemacht?",
+        erfNotes: [
+          { label: "Situation", note: "Englisch in der Schule und jetzt intensiv Deutsch lernen", guide: "Trải nghiệm học ngoại ngữ của bạn như thế nào?" },
+          { label: "Grund", note: "Wichtig für Studium, Beruf und internationale Kontakte", guide: "Động lực chính khiến bạn học ngoại ngữ là gì?" },
+          { label: "Meinung", note: "Englisch ist wichtig, aber lokale Sprachen bleiben unverzichtbar", guide: "Quan điểm của bạn về việc chỉ dùng tiếng Anh trong công ty." },
+          { label: "Begründung", note: "In der Landessprache baut man tieferes Vertrauen auf", guide: "Tại sao tiếng bản địa vẫn rất quan trọng?" },
+          { label: "Nutzen", note: "Mehrsprachigkeit öffnet berufliche Türen", guide: "Lợi ích khi biết cả tiếng Anh lẫn tiếng Đức." },
+          { label: "Zukunft", note: "Sprachkurse für Mitarbeiter im Unternehmen anbieten", guide: "Giải pháp cho các công ty đa quốc gia." }
+        ],
+        t3Title: "Gemeinsam ein Buch in Ihrer Klasse vorstellen",
+        t3Prompt: "Sie sollen gemeinsam ein Buch in Ihrer Klasse vorstellen. Überlegen Sie, welches Buch Sie präsentieren möchten, wie Sie die Präsentation strukturieren und wer welche Schwerpunkte übernimmt (Inhalt, Interpretation, Hintergrundinformationen). Überlegen Sie auch, ob Sie vorlesen und Handzettel erstellen möchten.",
+        t3Leitpunkte: ["Welches Buch wählen wir aus und warum?", "Struktur der Präsentation (kapitelweise oder Gesamtüberblick?)", "Aufgabenverteilung (Autor/Hintergrund, Inhalt, Interpretation)", "Leseprobe (vorlesen) und Handzettel (Handout) gestalten"],
+        t3Opening: "Hi! Wir müssen ja zusammen ein Buch im Deutschkurs vorstellen. Welches Buch würdest du vorschlagen – vielleicht einen bekannten deutschen Roman oder ein Sachbuch?"
+      },
+      {
+        id: 5,
+        t2Title: "Trinkgeld geben – Anerkennung oder Pflicht?",
+        t2Text: "In Hotels und Restaurants, beim Friseur oder im Taxi ist es üblich, den Angestellten Trinkgeld zu geben. Allgemein gilt der kleine Extrabetrag als Anerkennung für freundlichen Service. In manchen Berufen ist Trinkgeld sogar ein fester Bestandteil des Einkommens, weil das Grundgehalt niedrig angesetzt ist. Allerdings gibt es oft Unsicherheiten darüber, wie viel Trinkgeld angemessen ist, da sich die Gepflogenheiten von Land zu Land stark unterscheiden. Wer unfreundlich bedient wurde, hat zudem das Recht, auf Trinkgeld zu verzichten.",
+        t2Opening: "Ich finde es manchmal gar nicht so einfach zu entscheiden, wie viel Trinkgeld man geben soll – besonders auf Reisen. In Deutschland rundet man oft auf, aber in Vietnam ist das ja ganz anders. Wie siehst du das?",
+        erfQuestion: "Wie sind die Gewohnheiten beim Trinkgeld in Ihrem Heimatland im Vergleich zu Deutschland?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam ist Trinkgeld im Alltag nicht verpflichtend", guide: "Văn hóa tiền boa ở Việt Nam khác với ở Đức như thế nào?" },
+          { label: "Grund", note: "Servicegebühr ist oft schon im Preis enthalten", guide: "Lý do của sự khác biệt này là gì?" },
+          { label: "Meinung", note: "Trinkgeld ist eine schöne Geste bei gutem Service", guide: "Quan điểm cá nhân của bạn về việc cho tiền boa." },
+          { label: "Begründung", note: "Motiviert Servicekräfte und zeigt Wertschätzung", guide: "Tại sao nên thưởng thêm khi phục vụ tốt?" },
+          { label: "Nutzen", note: "Sich vor Reisen über lokale Regeln informieren", guide: "Kinh nghiệm tránh lúng túng khi đi du lịch nước ngoài." },
+          { label: "Zukunft", note: "Faire Grundlöhne statt Abhängigkeit vom Trinkgeld", guide: "Giải pháp bền vững cho người lao động ngành dịch vụ." }
+        ],
+        t3Title: "Ein Interview mit einem bekannten Sänger vorbereiten",
+        t3Prompt: "Sie haben als Journalisten einer großen Zeitung die Chance, einen sehr bekannten Sänger zu interviewen. Bereiten Sie gemeinsam einen Fragenkatalog vor. Einigen Sie sich zunächst auf eine Person und überlegen Sie dann, was Sie beruflich und privat wissen wollen.",
+        t3Leitpunkte: ["Auf welchen bekannten Sänger / welche Sängerin einigen wir uns?", "Fragen zur beruflichen Karriere, Musik und neuen Projekten", "Fragen zum Privatleben (ohne zu indiskret zu sein)", "Ablauf des Interviews und Aufgabenverteilung (wer fragt was?)"],
+        t3Opening: "Hallo Kollege! Wir dürfen nächste Woche ein exklusives Interview für unsere Zeitung führen. Wen sollen wir deiner Meinung nach einladen – einen deutschen Popstar oder einen internationalen Künstler?"
+      },
+      {
+        id: 6,
+        t2Title: "Rette Leben mit einer Blutspende",
+        t2Text: "Unfälle passieren jeden Tag und auch vor schweren Krankheiten ist niemand geschützt. In Deutschland werden täglich rund 15.000 Blutspenden benötigt, doch tatsächlich spenden nur etwa drei bis fünf Prozent der Bevölkerung regelmäßig Blut. Dabei ist eine Blutspende unkompliziert: Nach einem kurzen Gesundheitscheck dauert die eigentliche Entnahme nur 20 bis 30 Minuten. Fast jeder gesunde Mensch zwischen 18 und 68 Jahren, der mindestens 50 Kilogramm wiegt, darf spenden – Frauen bis zu viermal, Männer bis zu sechsmal im Jahr.",
+        t2Opening: "Obwohl Blutspenden so wichtig ist und nur eine halbe Stunde dauert, gehen nur wenige Menschen regelmäßig hin. Viele haben vielleicht Angst vor der Nadel oder denken im Alltag einfach nicht daran. Hast du schon einmal Blut gespendet?",
+        erfQuestion: "Haben Sie schon einmal Blut gespendet oder an einer sozialen Hilfsaktion teilgenommen?",
+        erfNotes: [
+          { label: "Situation", note: "An der Universität an einer Blutspendeaktion teilgenommen", guide: "Bạn đã từng hiến máu hoặc thấy các chiến dịch hiến máu ở trường chưa?" },
+          { label: "Grund", note: "Anderen Menschen in Notfällen konkret helfen", guide: "Điều gì thôi thúc bạn (hoặc người khác) tham gia?" },
+          { label: "Meinung", note: "Regelmäßiges Blutspenden ist gesellschaftlich unverzichtbar", guide: "Tầm quan trọng của việc hiến máu đối với bệnh viện." },
+          { label: "Begründung", note: "Blut kann nicht künstlich hergestellt werden", guide: "Tại sao không có gì thay thế được máu hiến tặng?" },
+          { label: "Nutzen", note: "Kostenloser Gesundheitscheck und gutes Gefühl", guide: "Lợi ích cho chính người hiến máu." },
+          { label: "Zukunft", note: "Mehr Aufklärungskampagnen an Schulen und Unis", guide: "Giải pháp khuyến khích giới trẻ tham gia nhiều hơn." }
+        ],
+        t3Title: "Einen Infotag zum Thema Gesundheit planen",
+        t3Prompt: "In einer Gesundheitszentrale in Ihrer Stadt soll ein Infotag zum Thema Gesundheit stattfinden. Sie sollen bei der Planung helfen. Überlegen Sie, was Sie tun können (z. B. Aufklärungskampagnen, Vorträge, Ernährungsplan).",
+        t3Leitpunkte: ["Wann und in welchen Räumen findet der Infotag statt?", "Fachvorträge und Workshops (Ernährung, Bewegung, Stressabbau)", "Mitmach-Aktionen (Gesundheitscheck, gesunde Snacks)", "Informationsmaterial, Poster und Werbung"],
+        t3Opening: "Hi! Die Gesundheitszentrale plant einen großen Infotag für die Bürger. Ich fände einen Workshop zum Thema gesunde Ernährung im Alltag super. Was meinst du, welche Themen noch wichtig wären?"
+      },
+      {
+        id: 7,
+        t2Title: "Wie entwickelt sich das Rauchen in Deutschland?",
+        t2Text: "Obwohl die Gesamtzahl der Raucher in Deutschland leicht sinkt, fangen Jugendliche oft schon früh mit der ersten Zigarette an. In der Werbung und in Filmen wirken Raucher oft cool und lässig, während die Realität ganz anders aussieht. Warum greifen Jugendliche trotzdem zur Zigarette? Häufig spielen Gruppenzwang unter Freunden, Neugier, Protest gegen die Eltern oder der Wunsch, persönliche Unsicherheit zu überspielen, eine große Rolle.",
+        t2Opening: "Ich finde es problematisch, dass Rauchen in Filmen oft noch so cool dargestellt wird, obwohl jeder weiß, wie schädlich es ist. Vor allem der Gruppenzwang unter Jugendlichen ist ein großes Problem. Wie ist die Situation in deinem Heimatland?",
+        erfQuestion: "Welche Erfahrungen haben Sie in Ihrem Umfeld mit dem Thema Rauchen und Nichtraucherschutz gemacht?",
+        erfNotes: [
+          { label: "Situation", note: "In Restaurants und Büros gilt heute meist Rauchverbot", guide: "Tình hình hút thuốc nơi công cộng ở Việt Nam / Đức hiện nay." },
+          { label: "Grund", note: "Schutz der Nichtraucher vor Passivrauchen", guide: "Tại sao luật cấm hút thuốc nơi công cộng lại quan trọng?" },
+          { label: "Meinung", note: "Prävention bei Jugendlichen ist wichtiger als Verbote allein", guide: "Quan điểm của bạn về cách giảm tỷ lệ hút thuốc ở người trẻ." },
+          { label: "Begründung", note: "Verbote wecken oft nur Trotz, Aufklärung überzeugt", guide: "Giải thích tâm lý tuổi mới lớn." },
+          { label: "Nutzen", note: "Bessere Gesundheit und weniger Kosten für das Gesundheitssystem", guide: "Lợi ích lâu dài khi không hút thuốc." },
+          { label: "Zukunft", note: "Höhere Tabaksteuern und Sportangebote für Jugendliche", guide: "Giải pháp hiệu quả nhất theo bạn." }
+        ],
+        t3Title: "Eine Stadtbesichtigung für eine Studentengruppe planen",
+        t3Prompt: "Mein Chef hat mir mitgeteilt, dass ich mich nächste Woche um eine Gruppe von Studenten und Studentinnen kümmern muss. Sie möchten unsere Stadt besichtigen. Kannst du mir helfen, damit wir gemeinsam ein gutes Programm zusammenstellen?",
+        t3Leitpunkte: ["Treffpunkt, Dauer und Verkehrsmittel in der Stadt", "Sehenswürdigkeiten und kulturelle Highlights auswählen", "Mittagessen in einem typischen Restaurant einplanen", "Abendprogramm oder Freizeit für die Studierenden"],
+        t3Opening: "Hallo! Ich muss nächste Woche eine Gruppe Austauschstudenten durch unsere Stadt führen. Hast du eine Idee, welche Sehenswürdigkeiten wir ihnen am Vormittag unbedingt zeigen sollten?"
+      },
+      {
+        id: 8,
+        t2Title: "Fernsehen macht Kinder dumm (TV-Konsum)",
+        t2Text: "Neue Studien zeigen: Wer als Kind viel fernsieht (mehr als drei Stunden pro Tag), erreicht später durchschnittlich schlechtere Schulabschlüsse – unabhängig vom IQ. Kinder mit eigenem Fernseher im Zimmer haben oft schwächere Noten und bewegen sich zu wenig. Zudem lenken laufende Bildschirme bei den Hausaufgaben stark ab. Das Deutsche Grüne Kreuz rät daher zu einem gemäßigten Medienkonsum von maximal einer Stunde täglich.",
+        t2Opening: "Früher ging es im Text um den klassischen Fernseher, heute sitzen Kinder ja noch viel häufiger vor Smartphones und Tablets. Ein eigener Bildschirm im Kinderzimmer ist wirklich kritisch. Wie siehst du das?",
+        erfQuestion: "Wie viel haben Sie als Kind ferngesehen und welche Regeln halten Sie heute für sinnvoll?",
+        erfNotes: [
+          { label: "Situation", note: "Als Kind durfte ich nur nach den Hausaufgaben fernsehen", guide: "Hồi nhỏ bố mẹ bạn có quy định thời gian xem TV/điện thoại không?" },
+          { label: "Grund", note: "Konzentration auf die Schule und genug Schlaf", guide: "Lý do của quy định đó là gì?" },
+          { label: "Meinung", note: "Feste Zeitlimits und gemeinsame Mediennutzung sind wichtig", guide: "Quan điểm của bạn về việc trẻ em xem TV/mạng xã hội." },
+          { label: "Begründung", note: "Zu viel Bildschirmzeit hemmt Kreativität und Bewegung", guide: "Tác hại nếu trẻ xem quá nhiều." },
+          { label: "Nutzen", note: "Mehr Zeit für Sport, Freunde und Lesen", guide: "Lợi ích khi hạn chế thời gian trước màn hình." },
+          { label: "Zukunft", note: "Eltern sollten gute Vorbilder sein", guide: "Giải pháp thực tế cho các gia đình hiện đại." }
+        ],
+        t3Title: "Spendenaktion für Straßenkinder organisieren",
+        t3Prompt: "Sie wollen gemeinsam Geld für Straßenkinder sammeln. Sie kennen eine Hilfsorganisation, die in den nächsten drei Monaten ein spezielles Programm durchführt. Besprechen Sie mit Ihrem Partner, welche Ideen Sie haben, und einigen Sie sich über Einzelheiten (wer was wann macht).",
+        t3Leitpunkte: ["Welche Aktion bringt am meisten Spenden (Kuchenbasar, Benefizkonzert, Flohmarkt)?", "Wann und wo führen wir die Aktion durch?", "Zusammenarbeit mit der Hilfsorganisation und Transparenz", "Aufgabenverteilung und Werbung"],
+        t3Opening: "Hallo! Wir wollen ja zusammen Spenden für das Hilfsprojekt für Straßenkinder sammeln. Wie wäre es, wenn wir am Wochenende einen großen Kuchenbasar oder Flohmarkt im Stadtzentrum organisieren?"
+      },
+      {
+        id: 9,
+        t2Title: "Fernsehen bildet – Wissen durch Medien",
+        t2Text: "Viele behaupten, Fernsehen mache passiv und ungebildet. Tatsächlich besteht ein großer Teil des Programms aus reiner Unterhaltung wie Reality-Shows oder Serien. Anders sieht es jedoch bei gut gemachten Wissens- und Informationssendungen aus: Laut Medienexperten wirken anschauliche Bilder und Filmbeiträge oft eindringlicher als reine Texte und können komplexe wissenschaftliche Themen verständlich erklären. Entscheidend ist jedoch die bewusste Programmwahl.",
+        t2Opening: "Ich stimme dem Text zu, dass Dokumentationen und Wissenssendungen sehr lehrreich sein können – ich lerne selbst viel durch deutsche Dokus. Aber man braucht eben Selbstdisziplin. Was meinst du?",
+        erfQuestion: "Nutzen Sie Fernsehen, Videos oder Dokumentationen zum Lernen (z. B. für Deutsch)?",
+        erfNotes: [
+          { label: "Situation", note: "Regelmäßig deutsche Dokumentationen und Nachrichten schauen", guide: "Bạn có hay xem phim tài liệu, tin tức tiếng Đức để học không?" },
+          { label: "Grund", note: "Hörverständnis trainieren und Allgemeinwissen erweitern", guide: "Lý do bạn chọn hình thức học qua video/TV." },
+          { label: "Meinung", note: "Medien bilden, wenn man die Inhalte bewusst auswählt", guide: "Quan điểm của bạn: TV/Video giúp mở mang kiến thức hay gây lãng phí thời gian?" },
+          { label: "Begründung", note: "Visuelle Erklärungen bleiben länger im Gedächtnis", guide: "Tại sao hình ảnh kết hợp âm thanh lại hiệu quả?" },
+          { label: "Nutzen", note: "Aktuelle Themen verstehen und Wortschatz aufbauen", guide: "Lợi ích cụ thể bạn nhận được." },
+          { label: "Zukunft", note: "Unterhaltung und Bildung im Alltag sinnvoll kombinieren", guide: "Cách cân bằng giữa giải trí và học tập." }
+        ],
+        t3Title: "Einem 13-jährigen Schüler bei schlechten Noten helfen",
+        t3Prompt: "Das dreizehnjährige Kind eines Freundes hat schlechte Noten in der Schule. Überlegen Sie, was Sie tun können, um ihm zu helfen, und entwickeln Sie gemeinsam einen Plan, wie das Kind in der Schule erfolgreicher werden kann.",
+        t3Leitpunkte: ["Zuerst die Ursachen herausfinden (bestimmte Fächer, Motivation, Ablenkung?)", "Lernplan und feste Hausaufgabenzeiten erstellen", "Nachhilfe (wir selbst oder professionell) organisieren", "Lernmotivation durch kleine Erfolge und Hobbys stärken"],
+        t3Opening: "Hi! Der Sohn unseres Freundes hat gerade ziemliche Probleme in der Schule und schlechte Noten. Ich denke, wir sollten zuerst mit ihm sprechen, um herauszufinden, woran es liegt. Was meinst du?"
+      },
+      {
+        id: 10,
+        t2Title: "Tiere – eine gute Geschenkidee?",
+        t2Text: "Zu Weihnachten oder zum Geburtstag wünschen sich viele Kinder einen Hund oder eine Katze. Ein Haustier kann Kindern Verantwortungsbewusstsein vermitteln und älteren Menschen Gesellschaft und tägliche Bewegung schenken. Doch Tiere sind Lebewesen und keine Handelsware, die man einfach umtauschen kann. Wenn ein Tier spontan verschenkt wird, fehlen oft Platz, Zeit oder langfristige Bereitschaft – und nach einigen Wochen landen viele Tiere im Tierheim.",
+        t2Opening: "Ich liebe Tiere sehr, aber ich halte es für keine gute Idee, ein Haustier als Überraschung zu verschenken. Viele unterschätzen, wie viel Zeit und Geld ein Hund oder eine Katze kostet. Wie siehst du das?",
+        erfQuestion: "Haben Sie ein Haustier oder welche Erfahrungen haben Sie mit Tieren in der Familie?",
+        erfNotes: [
+          { label: "Situation", note: "In meiner Familie hatten wir einen Hund / eine Katze", guide: "Gia đình bạn đã từng nuôi thú cưng chưa?" },
+          { label: "Grund", note: "Gesellschaft und Freude im Alltag", guide: "Lý do gia đình bạn nuôi (hoặc không nuôi) thú cưng." },
+          { label: "Meinung", note: "Haustiere sollten niemals spontane Geschenke sein", guide: "Quan điểm của bạn về việc tặng động vật làm quà." },
+          { label: "Begründung", note: "Man übernimmt Verantwortung für 10 bis 15 Jahre", guide: "Trách nhiệm lâu dài khi chăm sóc thú cưng." },
+          { label: "Nutzen", note: "Vorher gemeinsam planen und eventuell einen Gutschein schenken", guide: "Giải pháp thay thế nếu muốn tặng quà liên quan đến động vật." },
+          { label: "Zukunft", note: "Tiere lieber aus dem Tierheim adoptieren", guide: "Lời khuyên dành cho những người yêu động vật." }
+        ],
+        t3Title: "Vierwöchiges Austauschprogramm für deutsche Gastschüler planen",
+        t3Prompt: "Ihre Schule nimmt an einem Austauschprogramm mit deutschen Schülerinnen und Schülern teil. Die ausländischen Gastschüler bleiben vier Wochen in Ihrem Land. Organisieren Sie den ganzen Aufenthalt mit Programmvorschlägen!",
+        t3Leitpunkte: ["Unterbringung in Gastfamilien und Begrüßungstag", "Unterrichtsbesuche und gemeinsame Schulprojekte", "Kulturelle Ausflüge, Sehenswürdigkeiten und landestypisches Essen", "Wochenendaktivitäten und Abschiedsparty"],
+        t3Opening: "Hallo! Nächsten Monat kommen die deutschen Austauschschüler für vier Wochen zu uns. Wie wäre es, wenn wir sie in der ersten Woche in Gastfamilien unterbringen und ein Willkommensfest an der Schule machen?"
+      },
+      {
+        id: 11,
+        t2Title: "Sind Klassenfahrten sinnvoll?",
+        t2Text: "Schüler und Pädagogen sind sich meist einig: Klassenfahrten stärken die Klassengemeinschaft, fördern den Zusammenhalt und helfen dabei, Lehrer auch einmal außerhalb des Unterrichts kennenzulernen. Zudem lernen Jugendliche, Verantwortung für sich selbst zu übernehmen. Wichtig ist jedoch, dass die Kosten im Rahmen bleiben (z. B. maximal 500 Euro), damit auch Kinder aus einkommensschwachen Familien teilnehmen können – gegebenenfalls mit finanzieller Unterstützung der Schule oder Gemeinde.",
+        t2Opening: "Ich erinnere mich noch sehr gerne an meine Klassenfahrten früher, weil man dort seine Mitschüler viel besser kennengelernt hat als im normalen Unterricht. Allerdings müssen die Kosten für alle Eltern bezahlbar bleiben. Welche Erfahrungen hast du gemacht?",
+        erfQuestion: "Welche Erinnerungen und Erfahrungen haben Sie mit Klassenfahrten oder Studienreisen?",
+        erfNotes: [
+          { label: "Situation", note: "In der Oberstufe einen mehrtägigen Schulausflug gemacht", guide: "Bạn đã từng đi dã ngoại cùng lớp hồi phổ thông/đại học chưa?" },
+          { label: "Grund", note: "Kultur kennenlernen und den Zusammenhalt stärken", guide: "Mục đích của chuyến đi đó là gì?" },
+          { label: "Meinung", note: "Klassenfahrten sind pädagogisch sehr wertvoll", guide: "Quan điểm của bạn về lợi ích của các chuyến đi tập thể." },
+          { label: "Begründung", note: "Man lernt Teamfähigkeit und Selbstständigkeit außerhalb der Schule", guide: "Học sinh học được kỹ năng gì ngoài sách vở?" },
+          { label: "Nutzen", note: "Bezahlbare Ziele in der Nähe statt teurer Fernreisen wählen", guide: "Cách giải quyết vấn đề chi phí cho các gia đình khó khăn." },
+          { label: "Zukunft", note: "Schüler bei der Programmplanung mitentscheiden lassen", guide: "Để chuyến đi hấp dẫn và phù hợp với học sinh hơn." }
+        ],
+        t3Title: "Einen Besuch im Kinderkrankenhaus organisieren",
+        t3Prompt: "Sie organisieren einen Besuch im Kinderkrankenhaus und sollen bei der Planung helfen. Überlegen Sie, wie der Besuch ablaufen sollte, und entwickeln Sie gemeinsam einen Plan, wie Sie den Kindern Vergnügen bereiten können.",
+        t3Leitpunkte: ["Termin und Regeln mit der Klinikleitung absprechen", "Unterhaltungsprogramm (Vorlesen, Basteln, Zaubertricks oder Musik)", "Kleine Geschenke (Bücher, Malstifte, Kuscheltiere) mitbringen", "Aufgabenverteilung und Dauer des Besuchs"],
+        t3Opening: "Hi! Ich finde es eine wunderbare Idee, dass wir die Kinder im Krankenhaus besuchen wollen. Wir sollten aber vorher mit den Ärzten klären, wann es passt. Was könnten wir für die Kinder vorbereiten?"
+      },
+      {
+        id: 12,
+        t2Title: "Glücklich ohne Geld und Karriere (Generation Praktikum)",
+        t2Text: "Wenig oder gar kein Geld, kaum sofortige Karrierechancen, aber trotzdem zufrieden: Laut einer Befragung sind fast zwei Drittel aller Praktikanten in Deutschland zufrieden mit ihren Einblicken in die Berufswelt – besonders in Branchen wie Medien, IT oder Industrie. Gerade Hochschulabsolventen schätzen die Möglichkeit, theoretisches Wissen in der Praxis anzuwenden. Kritiker sprechen jedoch von einer „Generation Praktikum“, wenn junge Menschen von einem unbezahlten Praktikum zum nächsten wechseln müssen, ohne eine Festanstellung zu bekommen.",
+        t2Opening: "Einerseits sind Praktika super wichtig, um nach dem Studium Berufserfahrung zu sammeln. Andererseits finde ich es nicht fair, wenn Unternehmen Praktikanten als billige Arbeitskräfte ausnutzen. Wie siehst du das?",
+        erfQuestion: "Haben Sie schon einmal ein Praktikum gemacht oder neben dem Studium gearbeitet?",
+        erfNotes: [
+          { label: "Situation", note: "Noch kein Praktikum gemacht / Ein Praktikum in einer Firma absolviert", guide: "Tình huống thực tế của bạn về việc đi thực tập." },
+          { label: "Grund", note: "Bisher auf das Studium konzentriert / Praxis kennenlernen", guide: "Lý do bạn chưa đi thực tập hoặc lý do bạn chọn thực tập." },
+          { label: "Meinung", note: "Praktika sind wichtig, sollten aber fair bezahlt werden", guide: "Quan điểm của bạn về thực tập không lương và có lương." },
+          { label: "Begründung", note: "Theorie allein reicht für den Berufseinstieg nicht aus", guide: "Tại sao sinh viên cần trải nghiệm thực tế?" },
+          { label: "Nutzen", note: "Kontakte knüpfen und eigene Stärken entdecken", guide: "Lợi ích lớn nhất của một kỳ thực tập chất lượng." },
+          { label: "Zukunft", note: "Klare gesetzliche Regeln gegen Ausbeutung von Praktikanten", guide: "Giải pháp bảo vệ quyền lợi sinh viên thực tập." }
+        ],
+        t3Title: "Studienreise für eine Schülergruppe in Ihr Heimatland planen",
+        t3Prompt: "Eine Gruppe von Schülern macht eine Studienreise in Ihr Heimatland und möchte erfahren, wie man dort in der Schule lernt. Planen Sie zusammen das Programm (Besuch von Schulen, Universitäten, Bibliotheken, Vorträgen).",
+        t3Leitpunkte: ["Besuch einer lokalen Schule und Austausch mit Schülern", "Führung durch eine Universität und Nationalbibliothek", "Vortrag über das Bildungssystem und die Kultur in Vietnam", "Gemeinsames Essen und Freizeitprogramm"],
+        t3Opening: "Hallo! Eine deutsche Schülergruppe kommt bald nach Vietnam, um unser Schul- und Bildungssystem kennenzulernen. Sollen wir am ersten Tag direkt den Besuch eines Gymnasiums einplanen?"
+      },
+      {
+        id: 13,
+        t2Title: "Solarium im Winter – Gut für die Gesundheit?",
+        t2Text: "Wenn im Winter die Sonne nur kurz scheint, neigen viele Menschen in Nordeuropa zu Müdigkeit und Winterdepressionen. Sonnenlicht ist wichtig für das Wohlbefinden und die Produktion von Vitamin D. Deshalb gehen viele Deutsche im Winter ins Solarium. Ärzte warnen jedoch: Genau wie natürliche UV-Strahlung kann künstliches Licht im Solarium die Hautzellen schädigen und das Hautkrebsrisiko erhöhen. Besonders Kinder, Jugendliche und Menschen mit empfindlicher Haut sollten auf Solarien verzichten.",
+        t2Opening: "Ich kann nachvollziehen, dass man im dunklen deutschen Winter das Sonnenlicht vermisst. Trotzdem halte ich Solarien wegen des Hautkrebsrisikos für gefährlich. Da gibt es doch gesündere Alternativen, oder?",
+        erfQuestion: "Wie gehen Sie mit dunklem oder kaltem Wetter um und wie bleiben Sie im Winter fit?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam scheint oft die Sonne, in Deutschland ist der Winter dunkel", guide: "Sự khác biệt thời tiết giữa Việt Nam và Đức ảnh hưởng thế nào đến bạn?" },
+          { label: "Grund", note: "Weniger Sonnenlicht führt schnell zu Müdigkeit", guide: "Nguyên nhân gây mệt mỏi vào mùa đông." },
+          { label: "Meinung", note: "Solarien sind zu riskant für die Hautgesundheit", guide: "Quan điểm của bạn về việc tắm nắng nhân tạo (Solarium)." },
+          { label: "Begründung", note: "Hohe UV-Strahlung erhöht das Hautkrebsrisiko", guide: "Tác hại y khoa đã được cảnh báo." },
+          { label: "Nutzen", note: "Spaziergänge bei Tageslicht, Sport und Vitamin D sind gesünder", guide: "Các cách tự nhiên và an toàn để tăng năng lượng." },
+          { label: "Zukunft", note: "Mehr Aufklärung über Hautschutz in jedem Alter", guide: "Lời khuyên chăm sóc sức khỏe." }
+        ],
+        t3Title: "Informationsveranstaltung: Schule, Ausbildung, Beruf",
+        t3Prompt: "Sie wollen an einer Schule eine Informationsveranstaltung zum Thema „Schule, Ausbildung, Beruf“ organisieren. Überlegen Sie, welche Experten oder Redner Sie einladen möchten und besprechen Sie Rahmenbedingungen (wann, Räume, Dauer, Technik, Verpflegung).",
+        t3Leitpunkte: ["Welche Experten, Auszubildenden oder Studierenden laden wir ein?", "Termin, Uhrzeit, Dauer und Raumplanung in der Schule", "Benötigte Technik (Beamer, Mikrofon) und Infomaterial", "Kleine Verpflegung in der Pause und Aufgabenverteilung"],
+        t3Opening: "Hi! Für unsere Infoveranstaltung zum Thema Ausbildung und Beruf sollten wir unbedingt Leute aus der Praxis einladen. Wie wäre es mit einer Berufsberaterin und zwei Auszubildenden?"
+      },
+      {
+        id: 14,
+        t2Title: "Gesund durch Lachen",
+        t2Text: "Kinder lachen bis zu 400 Mal am Tag, Erwachsene hingegen nur etwa 15 Mal. Dabei ist Lachen extrem gesund: Eine Minute herzhaftes Lachen wirkt so entspannend wie 45 Minuten Entspannungstraining, bewegt bis zu 80 Muskeln und stärkt das Immunsystem. Sogar in Kinderkrankenhäusern werden Klinik-Clowns eingesetzt, um Angst und Schmerzen zu lindern. Allerdings hat Lachen auch eine Kehrseite: Während gemeinsames Lachen verbindet, kann hämischen „Auslachen“ andere Menschen verletzen und ausgrenzen.",
+        t2Opening: "Es ist schon faszinierend, wie positiv sich Lachen auf unsere Gesundheit und gegen Stress auswirkt. Gleichzeitig finde ich den Hinweis im Text wichtig, dass man nicht auf Kosten anderer lachen sollte. Wie siehst du das?",
+        erfQuestion: "Was bringt Sie im stressigen Alltag zum Lachen und wie bauen Sie Stress ab?",
+        erfNotes: [
+          { label: "Situation", note: "Nach einem langen Lerntag Komödien schauen oder Freunde treffen", guide: "Bạn thường làm gì để thư giãn và cười thoải mái sau giờ học/làm?" },
+          { label: "Grund", note: "Prüfungsstress und Alltagssorgen abbauen", guide: "Tại sao tiếng cười lại cần thiết khi ôn thi B2?" },
+          { label: "Meinung", note: "Humor und Lachen sind die beste Medizin für Körper und Geist", guide: "Quan điểm của bạn về vai trò của sự hài hước." },
+          { label: "Begründung", note: "Man entspannt sich und findet leichter Kontakt zu anderen", guide: "Tiếng cười gắn kết mọi người ra sao?" },
+          { label: "Nutzen", note: "Respektvoller Humor statt Auslachen verhindert Missverständnisse", guide: "Ranh giới giữa hài hước tích cực và chế giễu." },
+          { label: "Zukunft", note: "Mehr Gelassenheit und Freude in den Alltag integrieren", guide: "Thông điệp tích cực rút ra." }
+        ],
+        t3Title: "Ein Straßenfest mit allen Nachbarn organisieren",
+        t3Prompt: "In vielen deutschen Städten gibt es im Sommer Straßenfeste, bei denen Nachbarn bei selbst gemachtem Essen, Musik und Spielen zusammen feiern. Sie möchten auch in Ihrer Straße ein Fest mit allen Nachbarn organisieren. Sammeln Sie Ideen und teilen Sie die Aufgaben auf.",
+        t3Leitpunkte: ["Datum, Uhrzeit und Genehmigung / Absperrung der Straße", "Buffet mit selbst gemachten Spezialitäten von allen Nachbarn", "Musik, Tische/Bänke und Spiele für Kinder", "Einladungszettel in die Briefkästen werfen und Aufräumen"],
+        t3Opening: "Hallo! Ein Straßenfest im Sommer wäre eine super Gelegenheit, unsere Nachbarn besser kennenzulernen. Sollen wir zuerst festlegen, an welchem Samstag wir feiern und wie wir alle einladen?"
+      },
+      {
+        id: 15,
+        t2Title: "Selbst gekocht schmeckt es am besten",
+        t2Text: "84 Prozent der Deutschen sind der Meinung: Selbst gekocht schmeckt es besser, und man weiß genau, was drin ist. Im Vergleich zu Fertiggerichten und Fast Food verzichtet man beim Selbstkochen auf unnötige Konservierungs- und Zusatzstoffe. Man verwendet frische Zutaten wie Obst und Gemüse und kann besonders bei Lebensmittelallergien oder Unverträglichkeiten genau kontrollieren, was auf den Teller kommt.",
+        t2Opening: "Ich koche abends sehr gerne selbst, weil es nicht nur gesünder, sondern auch viel günstiger als im Restaurant ist. Allerdings fehlt nach einem langen Arbeitstag manchmal die Zeit. Kochst du im Alltag oft selbst?",
+        erfQuestion: "Kochen Sie im Alltag oft selbst oder greifen Sie manchmal auf Fertiggerichte zurück?",
+        erfNotes: [
+          { label: "Situation", note: "Meistens abends frisch kochen, manchmal für zwei Tage vorkochen", guide: "Thói quen nấu ăn hàng ngày của bạn như thế nào?" },
+          { label: "Grund", note: "Gesünder, günstiger und schmeckt nach Heimat", guide: "Tại sao bạn thích tự nấu ăn?" },
+          { label: "Meinung", note: "Selbstkochen ist die beste Basis für einen gesunden Lebensstil", guide: "Quan điểm của bạn về việc tự nấu ăn so với ăn ngoài." },
+          { label: "Begründung", note: "Man kontrolliert Fett, Salz und frische Zutaten selbst", guide: "Lợi ích về dinh dưỡng và chất lượng." },
+          { label: "Nutzen", note: "Gemeinsames Kochen mit Freunden macht Spaß und entspannt", guide: "Giá trị tinh thần và giao tiếp khi nấu ăn cùng nhau." },
+          { label: "Zukunft", note: "Einfache, schnelle Rezepte für stressige Tage sammeln", guide: "Giải pháp tiết kiệm thời gian mà vẫn ăn ngon." }
+        ],
+        t3Title: "Eine Sportveranstaltung für Kinder in Ihrer Stadt planen",
+        t3Prompt: "In Ihrer Stadt organisieren Sie eine Sportveranstaltung für Kinder. Sie sollen bei der Planung helfen. Überlegen Sie, was Sie tun können, und planen Sie gemeinsam, was Sie organisieren können.",
+        t3Leitpunkte: ["Ort (Sportplatz oder Sporthalle) und geeigneter Termin am Wochenende", "Altersgerechte Wettbewerbe und Teamspiele ohne Leistungsdruck", "Kleine Medaillen/Urkunden für alle Kinder und gesunde Snacks", "Sicherheit, Erste Hilfe und Aufgabenverteilung"],
+        t3Opening: "Hi! Wir sollen ja das Kindersportfest in unserer Stadt planen. Ich fände es toll, wenn jedes Kind am Ende eine kleine Urkunde bekommt, damit niemand enttäuscht ist. Was meinst du dazu?"
+      },
+      {
+        id: 16,
+        t2Title: "Arbeiten bis 75 – eine utopische Vorstellung?",
+        t2Text: "Da die Lebenserwartung gestiegen ist und sich die Rentenzeit deutlich verlängert hat, wird in Deutschland intensiv über das Renteneintrittsalter diskutiert. Einige fordern eine Erhöhung, um das Rentensystem finanzierbar zu halten. Andere weisen darauf hin, dass viele ältere Arbeitnehmer schon ab 50 schwer eine Stelle finden und nicht jeder bis ins hohe Alter körperlich fit bleibt. Viele Experten empfehlen daher ein flexibles Rentenalter, bei dem jeder selbst entscheiden kann, wann er aufhört.",
+        t2Opening: "Arbeiten bis 75 klingt für mich ehrlich gesagt ziemlich unrealistisch – vor allem in körperlich anstrengenden Berufen wie auf dem Bau oder in der Pflege. Ein flexibles Rentenalter fände ich viel fairer. Wie siehst du das?",
+        erfQuestion: "Wann gehen Menschen in Ihrem Heimatland in Rente und wie verbringen ältere Menschen ihren Ruhestand?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam liegt das Rentenalter bei etwa 60 bis 62 Jahren", guide: "Độ tuổi nghỉ hưu ở Việt Nam hiện nay khoảng bao nhiêu?" },
+          { label: "Grund", note: "Nach vielen Arbeitsjahren Zeit für Gesundheit und Familie", guide: "Lý do của quy định này." },
+          { label: "Meinung", note: "Arbeiten bis 75 sollte keine Pflicht, sondern höchstens freiwillig sein", guide: "Quan điểm của bạn về đề xuất làm việc đến 75 tuổi." },
+          { label: "Begründung", note: "Körperliche Belastbarkeit nimmt im hohen Alter ab", guide: "Khó khăn thực tế của người lớn tuổi khi làm việc." },
+          { label: "Nutzen", note: "Flexible Modelle: Wer fit ist und möchte, darf länger arbeiten", guide: "Lợi ích của mô hình nghỉ hưu linh hoạt." },
+          { label: "Zukunft", note: "Wissenstransfer zwischen älteren und jüngeren Kollegen fördern", guide: "Cách tận dụng kinh nghiệm của người cao tuổi." }
+        ],
+        t3Title: "Einem Freund beim Umzug in eine andere Stadt helfen",
+        t3Prompt: "Ihr Freund möchte in eine andere Stadt umziehen und Sie wollen beim Umzug helfen. Überlegen Sie, wie Sie helfen können, und machen Sie Ihrem Partner / Ihrer Partnerin Vorschläge.",
+        t3Leitpunkte: ["Termin festlegen und einen Transporter / Lieferwagen mieten", "Umzugskartons besorgen und gemeinsam beim Einpacken helfen", "Weitere Freunde für das Tragen der Möbel mobilisieren", "Verpflegung am Umzugstag und Einweihung in der neuen Wohnung"],
+        t3Opening: "Hallo! Unser Freund zieht ja nächstes Wochenende um und braucht dringend unsere Hilfe. Ich könnte schon am Freitagabend vorbeikommen und helfen, Bücher und Kleidung in Kartons zu packen. Was könntest du übernehmen?"
+      },
+      {
+        id: 17,
+        t2Title: "Die Schuluniform – Pro und Kontra",
+        t2Text: "Markenkleidung sorgt an vielen Schulen für sozialen Druck und Ausgrenzung. Befürworter von Schuluniformen argumentieren, dass einheitliche Kleidung das Zusammengehörigkeitsgefühl stärkt, soziale Unterschiede weniger sichtbar macht und die Konzentration auf den Unterricht lenkt. Gegner wenden ein, dass Uniformen keine tiefen Konflikte oder Mobbing lösen und die individuelle Persönlichkeitsentfaltung einschränken. Respekt und Toleranz müssten stattdessen im Dialog vermittelt werden.",
+        t2Opening: "In Vietnam tragen ja fast alle Schüler eine Schuluniform, während das in Deutschland sehr selten ist. Ich finde, eine Uniform verhindert den Druck wegen teurer Markenkleidung. Welche Erfahrungen hast du damit gemacht?",
+        erfQuestion: "Welche Erfahrungen haben Sie selbst mit Schuluniformen gemacht?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam habe ich 12 Jahre lang eine Schuluniform getragen", guide: "Trải nghiệm mặc đồng phục đi học của bạn ở Việt Nam." },
+          { label: "Grund", note: "Gleichheit unter allen Schülern schaffen", guide: "Mục đích của đồng phục học sinh." },
+          { label: "Meinung", note: "Schuluniformen haben mehr Vorteile als Nachteile", guide: "Bạn ủng hộ hay phản đối đồng phục học sinh?" },
+          { label: "Begründung", note: "Kein Markenstress am Morgen und starkes Gemeinschaftsgefühl", guide: "Lý do thuyết phục nhất từ trải nghiệm của bạn." },
+          { label: "Nutzen", note: "Spart Zeit und Geld für Eltern und Schüler", guide: "Lợi ích thực tế hàng ngày." },
+          { label: "Zukunft", note: "Bequeme, moderne Kleidung statt zu strenger Vorschriften", guide: "Giải pháp dung hòa giữa đồng phục và sự thoải mái." }
+        ],
+        t3Title: "Umzug eines Freundes organisieren (Aufgaben & Abschied)",
+        t3Prompt: "Ihr Freund möchte in eine andere Stadt umziehen und Sie wollen beim Umzug helfen. Überlegen Sie, wie Sie den Ablauf, den Transport und eine kleine Abschiedsfeier organisieren können.",
+        t3Leitpunkte: ["Helferliste und Zeitplan für den Umzugstag", "Transportmittel organisieren und schwere Möbel abbauen", "Gemeinsames Abschiedsessen nach getaner Arbeit", "Kostenaufteilung unter den Freunden"],
+        t3Opening: "Hi! Wenn wir unserem Freund beim Umzug helfen, sollten wir genau aufteilen, wer den Transporter fährt und wer sich um das Essen für die Helfer kümmert. Was meinst du?"
+      },
+      {
+        id: 18,
+        t2Title: "Leistungssport und Doping",
+        t2Text: "Negative Schlagzeilen im Spitzensport zeigen, dass Doping trotz Kontrollen immer wieder vorkommt. Einige wenige Stimmen schlagen sogar eine kontrollierte Freigabe vor, weil ohnehin viele Athleten Kontrollen umgehen würden. Die große Mehrheit der Sportler, Ärzte und Verbände lehnt dies jedoch strikt ab: Doping zerstört die Chancengleichheit, schadet der Gesundheit massiv und zerstört die Vorbildfunktion des Sports für Jugendliche.",
+        t2Opening: "Ich bin absolut gegen eine Freigabe von Doping, weil Sport dann nichts mehr mit fairer Leistung und Gesundheit zu tun hätte. Außerdem würden auch junge Freizeitsportler gefährdet. Wie stehst du dazu?",
+        erfQuestion: "Welche Rolle spielt Sport in Ihrem Leben und was macht für Sie fairen Sport aus?",
+        erfNotes: [
+          { label: "Situation", note: "Regelmäßig Sport treiben, um gesund und fit zu bleiben", guide: "Thói quen tập thể thao của bạn hiện nay." },
+          { label: "Grund", note: "Ausgleich zum Lernen und Stressabbau", guide: "Mục đích chính khi chơi thể thao." },
+          { label: "Meinung", note: "Doping muss im Sport streng verboten und kontrolliert bleiben", guide: "Quan điểm của bạn về vấn đề Doping." },
+          { label: "Begründung", note: "Fairness und Gesundheit sind wichtiger als Rekorde", guide: "Tại sao không thể hợp pháp hóa chất kích thích?" },
+          { label: "Nutzen", note: "Strengere Kontrollen und bessere Aufklärung für junge Talente", guide: "Giải pháp bảo vệ sự trong sạch của thể thao." },
+          { label: "Zukunft", note: "Sport als positives Vorbild für Teamgeist und Disziplin bewahren", guide: "Giá trị cốt lõi của thể thao." }
+        ],
+        t3Title: "Ein Software-Seminar organisieren",
+        t3Prompt: "Sie organisieren ein Software-Seminar. Überlegen Sie gemeinsam, was Sie tun können. Teilen Sie Ihrem Partner / Ihrer Partnerin Ihre Ideen mit und entwickeln Sie gemeinsam Vorschläge für das Seminar.",
+        t3Leitpunkte: ["Zielgruppe und Thema des Seminars (Anfänger oder Fortgeschrittene?)", "Termin, Dauer und Computerraum mit passender Software", "Referenten / Trainer einladen und Schulungsunterlagen vorbereiten", "Anmeldung, Teilnahmezertifikate und Kaffeepausen"],
+        t3Opening: "Hallo! Wir sollen ja das Software-Seminar organisieren. Zuerst sollten wir klären, für wen das Seminar gedacht ist und wie viele Computerplätze wir brauchen. Hast du schon eine Idee?"
+      },
+      {
+        id: 19,
+        t2Title: "Wie lange dürfen Jugendliche abends ausgehen?",
+        t2Text: "Viele Eltern verlangen von ihren minderjährigen Kindern, spätestens um 22 Uhr zu Hause zu sein, und berufen sich auf das Jugendschutzgesetz. Jugendliche wünschen sich dagegen oft mehr Freiheit, um bis 23 oder 24 Uhr mit Freunden unterwegs zu sein. Eltern möchten ihre Kinder vor Gefahren schützen, sollten aber auch schrittweise Eigenverantwortung fördern. Das gelingt am besten durch gegenseitiges Vertrauen und klare Absprachen, wo und mit wem sich die Jugendlichen aufhalten.",
+        t2Opening: "Ich finde, ein pauschales Verbot hilft oft nicht weiter. Wenn Eltern und Jugendliche offen miteinander reden und klare Regeln absprechen, entsteht viel mehr Vertrauen. Wie war das bei dir früher zu Hause?",
+        erfQuestion: "Welche Regeln galten bei Ihnen zu Hause, als Sie jugendlich waren?",
+        erfNotes: [
+          { label: "Situation", note: "Als Jugendlicher musste ich abends pünktlich zu Hause sein", guide: "Hồi còn đi học, bố mẹ bạn có quy định giờ về nhà buổi tối không?" },
+          { label: "Grund", note: "Sicherheit und Sorge der Eltern", guide: "Lý do bố mẹ đặt ra quy định đó." },
+          { label: "Meinung", note: "Vertrauen und klare Absprachen sind wichtiger als strenge Kontrolle", guide: "Quan điểm của bạn về việc quản lý giờ giấc của thanh thiếu niên." },
+          { label: "Begründung", note: "Jugendliche müssen lernen, selbst Verantwortung zu übernehmen", guide: "Tại sao cần cho người trẻ không gian tự lập dần dần?" },
+          { label: "Nutzen", note: "Kompromisse finden, z. B. am Wochenende etwas länger ausgehen", guide: "Giải pháp thỏa hiệp giữa bố mẹ và con cái." },
+          { label: "Zukunft", note: "Offene Kommunikation in der Familie stärken", guide: "Điều quan trọng nhất trong giáo dục gia đình." }
+        ],
+        t3Title: "Eine Blutspende-Veranstaltung in der Gesundheitszentrale planen",
+        t3Prompt: "In einer Gesundheitszentrale in Ihrer Stadt organisieren Sie eine Blutspende-Veranstaltung. Sie sollen bei der Planung helfen. Überlegen Sie, was Sie tun können (z. B. Informationsmaterial oder Poster).",
+        t3Leitpunkte: ["Termin, Uhrzeit und Zusammenarbeit mit dem Blutspendedienst / Ärzten", "Werbung mit Postern, Flyern und in sozialen Netzwerken", "Verpflegung und Getränke für die Spender nach der Blutentnahme", "Betreuung vor Ort und Aufgabenverteilung"],
+        t3Opening: "Hi! Nächsten Monat findet die Blutspende-Aktion in unserer Gesundheitszentrale statt. Damit möglichst viele junge Leute kommen, könnten wir auffällige Poster an der Uni aufhängen. Was meinst du?"
+      },
+      {
+        id: 20,
+        t2Title: "Antibiotika – Gibt es Alternativen?",
+        t2Text: "Antibiotika retten bei schweren bakteriellen Infektionen Leben. Doch in den letzten Jahren sind immer mehr Bakterien resistent geworden, weil Antibiotika oft unnötig bei einfachen Erkältungen verschrieben oder von Patienten zu früh abgesetzt wurden. Bei leichten Beschwerden können oft Heilpflanzen wie Salbei oder Thymian helfen. Bei gefährlichen bakteriellen Erkrankungen bleiben Antibiotika jedoch unverzichtbar – wichtig ist eine gute Aufklärung durch den Arzt.",
+        t2Opening: "Viele Menschen nehmen bei einer leichten Erkältung sofort Antibiotika, obwohl das gegen Viren gar nicht hilft. Ich finde es wichtig, dass Ärzte besser aufklären und man nicht voreilig Medikamente nimmt. Wie siehst du das?",
+        erfQuestion: "Welche Erfahrungen haben Sie mit Hausmitteln oder Medikamenten bei Erkältungen gemacht?",
+        erfNotes: [
+          { label: "Situation", note: "Bei einer leichten Erkältung trinke ich zuerst Ingwertee mit Honig", guide: "Khi bị cảm nhẹ bạn thường dùng thảo dược/mẹo dân gian hay uống thuốc ngay?" },
+          { label: "Grund", note: "Den Körper natürlich unterstützen und Nebenwirkungen vermeiden", guide: "Lý do của thói quen này." },
+          { label: "Meinung", note: "Antibiotika nur nach ärztlicher Untersuchung und genau nach Plan einnehmen", guide: "Quan điểm của bạn về việc sử dụng kháng sinh." },
+          { label: "Begründung", note: "Falsche Einnahme führt zu gefährlichen Resistenzen", guide: "Hậu quả của việc lạm dụng hoặc tự ý ngưng thuốc." },
+          { label: "Nutzen", note: "Stärkung des Immunsystems durch gesunde Lebensweise", guide: "Cách phòng bệnh hiệu quả nhất." },
+          { label: "Zukunft", note: "Strengere Rezeptpflicht und bessere Patientenberatung", guide: "Giải pháp cho ngành y tế." }
+        ],
+        t3Title: "Infotag: Neue Medien – Internet, Handys und mehr",
+        t3Prompt: "In einem Bildungsinstitut in Ihrer Stadt soll ein Infotag zum Thema „Neue Medien: Internet, Handys / Smartphones und mehr“ stattfinden. Überlegen Sie, was Sie tun können (Informationsmaterial, Poster, Vorträge, Werbung).",
+        t3Leitpunkte: ["Zielgruppe (Schüler, Eltern oder Senioren?) und passende Themen", "Vorträge zu Datenschutz, Fake News und sicherer Handynutzung", "Praktische Workshops und Informationsstände", "Poster, Werbung und Aufgabenverteilung"],
+        t3Opening: "Hallo! Das Bildungsinstitut plant einen Infotag zum Thema Neue Medien und Smartphones. Ich denke, wir sollten sowohl Kurse für Schüler als auch für Eltern anbieten. Wie siehst du das?"
+      },
+      {
+        id: 21,
+        t2Title: "Haustausch im Urlaub – Abenteuer oder Risiko?",
+        t2Text: "Beim Haustausch wohnen Familien während der Ferien kostenlos in der Wohnung oder dem Haus eines Tauschpartners in einem anderen Land. Man spart viel Geld und erlebt die fremde Kultur authentisch wie ein Einheimischer. Allerdings erfordert dieses Modell viel Vertrauen: Es gibt keine rechtlich bindenden Verträge, sodass bei Schäden Unklarheiten entstehen können. Ausführliche Gespräche und Fotos im Vorfeld sind daher unerlässlich.",
+        t2Opening: "Die Idee des Haustauschs klingt nach einem tollen und günstigen Abenteuer, aber ich hätte ehrlich gesagt ein bisschen Sorge, fremde Menschen in meine eigene Wohnung zu lassen. Würdest du so etwas ausprobieren?",
+        erfQuestion: "Wie verbringen Sie am liebsten Ihren Urlaub (Hotel, Ferienwohnung oder bei Freunden)?",
+        erfNotes: [
+          { label: "Situation", note: "Im Urlaub übernachte ich meistens in kleinen Hotels oder Ferienwohnungen", guide: "Bạn thường chọn hình thức lưu trú nào khi đi du lịch?" },
+          { label: "Grund", note: "Sicherheit, Komfort und klare Regeln", guide: "Lý do bạn ưu tiên hình thức đó." },
+          { label: "Meinung", note: "Haustausch ist spannend, aber rechtlich noch zu unsicher", guide: "Quan điểm của bạn về hình thức đổi nhà đi du lịch (Haustausch)." },
+          { label: "Begründung", note: "Fehlende Versicherungen und unterschiedliche Hygienestandards", guide: "Rủi ro lớn nhất của hình thức này là gì?" },
+          { label: "Nutzen", note: "Seriöse Plattformen mit Bewertungen und Kaution nutzen", guide: "Cách giảm thiểu rủi ro nếu muốn trải nghiệm." },
+          { label: "Zukunft", note: "Besserer rechtlicher Schutz durch die Vermittlungsportale", guide: "Giải pháp phát triển du lịch tiết kiệm." }
+        ],
+        t3Title: "Bei einer Lehrveranstaltung „Deutsch als Fremdsprache“ helfen",
+        t3Prompt: "Ihre Lehrerin hat Sie zu einer Lehrveranstaltung mit dem Titel „Deutsch als Fremdsprache“ eingeladen, und Sie möchten helfen. Überlegen Sie, wie Sie helfen können, und machen Sie Ihrem Partner Vorschläge.",
+        t3Leitpunkte: ["Eigene Lernerfahrungen und Tipps zum Deutschlernen vorstellen", "Interaktive Sprachspiele oder Gruppenarbeit für die Teilnehmer vorbereiten", "Informationsmaterial / Lernapps und nützliche Webseiten empfehlen", "Ablauf und Aufgabenverteilung während der Veranstaltung"],
+        t3Opening: "Hi! Unsere Lehrerin hat uns eingeladen, bei der Veranstaltung „Deutsch als Fremdsprache“ mitzuhelfen. Wir könnten doch aus eigener Erfahrung berichten, welche Methoden beim Vokabellernen wirklich helfen. Was meinst du?"
+      },
+      {
+        id: 22,
+        t2Title: "Zweisprachigkeit bei Kindern",
+        t2Text: "Immer mehr Kinder wachsen heute mit zwei oder mehr Sprachen auf. Während man früher befürchtete, Kinder könnten dadurch überfordert werden, belegen heutige Studien die kognitiven Vorteile: Zweisprachige Kinder lernen Sprachen intuitiv, entwickeln mehr Offenheit gegenüber anderen Kulturen und haben später bessere Chancen im Beruf. Wichtig ist, dass die Eltern konsequent in ihrer jeweiligen Muttersprache mit dem Kind sprechen.",
+        t2Opening: "Ich bin absolut überzeugt davon, dass eine zweisprachige Erziehung ein großes Geschenk für Kinder ist, weil sie Sprachen viel müheloser lernen als wir Erwachsene. Wie siehst du das?",
+        erfQuestion: "Welche Erfahrungen haben Sie mit Mehrsprachigkeit im Alltag oder beim Fremdsprachenlernen gemacht?",
+        erfNotes: [
+          { label: "Situation", note: "Als Erwachsener lerne ich systematisch Grammatik und Vokabeln", guide: "Sự khác biệt giữa việc người lớn học ngoại ngữ và trẻ em học song ngữ." },
+          { label: "Grund", note: "Für Studium und Leben in Deutschland", guide: "Mục tiêu học ngoại ngữ của bạn." },
+          { label: "Meinung", note: "Zweisprachige Erziehung fördert Intelligenz und Toleranz", guide: "Quan điểm của bạn về việc nuôi dạy trẻ song ngữ." },
+          { label: "Begründung", note: "Kinder lernen spielerisch und behalten ihre kulturelle Identität", guide: "Lợi ích về văn hóa và tư duy." },
+          { label: "Nutzen", note: "Klare Regel: Ein Elternteil – eine Sprache", guide: "Phương pháp hiệu quả để trẻ không bị nhầm lẫn." },
+          { label: "Zukunft", note: "Mehrsprachige Kindergärten und Schulen stärker fördern", guide: "Đề xuất cho giáo dục hiện đại." }
+        ],
+        t3Title: "Eine Spielemesse im Kulturzentrum planen",
+        t3Prompt: "In einem Kulturzentrum in Ihrer Stadt soll eine Spielemesse stattfinden. Sie sollen bei der Planung helfen. Überlegen Sie, was Sie tun können (z. B. Informationsmaterial oder Poster).",
+        t3Leitpunkte: ["Verschiedene Spielbereiche (Brettspiele, Familienspiele, digitale Lernspiele)", "Wettbewerbe oder ein kleines Turnier für Besucher organisieren", "Poster, Flyer und Werbung für Familien und Jugendliche", "Eintritt, Öffnungszeiten und Helferteam"],
+        t3Opening: "Hallo! Im Kulturzentrum soll bald eine große Spielemesse stattfinden. Ich fände es super, wenn wir neben neuen Computerspielen auch klassische Brettspiele zum Ausprobieren anbieten. Was hältst du davon?"
+      },
+      {
+        id: 23,
+        t2Title: "Hochzeit nur zu zweit – Bescheiden heiraten",
+        t2Text: "Statt einer großen Feier mit hundert Gästen entscheiden sich manche Paare für eine Hochzeit nur zu zweit – ohne Familie und Freunde, dafür mit geringen Kosten und einer entspannten Hochzeitsreise. Laut einer Umfrage möchten viele Deutsche nicht zu viel Geld für die Feier ausgeben. Allerdings stellt sich die Frage, ob Eltern und enge Freunde nicht enttäuscht sind, wenn sie an diesem wichtigen Tag nicht dabei sein dürfen.",
+        t2Opening: "Einerseits verstehe ich Paare, die den Stress und die hohen Kosten einer großen Hochzeit vermeiden wollen. Andererseits gehört in unserer Kultur die Familie einfach zu so einem Fest dazu. Wie denkst du darüber?",
+        erfQuestion: "Wie werden Hochzeiten in Ihrem Heimatland gefeiert und was finden Sie persönlich wichtig?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam sind Hochzeiten traditionell große Familienfeste", guide: "Đám cưới truyền thống ở Việt Nam thường diễn ra như thế nào?" },
+          { label: "Grund", note: "Freude mit Verwandten, Nachbarn und Freunden teilen", guide: "Ý nghĩa của việc mời đông đủ gia đình, bạn bè." },
+          { label: "Meinung", note: "Eine Feier im kleinen Kreis ist ein guter Mittelweg", guide: "Quan điểm của bạn về đám cưới chỉ có hai người so với đám cưới lớn." },
+          { label: "Begründung", note: "Man spart Geld für die gemeinsame Zukunft, verletzt aber niemanden", guide: "Lý do phương án trung hòa lại hợp lý." },
+          { label: "Nutzen", note: "Die wichtigsten Menschen (Eltern und enge Freunde) einladen", guide: "Cách tổ chức ấm cúng và ý nghĩa." },
+          { label: "Zukunft", note: "Jedes Paar sollte frei entscheiden dürfen, ohne gesellschaftlichen Druck", guide: "Thông điệp kết luận." }
+        ],
+        t3Title: "Eine Kursreise in ein deutschsprachiges Land planen",
+        t3Prompt: "Viele Teilnehmerinnen und Teilnehmer aus Ihrem Kurs möchten eine Reise in ein deutschsprachiges Land machen. Sie sollen gemeinsam bei der Planung helfen. Überlegen Sie gemeinsam, was Sie tun können.",
+        t3Leitpunkte: ["Reiseziel auswählen (Deutschland, Österreich oder die Schweiz?)", "Reisezeit, Dauer, Anreise und günstige Unterkunft (Jugendherberge)", "Kulturprogramm, Stadtbesichtigung und Sprachpraxis vor Ort", "Budget und Aufgabenverteilung im Kurs"],
+        t3Opening: "Hi! Viele aus unserem Deutschkurs wollen zusammen eine Reise in ein deutschsprachiges Land machen. Wohin sollten wir deiner Meinung nach fahren – vielleicht nach Berlin, München oder Wien?"
+      },
+      {
+        id: 24,
+        t2Title: "Sollen Schönheitsoperationen bei Minderjährigen verboten werden?",
+        t2Text: "Politiker fordern ein gesetzliches Verbot unnötiger Schönheitsoperationen bei Minderjährigen, da die gesundheitlichen Risiken hoch sind und Jugendliche oft unter falschen Schönheitsidealen aus sozialen Medien leiden. Ausnahmen sollen nur bei medizinischer Notwendigkeit (z. B. nach Unfällen) gelten. Gegner eines Verbots argumentieren, dass eine klare Grenze schwer zu ziehen sei und die Entscheidung bei Eltern und verantwortungsvollen Ärzten bleiben müsse.",
+        t2Opening: "Ich bin klar für ein Verbot von rein kosmetischen Operationen bei Jugendlichen unter 18 Jahren, weil sich ihr Körper noch entwickelt und sie oft durch soziale Medien unter Druck stehen. Wie siehst du das?",
+        erfQuestion: "Welche Rolle spielen Schönheitsideale und soziale Medien heute bei jungen Menschen?",
+        erfNotes: [
+          { label: "Situation", note: "Auf Instagram und TikTok sehen Jugendliche ständig bearbeitete Fotos", guide: "Tác động của mạng xã hội đến ngoại hình của giới trẻ hiện nay." },
+          { label: "Grund", note: "Vergleichsdruck und Wunsch nach Anerkennung", guide: "Tại sao nhiều bạn trẻ cảm thấy tự ti về ngoại hình?" },
+          { label: "Meinung", note: "Kosmetische Eingriffe ohne medizinischen Grund sollten verboten sein", guide: "Quan điểm của bạn về phẫu thuật thẩm mỹ ở tuổi vị thành niên." },
+          { label: "Begründung", note: "Minderjährige können langfristige Risiken noch nicht einschätzen", guide: "Rủi ro sức khỏe và tâm lý." },
+          { label: "Nutzen", note: "Medizinische Ausnahmen nach Unfällen bleiben natürlich erlaubt", guide: "Sự phân biệt rõ ràng giữa thẩm mỹ và điều trị y tế." },
+          { label: "Zukunft", note: "Selbstbewusstsein in Schule und Familie stärken", guide: "Giải pháp giúp giới trẻ tự tin hơn." }
+        ],
+        t3Title: "Betreuung der Kinder einer kranken Nachbarin organisieren",
+        t3Prompt: "Ihre alleinerziehende Nachbarin wurde unerwartet ins Krankenhaus eingeliefert. Sie haben es sich zur Aufgabe gemacht, ihre Kinder zu besuchen und für die erste Zeit die Betreuung (Schule, Kochen, Einkaufen, Übernachten) zu organisieren.",
+        t3Leitpunkte: ["Tagesablauf aufteilen (wer bringt die Kinder zur Schule und holt sie ab?)", "Einkaufen, gemeinsames Kochen und Hausaufgabenhilfe", "Übernachtung und Freizeitbeschäftigung für die Kinder", "Regelmäßige Besuche bei der Mutter im Krankenhaus"],
+        t3Opening: "Hallo! Unsere Nachbarin liegt ja im Krankenhaus und wir müssen uns schnell um ihre beiden Kinder kümmern. Ich könnte morgens den Schulweg und das Einkaufen übernehmen. Wie können wir den Nachmittag organisieren?"
+      },
+      {
+        id: 25,
+        t2Title: "Ganztagsschule – Pro und Kontra",
+        t2Text: "Immer mehr Schüler in Deutschland besuchen eine Ganztagsschule, die an mindestens drei Tagen pro Woche ein ganztägiges Angebot umfasst. Befürworter sehen darin eine große Hilfe für berufstätige Eltern und mehr Chancengleichheit, da Hausaufgabenbetreuung, Sport und Musik direkt in der Schule stattfinden. Kritiker bemängeln jedoch unterschiedliche Standards je nach Bundesland, hohe Kosten und weniger freie Zeit für Familie und eigene Hobbys.",
+        t2Opening: "Für berufstätige Eltern ist eine Ganztagsschule natürlich eine enorme Entlastung. Trotzdem frage ich mich, ob Kinder nach sieben oder acht Stunden in der Schule nicht zu erschöpft sind. Wie ist das Schulsystem in Vietnam?",
+        erfQuestion: "Wie waren Ihre Schulzeiten und bevorzugen Sie Halbtags- oder Ganztagsunterricht?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam hatte ich oft sowohl vormittags als auch nachmittags Unterricht", guide: "Thời gian học ở trường của bạn trước đây như thế nào?" },
+          { label: "Grund", note: "Viele Fächer und Prüfungsvorbereitung", guide: "Lý do học cả ngày." },
+          { label: "Meinung", note: "Ganztagsschulen sind sinnvoll, wenn der Nachmittag abwechslungsreich ist", guide: "Điều kiện để mô hình trường học bán trú/cả ngày hiệu quả." },
+          { label: "Begründung", note: "Sport, Musik und Hausaufgabenhilfe entlasten Familien", guide: "Lợi ích khi kết hợp học và hoạt động ngoại khóa." },
+          { label: "Nutzen", note: "Mehr Chancengleichheit für alle Schüler", guide: "Học sinh được hỗ trợ bài tập ngay tại trường." },
+          { label: "Zukunft", note: "Genug Pausen und Freiraum für Kreativität einplanen", guide: "Giải pháp tránh quá tải cho học sinh." }
+        ],
+        t3Title: "Urlaubsprogramm für einen Freund aus Amerika planen",
+        t3Prompt: "Ein Freund kommt aus Amerika nach Deutschland, um Urlaub zu machen, und Sie wollen ihm helfen. Überlegen Sie gemeinsam, was Sie tun können.",
+        t3Leitpunkte: ["Reisedauer, Städte und Sehenswürdigkeiten auswählen", "Unterkunft, Transportmittel (Zug/Deutschlandticket) und Budget", "Typisch deutsches Essen und kulturelle Erlebnisse", "Abholung vom Flughafen und gemeinsame Ausflüge"],
+        t3Opening: "Hi! Unser Freund aus den USA besucht uns bald für zwei Wochen in Deutschland. Sollen wir ihm neben den großen Städten auch ein paar traditionelle Kleinstädte und Schlösser zeigen?"
+      },
+      {
+        id: 26,
+        t2Title: "Verbot von Gewaltspielen – Pro und Kontra",
+        t2Text: "Nach schweren Gewalttaten an Schulen wurde immer wieder ein Verbot gewaltverherrlichender Computerspiele gefordert. Befürworter argumentieren, dass brutale Spiele Jugendlichen falsche Vorbilder vermitteln und Gewalt verharmlosen. Gegner eines Verbots halten dies für kaum umsetzbar und betonen, dass nicht allein Computerspiele, sondern vor allem das soziale Umfeld, Vernachlässigung und fehlende Vorbilder in Familie und Schule die wahren Ursachen sind.",
+        t2Opening: "Ich glaube, ein bloßes Verbot von Computerspielen löst das Problem nicht, weil man sich solche Spiele im Internet trotzdem besorgen kann. Viel wichtiger ist es, dass Eltern sich für ihre Kinder interessieren. Wie siehst du das?",
+        erfQuestion: "Welche Rolle spielen Computerspiele für Jugendliche und wie kann man einen gesunden Umgang fördern?",
+        erfNotes: [
+          { label: "Situation", note: "Viele Jugendliche spielen heute online mit Freunden", guide: "Thực tế việc chơi game của giới trẻ hiện nay." },
+          { label: "Grund", note: "Unterhaltung, Spannung und Kontakt zu Gleichaltrigen", guide: "Tại sao trò chơi điện tử lại thu hút?" },
+          { label: "Meinung", note: "Strenge Alterskontrollen und Begleitung durch Eltern sind sinnvoller als Totalverbote", guide: "Quan điểm của bạn về việc cấm game bạo lực." },
+          { label: "Begründung", note: "Soziale Probleme entstehen im echten Umfeld, nicht nur am Bildschirm", guide: "Phân tích nguyên nhân gốc rễ." },
+          { label: "Nutzen", note: "Attraktive Freizeit- und Sportangebote als Alternative schaffen", guide: "Giải pháp thực tế trong cộng đồng." },
+          { label: "Zukunft", note: "Medienkompetenz als festes Schulfach einführen", guide: "Hướng đi lâu dài cho nhà trường." }
+        ],
+        t3Title: "Einen Museumsbesuch mit dem Sprachkurs planen",
+        t3Prompt: "Sie wollen ein Museum mit Ihren Kolleginnen und Kollegen aus dem Sprachkurs besuchen. Überlegen Sie gemeinsam, was Sie tun können, teilen Sie Ihre Ideen mit und entwickeln Sie Vorschläge für den Besuch.",
+        t3Leitpunkte: ["Welches Museum passt zu den Interessen unseres Kurses?", "Datum, Uhrzeit und Gruppentickets / Ermäßigung organisieren", "Eine Führung auf Deutsch buchen, um die Sprache zu üben", "Anschließend gemeinsam ins Café gehen und darüber sprechen"],
+        t3Opening: "Hallo! Wir wollen ja mit unserem Sprachkurs zusammen ins Museum gehen. Wie wäre es mit einem historischen Museum, damit wir mehr über die deutsche Geschichte lernen? Was meinst du?"
+      },
+      {
+        id: 27,
+        t2Title: "Praktische Lerntipps – Wie lernt man nachhaltig?",
+        t2Text: "Forschungen zeigen, dass mehrkanaliges Lernen (Hören, Sehen, Reden und aktives Tun kombiniert) zu einer Behaltensleistung von bis zu 90 Prozent führt. Statt Stoff passiv auswendig zu lernen, hilft es, Inhalte in eigenen Worten zusammenzufassen, bildhaft darzustellen und in regelmäßigen Abständen zu wiederholen. Wichtig sind außerdem Pausen, ein guter Biorhythmus und das Vermeiden von extremem „Überlernen“ ohne Pausen.",
+        t2Opening: "Das passt perfekt zu unserem Deutschkurs! Ich merke selbst, dass ich neue Wörter nur dann behalte, wenn ich sie laut ausspreche und in eigenen Sätzen anwende. Welche Lernmethoden helfen dir am meisten?",
+        erfQuestion: "Welche Lernstrategien nutzen Sie beim Deutschlernen für die B2-Prüfung?",
+        erfNotes: [
+          { label: "Situation", note: "Vokabeln und Redemittel regelmäßig laut sprechen und wiederholen", guide: "Phương pháp học tiếng Đức hiệu quả nhất của bạn là gì?" },
+          { label: "Grund", note: "Gelernte Strukturen aktiv in der Prüfung abrufen können", guide: "Tại sao bạn chọn phương pháp này?" },
+          { label: "Meinung", note: "Aktives Anwenden ist viel effektiver als passives Lesen", guide: "Đánh giá của bạn về phương pháp học đa giác quan trong bài đọc." },
+          { label: "Begründung", note: "Durch Sprechen und Schreiben entstehen feste Verknüpfungen im Gehirn", guide: "Cơ chế ghi nhớ tự nhiên." },
+          { label: "Nutzen", note: "Feste Lernzeiten mit kurzen Pausen verhindern Erschöpfung", guide: "Vai trò của quản lý thời gian và nghỉ ngơi." },
+          { label: "Zukunft", note: "In Lerngruppen gemeinsam diskutieren und sich gegenseitig korrigieren", guide: "Kế hoạch ôn luyện tiếp theo của bạn." }
+        ],
+        t3Title: "Eine Hochzeitsüberraschung für einen gemeinsamen Freund planen",
+        t3Prompt: "Ihr gemeinsamer Freund möchte heiraten, und Sie organisieren eine Hochzeitsüberraschung für ihn. Überlegen Sie, welche Überraschungsideen Sie anbieten können, und machen Sie Ihrem Partner Vorschläge.",
+        t3Leitpunkte: ["Art der Überraschung (Fotobox, persönliches Video von Freunden, Flashmob, Rede)", "Abstimmung mit dem Brautpaar oder Trauzeugen (damit es in den Ablauf passt)", "Material, Technik und Kosten unter Freunden aufteilen", "Wer übernimmt welche Aufgabe bei der Vorbereitung?"],
+        t3Opening: "Hi! Unser Freund heiratet ja bald und wir wollen eine tolle Überraschung für die Feier vorbereiten. Ich fände ein lustiges Video mit Glückwünschen von allen alten Schulfreunden super. Was hältst du davon?"
+      },
+      {
+        id: 28,
+        t2Title: "Ist „bequemes Essen“ (Convenience Food) gut für uns?",
+        t2Text: "Vorgefertigte Lebensmittel sparen im hektischen Alltag Zeit und sind unabhängig von der Jahreszeit verfügbar. Kritiker warnen jedoch: Durch Konservierung gehen Vitamine verloren, der hohe Gehalt an Salz, Zucker und Fett fördert Zivilisationskrankheiten, und es entsteht viel Verpackungsmüll. Zudem geht die Kultur des gemeinsamen Kochens und bewussten Essens verloren.",
+        t2Opening: "Wenn man wenig Zeit hat, sind Fertiggerichte manchmal praktisch, aber auf Dauer sind sie weder gesund noch umweltfreundlich wegen der vielen Plastikverpackungen. Wie stehst du zu Convenience Food?",
+        erfQuestion: "Wie gehen Sie mit Zeitmangel beim Essen um – greifen Sie manchmal zu Fertigprodukten?",
+        erfNotes: [
+          { label: "Situation", note: "In Prüfungsphasen greife ich manchmal zu Tiefkühlgemüse oder schnellen Gerichten", guide: "Khi quá bận bạn có dùng đồ ăn chế biến sẵn không?" },
+          { label: "Grund", note: "Zeitersparnis bei vollem Terminkalender", guide: "Lý do sử dụng." },
+          { label: "Meinung", note: "Fertigprodukte sollten nur eine Ausnahme im Alltag sein", guide: "Quan điểm của bạn về Convenience Food." },
+          { label: "Begründung", note: "Hoher Salz- und Zuckergehalt sowie viel Verpackungsmüll", guide: "Hai nhược điểm lớn nhất về sức khỏe và môi trường." },
+          { label: "Nutzen", note: "Frische regionale Zutaten und gemeinsames Kochen bevorzugen", guide: "Lợi ích của việc nấu ăn tươi." },
+          { label: "Zukunft", note: "Bessere Kennzeichnung von Inhaltsstoffen auf Verpackungen", guide: "Giải pháp giúp người tiêu dùng lựa chọn thông minh hơn." }
+        ],
+        t3Title: "Ein Wohltätigkeits-Theaterstück organisieren",
+        t3Prompt: "Sie organisieren ein Theaterstück und spenden das eingenommene Geld für einen wohltätigen Zweck. Sie sollen bei der Planung helfen. Überlegen Sie, was Sie tun können.",
+        t3Leitpunkte: ["Welches Theaterstück führen wir auf und wer spielt mit?", "Veranstaltungsort (Aula, Kulturzentrum), Termin und Probenplan", "Eintrittspreise, Spendenbox und Auswahl der Hilfsorganisation", "Werbung, Plakate, Technik und Kostüme"],
+        t3Opening: "Hallo! Wir wollen ja ein Theaterstück für einen guten Zweck aufführen. Zuerst sollten wir entscheiden, welches Stück wir spielen und an welche Wohltätigkeitsorganisation die Spenden gehen sollen. Hast du eine Idee?"
+      },
+      {
+        id: 29,
+        t2Title: "Darf man behalten, was man findet? (Fundsachen)",
+        t2Text: "Wer Geld, eine Brieftasche oder einen wertvollen Gegenstand auf der Straße findet, darf ihn rechtlich nicht einfach behalten, sondern muss den Fund im Fundbüro melden. Ein deutsches Paar wurde sogar verurteilt, weil es einen gefundenen Lottoschein selbst einlöste. Wer eine Fundsache ehrlich abgibt, hat in vielen Ländern Anspruch auf einen gesetzlichen Finderlohn.",
+        t2Opening: "Ich finde es selbstverständlich, dass man eine gefundene Geldbörse oder ein Handy abgibt – man wünscht sich ja selbst, dass jemand ehrlich ist, wenn man etwas verliert. Hast du schon einmal etwas Wertvolles gefunden oder verloren?",
+        erfQuestion: "Haben Sie schon einmal etwas Wertvolles gefunden oder verloren?",
+        erfNotes: [
+          { label: "Situation", note: "Einmal ein Smartphone im Bus gefunden / Meine Geldbörse verloren", guide: "Kể ngắn gọn một lần bạn nhặt được hoặc làm mất đồ." },
+          { label: "Grund", note: "Es beim Busfahrer / Fundbüro abgegeben", guide: "Bạn đã xử lý tình huống đó như thế nào?" },
+          { label: "Meinung", note: "Ehrlichkeit ist die Grundlage für ein gutes Zusammenleben", guide: "Quan điểm của bạn về việc trả lại của rơi." },
+          { label: "Begründung", note: "Hinter verlorenen Dingen stecken oft wichtige Dokumente und Erinnerungen", guide: "Tại sao người mất rất cần tìm lại đồ?" },
+          { label: "Nutzen", note: "Finderlohn als schöne Anerkennung für Ehrlichkeit", guide: "Vai trò của phần thưởng cho người nhặt được." },
+          { label: "Zukunft", note: "Fundbüros digitaler und leichter erreichbar machen", guide: "Giải pháp giúp đồ thất lạc dễ về với chủ nhân." }
+        ],
+        t3Title: "Einen Freund im Krankenhaus eine Woche lang aufmuntern",
+        t3Prompt: "Freund Valentin hat sich das Bein gebrochen und muss noch eine Woche im Krankenhaus bleiben. Er langweilt sich, weil er nicht herumlaufen darf. Überlegen Sie, wie Sie ihn aufmuntern können, und denken Sie sich gemeinsam einen Plan für die Woche aus.",
+        t3Leitpunkte: ["Besuchsplan für die ganze Woche (wer kommt an welchem Tag?)", "Abwechslung gegen Langeweile (Bücher, Brettspiele, Filme, Podcast)", "Lieblingsessen oder frisches Obst mitbringen (nach Rücksprache mit Ärzten)", "Unterstützung bei Alltagssachen (Wohnung lüften, Post holen)"],
+        t3Opening: "Hi! Unser armer Freund Valentin liegt noch eine ganze Woche mit gebrochenem Bein im Krankenhaus. Damit ihm nicht langweilig wird, könnten wir einen Besuchsplan machen. Wann hättest du Zeit?"
+      },
+      {
+        id: 30,
+        t2Title: "Hausaufgaben – Unnötig oder unvermeidlich?",
+        t2Text: "Über den Sinn von Hausaufgaben wird heftig gestritten. Gegner argumentieren, dass Schüler nach dem Ganztagsunterricht abends zu müde sind und ungleiche Voraussetzungen herrschen, weil nicht alle Eltern helfen können. Befürworter betonen hingegen, dass selbstständiges Wiederholen den Lernstoff festigt und Kinder früh Selbstdisziplin und eigenständiges Arbeiten lernen.",
+        t2Opening: "Ich denke, ein gewisses Maß an Hausaufgaben ist sinnvoll, um den Unterrichtsstoff zu wiederholen – besonders beim Sprachenlernen. Aber es darf nicht so viel sein, dass Schüler keine Freizeit mehr haben. Wie siehst du das?",
+        erfQuestion: "Wie waren Ihre Erfahrungen mit Hausaufgaben in der Schule und heute im Deutschkurs?",
+        erfNotes: [
+          { label: "Situation", note: "In der Schule hatten wir oft sehr viele Hausaufgaben", guide: "Trải nghiệm làm bài tập về nhà của bạn hồi đi học và hiện tại." },
+          { label: "Grund", note: "Vorbereitung auf Prüfungen und Vertiefung des Stoffes", guide: "Mục đích của bài tập về nhà." },
+          { label: "Meinung", note: "Weniger, aber dafür gezielte und kreative Hausaufgaben sind ideal", guide: "Quan điểm của bạn: Nên bỏ hay giữ bài tập về nhà?" },
+          { label: "Begründung", note: "Zu viele Aufgaben demotivieren, gar keine führen zu Wissenslücken", guide: "Sự cân bằng hợp lý." },
+          { label: "Nutzen", note: "Lernzeiten in der Schule helfen Kindern ohne Unterstützung zu Hause", guide: "Giải pháp đảm bảo công bằng cho mọi học sinh." },
+          { label: "Zukunft", note: "Mehr Projektarbeit statt reiner Routineaufgaben", guide: "Đề xuất cải tiến phương pháp." }
+        ],
+        t3Title: "Eine Kochnachmittag-Party im Deutschkurs organisieren",
+        t3Prompt: "Sie organisieren eine Kochnachmittag-Party in Ihrem Deutschkurs. Planen Sie mit Ihrem Partner / Ihrer Partnerin ein Programm für den Kochnachmittag. Überlegen Sie, welche Speisen und Programmpunkte Sie anbieten können.",
+        t3Leitpunkte: ["Welche Gerichte aus verschiedenen Ländern kochen wir gemeinsam?", "Wo findet der Kochnachmittag statt (Schulküche oder bei jemandem zu Hause)?", "Einkaufsliste, Budget und Aufgabenverteilung (Einkaufen, Kochen, Aufräumen)", "Rahmenprogramm (Musik, Rezepte auf Deutsch austauschen)"],
+        t3Opening: "Hallo! Die Idee mit dem Kochnachmittag in unserem Deutschkurs finde ich klasse! Wie wäre es, wenn wir vietnamesische Sommerrollen und einen typisch deutschen Kartoffelsalat zusammen zubereiten?"
+      },
+      {
+        id: 31,
+        t2Title: "Stadtwohnung oder Haus im Grünen?",
+        t2Text: "Junge Singles schätzen die Stadtwohnung wegen kurzer Wege zu Arbeit, Kultur und Freizeit. Familien mit Kindern sehnen sich dagegen oft nach einem Haus im Grünen mit Garten und sauberer Luft. Experten warnen jedoch vor der Zersiedelung der Landschaft: Außerhalb der Städte fehlen oft öffentliche Verkehrsmittel, sodass Familien ein zweites Auto brauchen und der Verkehr sowie die Umweltbelastung steigen.",
+        t2Opening: "Ein Haus mit Garten im Grünen klingt natürlich traumhaft, aber wenn man jeden Tag zwei Stunden im Stau zur Arbeit steht, geht viel Lebensqualität verloren. Wo würdest du lieber wohnen?",
+        erfQuestion: "Wohnen Sie lieber in der Großstadt oder auf dem Land, und welche Erfahrungen haben Sie gemacht?",
+        erfNotes: [
+          { label: "Situation", note: "Ich wohne in einer großen Stadt und nutze täglich Bus und Bahn", guide: "Bạn đang sống ở thành phố lớn hay vùng ngoại ô/nông thôn?" },
+          { label: "Grund", note: "Kurze Wege zur Arbeit, Universität und Einkaufsmöglichkeiten", guide: "Lý do bạn chọn nơi sống hiện tại." },
+          { label: "Meinung", note: "Eine Stadtwohnung mit guten Parks in der Nähe ist für mich ideal", guide: "Quan điểm của bạn về nhà ở ngoại ô vs căn hộ thành phố." },
+          { label: "Begründung", note: "Man spart Pendelzeit und schont durch den ÖPNV die Umwelt", guide: "Lợi ích về thời gian và môi trường." },
+          { label: "Nutzen", note: "Grüne Stadtviertel und gute Zugverbindungen ins Umland", guide: "Giải pháp kết hợp ưu điểm của cả hai." },
+          { label: "Zukunft", note: "Den öffentlichen Nahverkehr auf dem Land stark ausbauen", guide: "Đề xuất quy hoạch bền vững." }
+        ],
+        t3Title: "Den Kursraum freundlicher gestalten",
+        t3Prompt: "Ihre Kursleiterin will den Kursraum freundlicher machen und bittet Sie um Hilfe. Welche Vorschläge können Sie ihr machen? Überlegen Sie gemeinsam, was zu tun ist, und denken Sie dabei auch an die Kosten und daran, wer helfen könnte.",
+        t3Leitpunkte: ["Konkrete Ideen (Pflanzen, Poster/Landkarten, Pinnwand, gemütliche Ecke)", "Finanzierung und Kosten gering halten (Spenden, selbst basteln)", "Wer aus dem Kurs übernimmt welche Aufgabe?", "Termin für die gemeinsame Umgestaltung (nach dem Unterricht)"],
+        t3Opening: "Hi! Unsere Kursleiterin hat uns gefragt, wie wir unseren Kursraum etwas freundlicher gestalten können. Ich fände ein paar grüne Pflanzen und eine Weltkarte mit unseren Heimatländern toll. Was meinst du?"
+      },
+      {
+        id: 32,
+        t2Title: "Kinder unterschätzen Gefahren von Handy und Internet",
+        t2Text: "Laut einer EU-Befragung besitzen bereits 75 Prozent der 9- bis 10-Jährigen und 90 Prozent der 12- bis 14-Jährigen ein eigenes Handy. Zwar nutzen sie digitale Medien selbstbewusst, unterschätzen aber Risiken wie Cybermobbing, unbemerkt veröffentlichte Fotos oder ungeeignete Inhalte. Besorgniserregend ist, dass viele Kinder bei Problemen im Netz aus Angst vor Verboten nicht mit ihren Eltern sprechen.",
+        t2Opening: "Mich hat vor allem der Punkt nachdenklich gemacht, dass Kinder bei Cybermobbing oft nicht zu ihren Eltern gehen. Deshalb ist ein offenes Vertrauensverhältnis so wichtig. Wie siehst du das?",
+        erfQuestion: "Ab welchem Alter sollten Kinder ein Smartphone bekommen und wie schützt man sie im Internet?",
+        erfNotes: [
+          { label: "Situation", note: "Heute haben schon Grundschüler oft ein eigenes Smartphone", guide: "Thực tế trẻ em sử dụng điện thoại hiện nay." },
+          { label: "Grund", note: "Erreichbarkeit für Eltern und Kontakt zu Freunden", guide: "Lý do trẻ được mua điện thoại sớm." },
+          { label: "Meinung", note: "Aufklärung und Vertrauen sind wichtiger als ständige Kontrolle", guide: "Quan điểm của bạn về việc trẻ em dùng Internet." },
+          { label: "Begründung", note: "Verbote führen nur dazu, dass Kinder Probleme verheimlichen", guide: "Tại sao trẻ ngại chia sẻ với bố mẹ?" },
+          { label: "Nutzen", note: "Medienkompetenz in der Schule und gemeinsame Regeln zu Hause", guide: "Cách bảo vệ trẻ an toàn trên mạng." },
+          { label: "Zukunft", note: "Klare Datenschutzregeln auf Plattformen für Jugendliche", guide: "Trách nhiệm của các công ty công nghệ." }
+        ],
+        t3Title: "Geburtstagsgeschenk und Feier für einen Kursteilnehmer planen",
+        t3Prompt: "Ein Teilnehmer aus Ihrem Sprachkurs hat am Wochenende Geburtstag. Überlegen Sie, was der Kurs ihm schenken und wie die Feier ablaufen könnte. Entwickeln Sie gemeinsam Vorschläge für Geschenk und Programm.",
+        t3Leitpunkte: ["Passendes Geschenk auswählen und Geld im Kurs einsammeln", "Ort und Zeitpunkt der Feier (im Café, Park oder nach dem Kurs)", "Kuchen, Getränke und Musik organisieren", "Einladungen an alle Kursteilnehmer verschicken"],
+        t3Opening: "Hallo! Am Wochenende hat ja unser Kurskollege Geburtstag. Wir sollten ihm zusammen ein schönes Geschenk besorgen und eine kleine Feier planen. Hast du schon eine Geschenkidee?"
+      },
+      {
+        id: 33,
+        t2Title: "Eine Woche ohne Internet – Selbstexperiment",
+        t2Text: "Eine Familie wagt das Experiment: eine Woche komplett ohne Internet. Schnell zeigt sich, wie abhängig wir im Alltag vom Netz geworden sind – sei es beim schnellen Nachschlagen von Wissen, beim Online-Ticketkauf am Bahnhof oder bei kurzfristigen Terminänderungen von Freunden per Nachricht. Am Ende lautet das Fazit: Das Internet erleichtert den Alltag enorm, aber eine bewusste Pause hilft, wieder direkter miteinander zu kommunizieren.",
+        t2Opening: "Ich glaube, eine ganze Woche ohne Internet wäre heute kaum noch möglich, weil man es für Arbeit, Studium und Fahrkarten braucht. Aber einen „Digital-Detox-Tag“ am Wochenende fände ich super. Könntest du eine Woche ohne Internet leben?",
+        erfQuestion: "Wie abhängig sind Sie im Alltag vom Internet und haben Sie schon einmal eine digitale Pause gemacht?",
+        erfNotes: [
+          { label: "Situation", note: "Im Urlaub hatte ich einmal zwei Tage kein WLAN", guide: "Kể trải nghiệm khi bạn không có Internet hoặc chủ động tắt mạng." },
+          { label: "Grund", note: "Reise in die Natur / Bewusste Erholung vom Smartphone", guide: "Hoàn cảnh lúc đó là gì?" },
+          { label: "Meinung", note: "Das Internet ist unverzichtbar, aber bewusste Pausen tun gut", guide: "Quan điểm của bạn về sự phụ thuộc vào Internet." },
+          { label: "Begründung", note: "Ohne ständige Nachrichten kann man sich besser konzentrieren und entspannen", guide: "Lợi ích khi tạm rời xa màn hình." },
+          { label: "Nutzen", note: "Abends das Handy ausschalten und echte Gespräche führen", guide: "Thói quen lành mạnh có thể áp dụng hàng ngày." },
+          { label: "Zukunft", note: "Technik als Werkzeug nutzen, nicht von ihr beherrscht werden", guide: "Thông điệp cân bằng số." }
+        ],
+        t3Title: "Präsentation an einer Schule über das Fremdsprachenlernen planen",
+        t3Prompt: "Sie sind von einer Schule eingeladen worden, um über die Notwendigkeit des Fremdsprachenlernens aus Ihrer Sicht und Ihren Erfahrungen zu berichten. Erstellen Sie zusammen eine Liste mit Stichpunkten für eine 15-minütige Präsentation vor den Schülern.",
+        t3Leitpunkte: ["Einstieg: Warum sind Fremdsprachen heute wichtig (Beruf, Reisen, Kultur)?", "Eigene Erfahrungen beim Deutschlernen (Herausforderungen und Erfolge)", "Praktische Tipps, wie das Lernen Spaß macht (Filme, Musik, Tandems)", "Fragerunde mit den Schülern und Zeitaufteilung für 15 Minuten"],
+        t3Opening: "Hi! Wir sollen ja an der Schule eine 15-minütige Präsentation darüber halten, warum Fremdsprachenlernen so wichtig ist. Sollen wir mit einer kurzen Geschichte über unsere eigenen Erfahrungen beim Deutschlernen beginnen?"
+      },
+      {
+        id: 34,
+        t2Title: "Soll digitales Unterrichtsmaterial in den Schulen eingesetzt werden?",
+        t2Text: "Ob Tablets und E-Books gedruckte Schulbücher ersetzen sollen, wird kontrovers diskutiert. Befürworter betonen, dass digitale Inhalte schnell aktualisiert werden können, interaktive Übungen und Hörbeispiele bieten und die Medienkompetenz stärken. Gegner weisen auf hohe Anschaffungskosten, mangelnde Forschung zu den Langzeitfolgen und die Gefahr der Ablenkung hin.",
+        t2Opening: "Ich nutze beim Deutschlernen sowohl gedruckte Bücher als auch digitale Apps, und genau diese Mischung finde ich am besten. Komplett auf Papierbücher zu verzichten halte ich für nicht sinnvoll. Wie siehst du das?",
+        erfQuestion: "Lernen Sie lieber mit gedruckten Büchern oder mit digitalen Materialien (Tablet/Laptop)?",
+        erfNotes: [
+          { label: "Situation", note: "Beim Lernen nutze ich ein gedrucktes Kursbuch und digitale Übungen", guide: "Cách bạn kết hợp sách giấy và tài liệu điện tử khi học." },
+          { label: "Grund", note: "In Büchern kann ich Notizen machen, online finde ich schnell Wörter", guide: "Ưu điểm của từng loại theo trải nghiệm của bạn." },
+          { label: "Meinung", note: "Eine Kombination aus analogen und digitalen Medien ist ideal", guide: "Quan điểm của bạn về việc dùng E-Book thay sách giáo khoa." },
+          { label: "Begründung", note: "Zu viel Bildschirmzeit ermüdet die Augen, aber digitale Medien motivieren", guide: "Lý do không nên cực đoan chọn một bên." },
+          { label: "Nutzen", note: "Schulen müssen zuerst für gute Ausstattung und Lehrerfortbildung sorgen", guide: "Điều kiện để số hóa trường học thành công." },
+          { label: "Zukunft", note: "Chancengleichheit sichern, damit jedes Kind Zugang hat", guide: "Giải pháp công bằng trong giáo dục." }
+        ],
+        t3Title: "Einen Flohmarkt im Stadtviertel zum Frühlingsbeginn organisieren",
+        t3Prompt: "Zum Frühlingsbeginn möchten Sie in Ihrem Stadtviertel einen Flohmarkt organisieren. Sie wollen Ihre Nachbarn zum Mitmachen einladen. Legen Sie gemeinsam ein passendes Datum und geeignete Örtlichkeiten fest und besprechen Sie organisatorische Details.",
+        t3Leitpunkte: ["Passendes Datum am Wochenende und geeigneter Platz (Park, Hof oder Straße)", "Nachbarn zum Mitmachen motivieren (Aushänge, soziale Medien)", "Standgebühren / Tischorganisation und Kaffee- und Kuchenverkauf", "Genehmigung der Stadt und Aufräumen am Ende"],
+        t3Opening: "Hallo! Ein Nachbarschafts-Flohmarkt zum Frühlingsanfang ist eine super Idee – nachhaltig und gesellig! Wo in unserem Viertel hätten wir denn genug Platz für viele Stände?"
+      },
+      {
+        id: 35,
+        t2Title: "Spezielle Schulen für hochbegabte Schüler: Separation oder Integration?",
+        t2Text: "Wie fördert man hochbegabte Kinder am besten? Befürworter von Spezialschulen vergleichen sie mit Sportinternaten: In kleinen Gruppen auf hohem Niveau können Talente ihr Potenzial voll entfalten, statt sich im normalen Unterricht zu langweilen. Gegner warnen vor sozialer Ausgrenzung und betonen, dass Kinder auch soziale Kompetenz im Umgang mit ganz unterschiedlichen Mitschülern brauchen.",
+        t2Opening: "Ich verstehe beide Seiten: Einerseits sollen sich begabte Schüler nicht langweilen, andererseits ist es für die Persönlichkeit wichtig, mit verschiedenen Menschen zusammen zu lernen. Vielleicht sind zusätzliche Förderkurse an normalen Schulen die beste Lösung?",
+        erfQuestion: "Wie werden besonders begabte oder lernschwache Schüler in Ihrem Heimatland gefördert?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam gibt es spezielle Schulen für begabte Schüler in bestimmten Fächern", guide: "Hệ thống trường chuyên / lớp chọn ở Việt Nam hoạt động thế nào?" },
+          { label: "Grund", note: "Gezielte Vorbereitung auf Wettbewerbe und Universitäten", guide: "Mục đích của các trường này." },
+          { label: "Meinung", note: "Integration an normalen Schulen mit speziellen Förderkursen ist ausgewogener", guide: "Quan điểm của bạn: Tách riêng hay học chung?" },
+          { label: "Begründung", note: "Soziale Kompetenz und Teamfähigkeit sind genauso wichtig wie Intelligenz", guide: "Lý do không nên tách biệt hoàn toàn." },
+          { label: "Nutzen", note: "Arbeitsgemeinschaften (AGs) am Nachmittag für verschiedene Talente", guide: "Giải pháp thực tế phát triển năng khiếu." },
+          { label: "Zukunft", note: "Individuelle Förderung für jedes Kind – egal ob hochbegabt oder lernschwach", guide: "Mục tiêu giáo dục toàn diện." }
+        ],
+        t3Title: "Gemeinsamer Kinobesuch zum Abschluss des Deutschkurses",
+        t3Prompt: "Nächsten Freitag ist der letzte Tag des Deutschkurses und Sie wollen zusammen ins Kino gehen. Schmieden Sie mit Ihrem Partner / Ihrer Partnerin einen Plan für das aktuelle Kinoprogramm und überlegen Sie, was Sie sonst noch machen können.",
+        t3Leitpunkte: ["Welchen Film schauen wir an (deutsche Komödie, Drama oder Originalfassung)?", "Uhrzeit, Kino auswählen und Tickets reservieren", "Vorher oder nachher gemeinsam essen / etwas trinken gehen", "Alle Kursteilnehmer informieren und zusagen sammeln"],
+        t3Opening: "Hi! Nächsten Freitag ist schon unser letzter Kurstag! Ich fände es super, wenn wir zusammen ins Kino gehen – am besten in einen deutschen Film, damit wir gleich noch unser Hörverständnis trainieren. Was meinst du?"
+      },
+      {
+        id: 36,
+        t2Title: "Sparkonto für Kinder – Sparen für die Zukunft",
+        t2Text: "Klassische Sparschweine oder Sparbücher bringen heute kaum noch Zinsen. Die Zeitschrift „Finanztest“ empfiehlt für Kinder je nach Betrag spezielle Jugendkonten, Festgeld oder langfristige ETF-Sparpläne, bei denen schon 25 Euro monatlich über viele Jahre ein kleines Vermögen für Ausbildung oder Studium aufbauen können.",
+        t2Opening: "Ich finde es sehr wichtig, dass Kinder früh lernen, mit Geld umzugehen und zu sparen. Gleichzeitig können Eltern mit kleinen monatlichen Beträgen viel für die spätere Ausbildung ihrer Kinder tun. Wie siehst du das?",
+        erfQuestion: "Wie haben Sie als Kind gelernt, mit Taschengeld und Sparen umzugehen?",
+        erfNotes: [
+          { label: "Situation", note: "Als Kind habe ich mein Taschengeld in einer Spardose gesammelt", guide: "Hồi nhỏ bạn có tiết kiệm tiền tiêu vặt hay nhận tiền mừng tuổi không?" },
+          { label: "Grund", note: "Für größere Wünsche wie Bücher oder ein Fahrrad sparen", guide: "Mục đích tiết kiệm hồi nhỏ của bạn." },
+          { label: "Meinung", note: "Finanzielle Bildung sollte schon in der Familie und Schule beginnen", guide: "Quan điểm của bạn về việc lập quỹ tiết kiệm và dạy trẻ quản lý tài chính." },
+          { label: "Begründung", note: "Man lernt den Wert des Geldes und plant vorausschauend", guide: "Lợi ích lâu dài của thói quen tiết kiệm." },
+          { label: "Nutzen", note: "Langfristige Sparpläne sichern später das Studium", guide: "Lợi ích thực tế cho tương lai con cái." },
+          { label: "Zukunft", note: "Wirtschaft und Finanzwissen praxisnah in der Schule unterrichten", guide: "Đề xuất cho chương trình học." }
+        ],
+        t3Title: "Bücherspenden-Aktion für die lokale Bibliothek organisieren",
+        t3Prompt: "Sie organisieren eine Veranstaltung und sammeln dabei Bücherspenden für die lokale Bibliothek in Ihrer Straße. Sammeln Sie Ideen für diese gemeinsame Aktion und teilen Sie die Aufgaben unter sich auf.",
+        t3Leitpunkte: ["Mit der Bibliothek absprechen, welche Bücher gebraucht werden (Kinderbücher, Romane)", "Sammelaktion mit Lesung oder Büchercafé verbinden", "Werbung im Viertel (Flyer, Nachbarschaftsgruppen)", "Aufgabenverteilung (Annahme, Sortieren, Transport)"],
+        t3Opening: "Hallo! Unsere lokale Bibliothek braucht dringend neue Bücher, und wir wollen eine Spendenaktion organisieren. Wie wäre es, wenn wir am Samstag einen kleinen Bücher-Tisch mit Kaffee und Kuchen vor der Bibliothek machen?"
+      },
+      {
+        id: 37,
+        t2Title: "Tierversuche: Pro und Contra",
+        t2Text: "Allein in Deutschland werden jährlich über zwei Millionen Tiere für wissenschaftliche Zwecke eingesetzt. Befürworter argumentieren, dass viele medizinische Durchbrüche bei Krebs oder Diabetes ohne Tierversuche unmöglich wären und strenge Gesetze gelten. Gegner halten es für ethisch unvertretbar, Tieren Leid zuzufügen, weisen auf mangelnde Übertragbarkeit auf den Menschen hin und fordern den Einsatz moderner Alternativen wie künstlicher Organe und Computersimulationen.",
+        t2Opening: "Das ist ein sehr schwieriges ethisches Thema. In der medizinischen Forschung sind manche Tests vielleicht noch nötig, aber für Kosmetikprodukte halte ich Tierversuche für völlig inakzeptabel. Wie stehst du dazu?",
+        erfQuestion: "Wie stehen Sie zum Thema Tierschutz und worauf achten Sie beim Einkaufen?",
+        erfNotes: [
+          { label: "Situation", note: "Beim Kauf von Kosmetik achte ich auf Produkte ohne Tierversuche", guide: "Bạn có chú ý đến các nhãn bảo vệ động vật khi mua sắm không?" },
+          { label: "Grund", note: "Unnötiges Tierleid vermeiden", guide: "Lý do của lựa chọn đó." },
+          { label: "Meinung", note: "Tierversuche für Kosmetik verbieten und in der Medizin stark reduzieren", guide: "Quan điểm của bạn về thử nghiệm trên động vật." },
+          { label: "Begründung", note: "Es gibt heute immer bessere Alternativen wie Zellkulturen und Simulationen", guide: "Tiến bộ khoa học giúp thay thế thử nghiệm động vật." },
+          { label: "Nutzen", note: "Forschungsgelder gezielt in tierversuchsfreie Methoden investieren", guide: "Giải pháp thúc đẩy khoa học nhân đạo." },
+          { label: "Zukunft", note: "Strenge internationale Kontrollen und Transparenz", guide: "Hướng đi tương lai." }
+        ],
+        t3Title: "Eine 3-tägige Reise ans Meer mit Kursteilnehmern planen",
+        t3Prompt: "Sie möchten mit einigen Teilnehmern aus Ihrem Sprachkurs eine 3-tägige Reise ans Meer machen. Überlegen Sie, was Sie alles dazu brauchen, und planen Sie gemeinsam den Aufenthalt der Gruppe.",
+        t3Leitpunkte: ["Reiseziel (Ostsee oder Nordsee?) und Termin", "Anreise (Zug/Gruppenticket oder Mietwagen) und Unterkunft", "Aktivitäten vor Ort (Strand, Bootstour, Grillabend, Stadtbummel)", "Packliste, Verpflegung und Kostenaufteilung"],
+        t3Opening: "Hi! Nach den Prüfungen wollen wir ja mit ein paar Leuten aus dem Kurs für drei Tage ans Meer fahren. Wollen wir lieber an die Ostsee fahren und dort eine günstige Ferienwohnung für alle mieten?"
+      },
+      {
+        id: 38,
+        t2Title: "Darf man Hausfrau auf Lebenszeit sein?",
+        t2Text: "Früher war die Rolle der Hausfrau selbstverständlich, heute wird ein solches Lebensmodell oft kritisch gesehen. Befürworter betonen, dass Vollzeit-Mütter oder -Väter viel Zeit für die Erziehung der Kinder und den Zusammenhalt der Familie haben. Kritiker wenden ein, dass man finanziell abhängig wird, Altersarmut droht und gut ausgebildete Fachkräfte dem Arbeitsmarkt fehlen. Heute setzen viele Paare auf partnerschaftliche Modelle mit geteilter Verantwortung.",
+        t2Opening: "Ich finde, jeder Mensch sollte selbst entscheiden dürfen, wie er Familie und Beruf organisiert. Wichtig ist nur, dass man finanziell abgesichert bleibt und sich beide Partner die Aufgaben fair teilen. Wie siehst du das?",
+        erfQuestion: "Wie ist die Rollenverteilung zwischen Beruf und Familie in Ihrem Umfeld?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam arbeiten meistens sowohl Männer als auch Frauen Vollzeit", guide: "Thực tế phân chia công việc và gia đình ở Việt Nam hiện nay." },
+          { label: "Grund", note: "Finanzielle Unabhängigkeit und Unterstützung durch Großeltern", guide: "Lý do cả hai vợ chồng đều đi làm." },
+          { label: "Meinung", note: "Partnerschaftliche Arbeitsteilung ist besser als starre Rollenbilder", guide: "Quan điểm của bạn về việc làm nội trợ toàn thời gian." },
+          { label: "Begründung", note: "Finanzielle Absicherung im Alter und gleiche Karrierechancen für beide", guide: "Rủi ro nếu phụ thuộc tài chính hoàn toàn vào một người." },
+          { label: "Nutzen", note: "Elternzeit und Teilzeit für Mütter und Väter gleichermaßen ermöglichen", guide: "Giải pháp cân bằng công việc và con cái." },
+          { label: "Zukunft", note: "Mehr gesellschaftliche Anerkennung für Familien- und Erziehungsarbeit", guide: "Giá trị của công việc chăm sóc gia đình." }
+        ],
+        t3Title: "Eine Länderpräsentation in Ihrer Klasse vorbereiten",
+        t3Prompt: "Sie müssen ein Land in Ihrer Klasse beschreiben. Überlegen Sie gemeinsam, welches Land Sie vorstellen möchten, erwähnen Sie die schönsten und berühmtesten Städte, und sprechen Sie über traditionelles Essen, Kultur und Musik.",
+        t3Leitpunkte: ["Welches Land stellen wir vor (z. B. Vietnam, Österreich oder die Schweiz)?", "Berühmte Städte, Landschaften und Sehenswürdigkeiten", "Traditionelles Essen, Musik und kulturelle Besonderheiten", "Aufgabenverteilung, Bilder/Präsentation und Kostprobe mitbringen"],
+        t3Opening: "Hallo! Wir sollen gemeinsam ein Land in unserer Klasse vorstellen. Wie wäre es, wenn wir Vietnam präsentieren – ich könnte über die Städte und Sehenswürdigkeiten sprechen und du über das traditionelle Essen und die Musik?"
+      },
+      {
+        id: 39,
+        t2Title: "Ist Schulqualität messbar? (PISA & Vergleichstests)",
+        t2Text: "Durch Tests wie PISA oder Ländervergleiche wird versucht, die Qualität von Schulen in Fächern wie Mathematik, Deutsch und Naturwissenschaften zu messen. Gegner dieser Leistungsmessungen kritisieren jedoch, dass dadurch nur Faktenwissen geprüft wird, während wichtige pädagogische Werte wie Teamfähigkeit, Toleranz, Kreativität und das Wohlbefinden der Schüler unberücksichtigt bleiben.",
+        t2Opening: "Noten und Vergleichstests zeigen zwar, wo Schüler fachlich stehen, aber eine gute Schule macht doch viel mehr aus – zum Beispiel, ob Schüler gerne dorthin gehen und soziales Miteinander lernen. Wie siehst du das?",
+        erfQuestion: "Was macht für Sie persönlich eine gute Schule oder einen guten Sprachkurs aus?",
+        erfNotes: [
+          { label: "Situation", note: "In meinem Deutschkurs lerne ich am besten durch offene Diskussionen", guide: "Trải nghiệm của bạn về môi trường học tập hiệu quả." },
+          { label: "Grund", note: "Man hat keine Angst vor Fehlern und bleibt motiviert", guide: "Tại sao không khí lớp học lại quan trọng?" },
+          { label: "Meinung", note: "Schulqualität lässt sich nicht allein durch Tests und Noten messen", guide: "Quan điểm của bạn về các kỳ thi đánh giá chất lượng trường học." },
+          { label: "Begründung", note: "Soziale Kompetenzen und individuelle Förderung sind genauso wichtig", guide: "Những yếu tố mà bài thi chuẩn hóa không đo được." },
+          { label: "Nutzen", note: "Praxisnahe Projekte und gute Beziehung zwischen Lehrern und Schülern", guide: "Đặc điểm của một ngôi trường tốt." },
+          { label: "Zukunft", note: "Weniger Prüfungsdruck, mehr Freude am Entdecken", guide: "Đề xuất cải thiện giáo dục." }
+        ],
+        t3Title: "Eine Exkursion zu einem Museum im deutschsprachigen Raum planen",
+        t3Prompt: "Sie wollen mit Ihrem Sprachkurs eine Exkursion zu einem Museum im deutschsprachigen Raum unternehmen (z. B. die Pinakothek der Moderne in München). Einigen Sie sich auf ein Ziel, bereiten Sie eine Führung vor und planen Sie, was Sie sonst am Zielort unternehmen.",
+        t3Leitpunkte: ["Reiseziel und Museum auswählen (z. B. Pinakothek der Moderne in München)", "Anreise, Termin und Buchung einer Museumsführung", "Weiteres Programm am Zielort (Altstadtbummel, gemeinsames Mittagessen)", "Kosten und Aufgabenverteilung"],
+        t3Opening: "Hi! Für unsere Kursexkursion fände ich München und die Pinakothek der Moderne super spannend. Sollen wir zuerst klären, wie wir hinfahren und ob wir eine Führung buchen können?"
+      },
+      {
+        id: 40,
+        t2Title: "Teilzeitarbeit auch für Männer?",
+        t2Text: "Immer mehr Männer interessieren sich für Teilzeitarbeit, um mehr Zeit für ihre Kinder und die Familie zu haben. Experten betonen, dass Unternehmen von Teilzeitkräften profitieren, weil diese oft konzentrierter arbeiten und durch Familienarbeit Organisationstalent und Flexibilität entwickeln. Allerdings schrecken viele Männer noch zurück, weil klassische Rollenbilder bestehen und Teilzeit oft mit geringeren Karrierechancen verbunden ist.",
+        t2Opening: "Ich finde es sehr positiv, wenn auch Männer in Teilzeit arbeiten, damit beide Partner Beruf und Familie fair teilen können. Leider wird das in vielen Firmen noch skeptisch gesehen. Wie ist das in deinem Heimatland?",
+        erfQuestion: "Wie stehen Sie zum Thema Teilzeitarbeit und Work-Life-Balance?",
+        erfNotes: [
+          { label: "Situation", note: "In Vietnam ist Teilzeitarbeit für Männer im Hauptberuf noch selten", guide: "Thực tế làm việc bán thời gian ở Việt Nam." },
+          { label: "Grund", note: "Traditionelle Erwartungen und finanzielle Gründe", guide: "Lý do ít nam giới chọn làm bán thời gian." },
+          { label: "Meinung", note: "Teilzeitarbeit sollte für Männer und Frauen gleichermaßen normal sein", guide: "Quan điểm của bạn về việc nam giới làm Teilzeit." },
+          { label: "Begründung", note: "Mehr Zeit für Familie reduziert Stress und stärkt die Partnerschaft", guide: "Lợi ích cho gia đình và sức khỏe tinh thần." },
+          { label: "Nutzen", note: "Jobsharing-Modelle ermöglichen auch Führungskräften Teilzeit", guide: "Giải pháp cho doanh nghiệp." },
+          { label: "Zukunft", note: "Umdenken in Unternehmen: Leistung zählt mehr als reine Anwesenheitszeit", guide: "Thay đổi tư duy trong môi trường làm việc hiện đại." }
+        ],
+        t3Title: "Tipps für ein wichtiges Vorstellungsgespräch vorbereiten",
+        t3Prompt: "Ihr Freund hat ein wichtiges Vorstellungsgespräch. Überlegen Sie, welche Tipps Sie ihm für einen guten ersten Eindruck anbieten können, und machen Sie Ihrem Partner / Ihrer Partnerin Vorschläge.",
+        t3Leitpunkte: ["Vorbereitung auf das Unternehmen und typische Fragen (Stärken/Schwächen)", "Kleidung, Pünktlichkeit und Körpersprache für den ersten Eindruck", "Eigene Fragen am Ende des Gesprächs vorbereiten", "Ein gemeinsames Probe-Interview (Rollenspiel) mit dem Freund üben"],
+        t3Opening: "Hallo! Unser Freund ist total nervös wegen seines Vorstellungsgesprächs nächste Woche. Ich dachte, wir könnten ihm eine Checkliste für den ersten Eindruck zusammenstellen und ein Probe-Interview üben. Was meinst du?"
+      }
+    ];
+
+    const ERFAHRUNG_TOPICS = [
+      {
+        promptDe: '„Haben Sie schon einmal ein Praktikum gemacht? Erzählen Sie von Ihren Erfahrungen.“',
+        analysisVi: 'Đề hỏi về trải nghiệm thực tập cá nhân. Nếu bạn CHƯA từng đi thực tập, hoàn toàn không sao! Bạn có thể giải thích lý do (tập trung học đại học/học tiếng), nêu quan điểm về tầm quan trọng của thực tập và dự định tương lai.',
+        notes: [
+          { label: 'Situation', note: 'Noch kein Praktikum gemacht', guide: 'Nêu rõ tình huống hiện tại của bạn (đã từng làm chưa, ở đâu, hay chưa có cơ hội).' },
+          { label: 'Grund', note: 'Bisher auf das Studium konzentriert', guide: 'Vì sao bạn chưa làm (hoặc vì sao bạn chọn nơi đó)? Điều đó ảnh hưởng thế nào?' },
+          { label: 'Meinung', note: 'Praktika sind sehr wichtig', guide: 'Quan điểm của bạn về vai trò của kỳ thực tập đối với sinh viên/người đi làm.' },
+          { label: 'Begründung', note: 'Theorie allein reicht nicht aus', guide: 'Giải thích tại sao: Lý thuyết trên trường thôi là chưa đủ.' },
+          { label: 'Nutzen', note: 'Beruf kennenlernen, praktische Fähigkeiten entwickeln', guide: 'Lợi ích cụ thể: Hiểu môi trường làm việc thực tế và rèn kỹ năng mềm.' },
+          { label: 'Zukunft', note: 'Später ein Praktikum machen', guide: 'Dự định sắp tới của bạn là gì để tích lũy kinh nghiệm?' }
+        ]
+      },
+      ...TELC_40_TOPICS.map(t => ({
+        promptDe: `„[Đề ${t.id}: ${t.t2Title}] ${t.erfQuestion}“`,
+        analysisVi: `Câu hỏi trải nghiệm cá nhân (Erfahrung) gắn với Đề ${t.id}. Hãy dùng bảng NOTE 6 bước bên dưới để tự triển khai câu trả lời mạch lạc, tự nhiên (không cần học thuộc mẫu).`,
+        notes: t.erfNotes
+      }))
+    ];
+
+    const PRACTICE_SCENARIOS = {
+      conversation: [
+        {
+          title: 'Work-Life-Balance & Überstunden',
+          details: 'Trò chuyện tự nhiên với Lukas (một người bạn Đức 29 tuổi đang làm việc tại München) về cân bằng giữa công việc và cuộc sống cá nhân.',
+          guide: '<strong>Mục tiêu:</strong> Phản xạ tự nhiên, chia sẻ thói quen ở Việt Nam và hỏi quan điểm của Lukas tại Đức. Không cần dùng từ quá hàn lâm.',
+          openingDe: 'Hallo! Schön, dass wir heute mal wieder quatschen können. Ich hatte diese Woche echt viel Stress im Büro und musste oft Überstunden machen. Wie ist das bei dir – kannst du nach der Arbeit oder dem Lernen gut abschalten?',
+          chips: ['Meiner Ansicht nach ...', 'Bei mir ist es so, dass ...', 'Wie siehst du das?', 'Da stimme ich dir zu.']
+        },
+        {
+          title: 'Reisen & Nachhaltiger Tourismus',
+          details: 'Thảo luận cùng Lukas về xu hướng du lịch xanh, đi tàu hỏa thay vì máy bay và trải nghiệm du lịch đáng nhớ.',
+          guide: '<strong>Mục tiêu:</strong> Kể ngắn gọn trải nghiệm du lịch và đưa ra lý do vì sao nên hoặc không nên du lịch bằng tàu/máy bay.',
+          openingDe: 'Hey! Ich plane gerade meinen nächsten Urlaub und überlege, ob ich lieber mit dem Zug durch Europa fahre, statt zu fliegen. Reist du eigentlich lieber entspannt mit dem Zug oder schnell mit dem Flugzeug?',
+          chips: ['Einerseits ..., andererseits ...', 'Ein wichtiger Vorteil ist, dass ...', 'Ich sehe das etwas anders.']
+        }
+      ],
+      teil1: [
+        {
+          title: 'Teil 1: Ein Buch, ein Film oder eine Reise vorstellen',
+          details: '<strong>Nhiệm vụ telc B2 Teil 1:</strong> Giới thiệu ngắn gọn (khoảng 1.5 - 2 phút) về một chuyến đi ấn tượng hoặc một bộ phim/cuốn sách bạn thích, sau đó trả lời câu hỏi của giám khảo.',
+          guide: '<strong>Cấu trúc gợi ý:</strong> 1. Giới thiệu tên & chủ đề → 2. Nội dung chính / Điều gì xảy ra → 3. Tại sao bạn ấn tượng → 4. Kết luận.',
+          openingDe: 'Guten Tag! Wir beginnen jetzt mit Teil 1 der Prüfung. Bitte stellen Sie uns kurz ein Buch, einen Film oder eine besondere Reise vor. Erzählen Sie auch, warum Ihnen das so gut gefallen hat. Bitte schön!',
+          chips: ['Ich möchte heute über ... sprechen.', 'Besonders beeindruckt hat mich ...', 'Zusammenfassend kann man sagen, dass ...']
+        },
+        {
+          title: 'Teil 1: Ein wichtiges Ereignis oder eine Person im Leben',
+          details: '<strong>Nhiệm vụ telc B2 Teil 1:</strong> Kể về một sự kiện đáng nhớ hoặc một người có ảnh hưởng tích cực đến cuộc sống/việc học của bạn.',
+          guide: '<strong>Lưu ý B2:</strong> Tập trung giải thích <em>tại sao</em> người đó hoặc sự kiện đó quan trọng với bạn thay vì chỉ liệt kê thông tin.',
+          openingDe: 'Willkommen zur Prüfung telc Deutsch B2. In Teil 1 möchten wir gerne mehr über Sie erfahren. Erzählen Sie bitte von einer Person, die für Sie wichtig ist, oder von einem besonderen Erlebnis. Sie haben das Wort.',
+          chips: ['Für mich spielt ... eine große Rolle.', 'Der Grund dafür ist, dass ...', 'Dadurch habe ich gelernt, ...']
+        }
+      ],
+      'teil2-diskussion': TELC_40_TOPICS.map(t => ({
+        topicId: t.id,
+        title: `Đề ${t.id}: ${t.t2Title}`,
+        lesetext: t.t2Text,
+        details: `<div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 leading-relaxed"><div class="text-[11px] font-bold uppercase text-amber-700 mb-1">📰 Lesetext (Đoạn báo telc B2):</div>${t.t2Text}</div>`,
+        guide: '<strong>Chiến thuật Teil 2:</strong> 1. Tóm tắt ngắn ý chính bài báo → 2. Nêu quan điểm cá nhân (Pro/Contra) + lý do → 3. Chia sẻ trải nghiệm (Erfahrung) → 4. Đề xuất giải pháp & hỏi ý kiến Lukas.',
+        openingDe: t.t2Opening,
+        chips: ['In dem Text geht es um ...', 'Ich sehe das etwas anders, weil ...', 'Aus eigener Erfahrung weiß ich, dass ...', 'Als Lösung könnte man ...', 'Wie siehst du das?']
+      })),
+      teil3: TELC_40_TOPICS.map(t => ({
+        topicId: t.id,
+        title: `Đề ${t.id} (Teil 3): ${t.t3Title}`,
+        lesetext: t.t3Prompt,
+        details: `<div class="space-y-2"><p class="text-slate-800 font-medium">${t.t3Prompt}</p><div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200"><div class="text-[11px] font-bold text-navy-900 mb-1">📌 Leitpunkte gợi ý thảo luận:</div><ul class="list-disc pl-4 space-y-0.5 text-[11px] text-slate-700">${t.t3Leitpunkte.map(lp => `<li>${lp}</li>`).join('')}</ul></div></div>`,
+        guide: '<strong>Quy tắc Teil 3:</strong> Tương tác NGẮN GỌN, tự nhiên từng điểm một! Không độc thoại dài. Lukas cũng sẽ trả lời ngắn gọn (Đồng ý/Không đồng ý + Lý do ngắn + Đề xuất + Hỏi lại).',
+        openingDe: t.t3Opening,
+        chips: ['Wie wäre es, wenn ...?', 'Wir könnten doch ...', 'Vielleicht könnten wir uns darauf einigen, dass ...', 'Kommen wir nun zum nächsten Punkt.', 'Dann halten wir das so fest.']
+      }))
+    };
+
+    const REDEMITTEL_GROUPS = [
+      { category: '1. Vorschläge machen (Đưa ra đề xuất)', items: ['Wie wäre es, wenn wir ...?', 'Wir könnten doch ...', 'Eine weitere Möglichkeit wäre, ...', 'Ich würde vorschlagen, dass ...'] },
+      { category: '2. Zustimmung ausdrücken (Đồng ý)', items: ['Da stimme ich dir völlig zu.', 'Das sehe ich genauso.', 'Das ist eine ausgezeichnete Idee.', 'Du hast völlig recht.'] },
+      { category: '3. Widerspruch äußern (Phản đối lịch sự)', items: ['Ich sehe das etwas anders, weil ...', 'Da bin ich mir nicht ganz sicher.', 'Einerseits hast du recht, aber andererseits ...', 'Das überzeugt mich nicht ganz, denn ...'] },
+      { category: '4. Meinung äußern (Nêu quan điểm)', items: ['Meiner Ansicht nach ...', 'Ich bin der Meinung, dass ...', 'Aus meiner Sicht ...', 'Ich stehe auf dem Standpunkt, dass ...'] },
+      { category: '5. Argumente nennen (Đưa ra lập luận)', items: ['Ein wichtiger Vorteil / Nachteil ist, dass ...', 'Ein weiterer wichtiger Punkt ist ...', 'Dafür / Dagegen spricht, dass ...', 'Der Hauptgrund dafür liegt darin, dass ...'] },
+      { category: '6. Nachfragen (Hỏi ý kiến đối tác)', items: ['Wie siehst du das?', 'Was hältst du von diesem Vorschlag?', 'Bist du damit einverstanden?', 'Welche Erfahrungen hast du damit gemacht?'] },
+      { category: '7. Kompromisse finden (Tìm thỏa hiệp)', items: ['Vielleicht könnten wir uns darauf einigen, dass ...', 'Als Kompromiss könnten wir ...', 'Wir könnten beides miteinander verbinden, indem wir ...', 'Machen wir es doch so: ...'] },
+      { category: '8. Gespräch strukturieren (Điều phối)', items: ['Kommen wir nun zum nächsten Punkt.', 'Lass uns zuerst über ... sprechen.', 'Zusammenfassend lässt sich sagen, dass ...', 'Haben wir noch einen Punkt vergessen?'] },
+      { category: '9. Auf Ideen reagieren (Phản hồi ý tưởng)', items: ['Das ist ein überzeugendes Argument.', 'Daran habe ich noch gar nicht gedacht.', 'Das klingt sehr vernünftig, aber ...', 'Das lässt sich gut umsetzen.'] },
+      { category: '10. Entscheidungen treffen (Chốt phương án)', items: ['Dann halten wir das so fest.', 'Abgemacht! So machen wir es.', 'Wir sind uns also einig, dass ...', 'Damit haben wir einen guten Plan.'] }
+    ];
+
+    const B2_VOCAB_TOPICS = {
+      'Bildung & Schule': [
+        { term: 'die Klassengemeinschaft stärken', type: 'Kollokation', vi: 'Tăng cường tinh thần đoàn kết trong lớp', example: 'Klassenfahrten sind sinnvoll, weil sie die Klassengemeinschaft stärken.' },
+        { term: 'Chancengleichheit fördern', type: 'Kollokation', vi: 'Thúc đẩy sự bình đẳng về cơ hội học tập', example: 'Ganztagsschulen können dazu beitragen, die Chancengleichheit zu fördern.' },
+        { term: 'ohne Leistungsdruck lernen', type: 'Ausdruck', vi: 'Học tập không bị áp lực thành tích/điểm số', example: 'In einer Kinderuniversität können Kinder ohne Leistungsdruck forschen.' },
+        { term: 'Berufserfahrung sammeln', type: 'Kollokation', vi: 'Tích lũy kinh nghiệm nghề nghiệp', example: 'Durch ein Praktikum kann man wertvolle Berufserfahrung sammeln.' }
+      ],
+      'Gesundheit & Ernährung': [
+        { term: 'das Belohnungssystem aktivieren', type: 'Fachausdruck', vi: 'Kích hoạt hệ thống khen thưởng (trong não)', example: 'Stark fetthaltiges Essen aktiviert das Belohnungssystem im Gehirn.' },
+        { term: 'einen Ausgleich zum Alltag finden', type: 'Kollokation', vi: 'Tìm sự cân bằng cho cuộc sống thường nhật', example: 'Sport hilft mir dabei, einen guten Ausgleich zum stressigen Alltag zu finden.' },
+        { term: 'gegen Antibiotika resistent werden', type: 'Ausdruck', vi: 'Trở nên kháng thuốc kháng sinh', example: 'Bei falscher Einnahme können Bakterien gegen Antibiotika resistent werden.' },
+        { term: 'das Immunsystem stärken', type: 'Kollokation', vi: 'Tăng cường hệ miễn dịch', example: 'Regelmäßiges Lachen und Bewegung an der frischen Luft stärken das Immunsystem.' }
+      ],
+      'Arbeitswelt & Beruf': [
+        { term: 'die Vereinbarkeit von Beruf und Familie', type: 'Nomen + Präp.', vi: 'Sự cân bằng giữa công việc và gia đình', example: 'Teilzeitarbeit für Männer verbessert die Vereinbarkeit von Beruf und Familie.' },
+        { term: 'flexible Arbeitszeiten anbieten', type: 'Kollokation', vi: 'Cung cấp giờ làm việc linh hoạt', example: 'Moderne Arbeitgeber sollten flexible Arbeitszeiten anbieten.' },
+        { term: 'Verantwortung übernehmen (für + Akk)', type: 'Kollokation', vi: 'Đảm nhận trách nhiệm', example: 'Im Team muss jeder Verantwortung für seine Aufgaben übernehmen.' },
+        { term: 'einen guten ersten Eindruck hinterlassen', type: 'Kollokation', vi: 'Để lại ấn tượng đầu tiên tốt đẹp', example: 'Pünktlichkeit hilft dabei, im Vorstellungsgespräch einen guten ersten Eindruck zu hinterlassen.' }
+      ],
+      'Medien & Digitalisierung': [
+        { term: 'die Medienkompetenz fördern', type: 'Kollokation', vi: 'Nâng cao năng lực sử dụng truyền thông/công nghệ', example: 'Digitale Medien im Unterricht können die Medienkompetenz der Schüler fördern.' },
+        { term: 'vom Unterricht abgelenkt werden', type: 'Passiv-Struktur', vi: 'Bị xao nhãng khỏi bài học', example: 'Durch ständige Nachrichten auf dem Smartphone werden Schüler oft abgelenkt.' },
+        { term: 'den persönlichen Kontakt ersetzen', type: 'Kollokation', vi: 'Thay thế sự giao tiếp trực tiếp', example: 'Online-Kommunikation kann den persönlichen Kontakt nicht vollständig ersetzen.' },
+        { term: 'Vor- und Nachteile gegeneinander abwägen', type: 'Kollokation', vi: 'Cân nhắc ưu và nhược điểm', example: 'Man sollte die Vor- und Nachteile digitaler Schulbücher genau abwägen.' }
+      ],
+      'Umwelt & Wohnen': [
+        { term: 'einen Beitrag zum Umweltschutz leisten', type: 'Kollokation', vi: 'Đóng góp vào việc bảo vệ môi trường', example: 'Jeder Einzelne kann im Alltag einen Beitrag zum Umweltschutz leisten.' },
+        { term: 'öffentliche Verkehrsmittel nutzen', type: 'Kollokation', vi: 'Sử dụng phương tiện giao thông công cộng', example: 'In Großstädten ist es sinnvoller, öffentliche Verkehrsmittel zu nutzen.' },
+        { term: 'die Zersiedelung der Landschaft', type: 'Nomen', vi: 'Sự đô thị hóa tràn lan phá vỡ cảnh quan tự nhiên', example: 'Immer mehr Häuser außerhalb der Orte begünstigen die Zersiedelung.' },
+        { term: 'Müll vermeiden / trennen', type: 'Kollokation', vi: 'Hạn chế rác thải / phân loại rác', example: 'Beim Selbstkochen kann man im Vergleich zu Fertiggerichten viel Verpackungsmüll vermeiden.' }
+      ],
+      'Gesellschaft & Soziales': [
+        { term: 'der Alterseinsamkeit entgehen', type: 'Ausdruck', vi: 'Tránh khỏi sự cô đơn khi về già', example: 'In einer Pflege-WG können ältere Menschen der Alterseinsamkeit entgehen.' },
+        { term: 'einen Kompromiss eingehen / finden', type: 'Kollokation', vi: 'Đạt được sự thỏa hiệp', example: 'Bei unterschiedlichen Meinungen muss man einen Kompromiss finden.' },
+        { term: 'soziale Ausgrenzung verhindern', type: 'Kollokation', vi: 'Ngăn chặn sự cô lập/phân biệt đối xử xã hội', example: 'Einheitliche Schulkleidung kann soziale Ausgrenzung wegen Markenkleidung verhindern.' },
+        { term: 'sich ehrenamtlich engagieren', type: 'Reflexives Verb', vi: 'Tham gia hoạt động tình nguyện vì cộng đồng', example: 'Viele junge Menschen engagieren sich ehrenamtlich in sozialen Projekten.' }
+      ]
+    };
+
+    // =========================================================================
+    // 3. UTILITIES (TOAST, ESCAPE HTML, SPEECH SYNTHESIS & RECOGNITION)
+    // =========================================================================
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function showToast(msg, type = 'info') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+      const el = document.createElement('div');
+      const colors = {
+        info: 'bg-navy-900 text-white border-slate-700',
+        success: 'bg-emerald-700 text-white border-emerald-500',
+        warn: 'bg-amber-600 text-white border-amber-400'
+      };
+      el.className = `pointer-events-auto px-4 py-3 rounded-xl border text-xs font-semibold shadow-lg transition-all duration-300 ${colors[type] || colors.info}`;
+      el.textContent = msg;
+      container.appendChild(el);
+      setTimeout(() => {
+        el.style.opacity = '0';
+        setTimeout(() => el.remove(), 300);
+      }, 3200);
+    }
+
+    function speakGerman(text) {
+      try {
+        if (!('speechSynthesis' in window)) {
+          showToast('Trình duyệt không hỗ trợ đọc giọng nói tự động.', 'warn');
+          return;
+        }
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'de-DE';
+        utterance.rate = 0.96;
+        const voices = window.speechSynthesis.getVoices();
+        const deVoice = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('de'));
+        if (deVoice) utterance.voice = deVoice;
+        window.speechSynthesis.speak(utterance);
+      } catch (e) {
+        console.warn('SpeechSynthesis error:', e);
+      }
+    }
+
+    function setupSpeechRecognition() {
+      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRec) return null;
+      const rec = new SpeechRec();
+      rec.lang = 'de-DE';
+      rec.continuous = false;
+      rec.interimResults = false;
+      return rec;
+    }
+
+    // =========================================================================
+    // 4. NAVIGATION & DASHBOARD RENDERING
+    // =========================================================================
+    function switchView(viewId) {
+      currentView = viewId;
+      document.querySelectorAll('.app-view').forEach(sec => sec.classList.add('hidden'));
+      const target = document.getElementById(`view-${viewId}`);
+      if (target) target.classList.remove('hidden');
+
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        if (btn.dataset.view === viewId) {
+          btn.className = 'nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition bg-amber-500 text-navy-950 shadow-sm';
+        } else {
+          btn.className = 'nav-btn flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold transition text-slate-300 hover:bg-slate-800 hover:text-white';
+        }
+      });
+
+      if (viewId === 'dashboard') renderDashboard();
+      if (viewId === 'history') renderFullHistory();
+      if (viewId === 'note-builder') {
+        populateErfahrungDropdown();
+        loadErfahrungTopic();
+      }
+    }
+
+    function goToArenaWithMode(mode) {
+      switchView('arena');
+      selectPracticeMode(mode);
+    }
+
+    function renderDashboard() {
+      const s = appState.stats;
+      const kpis = [
+        { label: 'Tổng số buổi luyện nói', val: s.totalSessions, sub: `🔥 Chuỗi ${s.streakDays} ngày liên tiếp`, color: 'text-navy-900' },
+        { label: 'Bài luyện đã hoàn thành', val: s.completedExercises, sub: 'Đủ 3 phần telc B2', color: 'text-emerald-700' },
+        { label: 'Điểm đánh giá trung bình', val: `${s.averageScore}/100`, sub: s.averageScore >= 75 ? 'Đạt chuẩn B2 Gut' : 'Đang tiến bộ ổn định', color: 'text-amber-600' },
+        { label: 'Ngân hàng đề telc B2', val: '40 Đề', sub: 'Đầy đủ Teil 2 & Teil 3', color: 'text-indigo-700' }
+      ];
+
+      document.getElementById('dashboard-kpis').innerHTML = kpis.map(k => `
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200">
+          <div class="text-xs font-semibold text-slate-500">${escapeHtml(k.label)}</div>
+          <div class="text-3xl font-extrabold ${k.color} mt-2">${escapeHtml(String(k.val))}</div>
+          <div class="text-[11px] font-medium text-slate-500 mt-1">${escapeHtml(k.sub)}</div>
+        </div>
+      `).join('');
+
+      const parts = [
+        { name: 'Conversation Mode (Phản xạ tự nhiên)', pct: s.partProgress.conversation, bar: 'bg-emerald-500' },
+        { name: 'Teil 1: Über ein Thema sprechen', pct: s.partProgress.teil1, bar: 'bg-blue-500' },
+        { name: 'Teil 2: Diskussion & Erfahrung', pct: s.partProgress.teil2, bar: 'bg-amber-500' },
+        { name: 'Teil 3: Gemeinsam etwas planen', pct: s.partProgress.teil3, bar: 'bg-indigo-500' }
+      ];
+
+      document.getElementById('dashboard-part-progress').innerHTML = parts.map(p => `
+        <div>
+          <div class="flex justify-between text-xs font-semibold mb-1">
+            <span class="text-slate-700">${escapeHtml(p.name)}</span>
+            <span class="text-navy-900">${p.pct}%</span>
+          </div>
+          <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+            <div class="${p.bar} h-full rounded-full transition-all duration-500" style="width: ${p.pct}%"></div>
+          </div>
+        </div>
+      `).join('');
+
+      document.getElementById('dashboard-weaknesses').innerHTML = `
+        ${appState.frequentGrammarErrors.map(err => `
+          <div class="p-3 rounded-xl bg-red-50/70 border border-red-100 text-xs">
+            <div class="font-bold text-red-900 flex justify-between">
+              <span>${escapeHtml(err.topic)}</span>
+              <span class="px-2 py-0.5 rounded bg-red-100 text-red-700 text-[10px]">${err.count} lần</span>
+            </div>
+            <p class="text-slate-600 mt-1">${escapeHtml(err.tip)}</p>
+          </div>
+        `).join('')}
+        <div class="pt-1 space-y-1">
+          <div class="text-[11px] font-bold text-slate-500 uppercase">Kỹ năng cần ưu tiên:</div>
+          ${appState.skillsToImprove.map(sk => `<div class="text-xs text-slate-700 flex items-start gap-1.5"><span class="text-amber-500">▸</span><span>${escapeHtml(sk)}</span></div>`).join('')}
+        </div>
+      `;
+
+      document.getElementById('dashboard-vocab-summary').innerHTML = `
+        <div class="space-y-2">
+          <div class="text-[11px] font-bold text-amber-700 uppercase">Redemittel hay lặp lại:</div>
+          ${appState.overusedRedemittel.map(r => `
+            <div class="p-2.5 rounded-xl bg-amber-50 border border-amber-200 text-xs">
+              <div class="font-bold text-navy-900">„${escapeHtml(r.phrase)}“ <span class="text-amber-700">(${r.count}x)</span></div>
+              <div class="text-[11px] text-slate-600 mt-0.5">Thay thế: <span class="font-semibold text-emerald-700">${escapeHtml(r.replacement)}</span></div>
+            </div>
+          `).join('')}
+        </div>
+        <div class="space-y-1.5 pt-1">
+          <div class="text-[11px] font-bold text-emerald-700 uppercase">Cụm từ B2 đã dùng tốt:</div>
+          <div class="flex flex-wrap gap-1.5">
+            ${appState.masteredVocab.map(v => `<span class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px] font-medium">${escapeHtml(v)}</span>`).join('')}
+          </div>
+        </div>
+      `;
+
+      document.getElementById('dashboard-recent-history').innerHTML = appState.history.slice(0, 3).map(h => `
+        <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-navy-900 text-white text-[10px] font-bold">${escapeHtml(h.mode)}</span>
+              <span class="text-xs font-bold text-navy-900">${escapeHtml(h.topic)}</span>
+            </div>
+            <div class="text-[11px] text-slate-500 mt-1">${escapeHtml(h.date)} • Gốc: „${escapeHtml(h.original)}“</div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-extrabold">${h.score}/100</span>
+            <button onclick="switchView('history')" class="text-xs font-semibold text-amber-600 hover:underline">Chi tiết</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // =========================================================================
+    // 5. PRACTICE ARENA & 40-TOPIC SELECTOR
+    // =========================================================================
+    function selectPracticeMode(mode) {
+      currentMode = mode;
+      currentScenarioIndex = 0;
+
+      document.querySelectorAll('.mode-btn').forEach(btn => {
+        if (btn.dataset.mode === mode) {
+          btn.className = 'mode-btn px-3.5 py-2 rounded-xl text-xs font-semibold border transition bg-navy-900 text-white border-navy-900 shadow-sm';
+        } else {
+          btn.className = 'mode-btn px-3.5 py-2 rounded-xl text-xs font-semibold border transition bg-white text-slate-700 border-slate-200 hover:bg-slate-50';
+        }
+      });
+
+      document.getElementById('post-session-analysis-panel').classList.add('hidden');
+
+      const selectorBar = document.getElementById('exam-topic-selector-bar');
+      if (mode === 'teil2-diskussion' || mode === 'teil3') {
+        selectorBar.classList.remove('hidden');
+        document.getElementById('topic-search-input').value = '';
+        populateExamTopicDropdown('');
+      } else {
+        selectorBar.classList.add('hidden');
+      }
+
+      setupChatScenario();
+    }
+
+    function populateExamTopicDropdown(filterQuery) {
+      const dropdown = document.getElementById('exam-topic-dropdown');
+      const q = (filterQuery || '').trim().toLowerCase();
+
+      const matches = TELC_40_TOPICS.filter(t => {
+        const title = currentMode === 'teil3' ? t.t3Title : t.t2Title;
+        return !q ||
+          String(t.id) === q ||
+          `đề ${t.id}`.includes(q) ||
+          title.toLowerCase().includes(q) ||
+          t.t2Text.toLowerCase().includes(q) ||
+          t.t3Prompt.toLowerCase().includes(q);
+      });
+
+      if (matches.length === 0) {
+        dropdown.innerHTML = `<option value="-1">Không tìm thấy đề phù hợp với từ khóa...</option>`;
+        return;
+      }
+
+      dropdown.innerHTML = matches.map(t => {
+        const title = currentMode === 'teil3' ? t.t3Title : t.t2Title;
+        return `<option value="${t.id - 1}">Đề ${t.id}: ${escapeHtml(title)}</option>`;
+      }).join('');
+
+      const firstVal = parseInt(dropdown.value, 10);
+      if (!isNaN(firstVal) && firstVal >= 0) {
+        currentScenarioIndex = firstVal;
+      }
+    }
+
+    function setupChatScenario() {
+      const list = PRACTICE_SCENARIOS[currentMode] || PRACTICE_SCENARIOS.conversation;
+      const scenario = list[currentScenarioIndex] || list[0];
+
+      const badges = {
+        conversation: 'Conversation Mode • Hội thoại tự nhiên',
+        teil1: 'Exam Mode • Teil 1: Thema vorstellen',
+        'teil2-diskussion': `Exam Mode • Teil 2 Diskussion (Đề ${currentScenarioIndex + 1}/40)`,
+        teil3: `Exam Mode • Teil 3 Planen (Đề ${currentScenarioIndex + 1}/40)`
+      };
+
+      document.getElementById('arena-badge').textContent = badges[currentMode] || 'Practice Mode';
+      document.getElementById('arena-topic-title').textContent = scenario.title;
+      document.getElementById('arena-topic-details').innerHTML = scenario.details;
+      document.getElementById('arena-vietnamese-guide').innerHTML = scenario.guide;
+
+      const readBtn = document.getElementById('btn-read-lesetext');
+      const syncBox = document.getElementById('sync-to-note-box');
+      if (currentMode === 'teil2-diskussion' || currentMode === 'teil3') {
+        readBtn.classList.remove('hidden');
+      } else {
+        readBtn.classList.add('hidden');
+      }
+
+      if (currentMode === 'teil2-diskussion') {
+        syncBox.classList.remove('hidden');
+      } else {
+        syncBox.classList.add('hidden');
+      }
+
+      const chipsContainer = document.getElementById('arena-redemittel-chips');
+      chipsContainer.innerHTML = (scenario.chips || []).map(chip => `
+        <button type="button" class="chip-insert px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-amber-100 hover:text-navy-900 text-slate-700 text-xs font-medium border border-slate-200 transition" data-chip="${escapeHtml(chip)}">
+          + ${escapeHtml(chip)}
+        </button>
+      `).join('');
+
+      chatTranscript = [{ sender: 'ai', text: scenario.openingDe }];
+      renderChatMessages();
+    }
+
+    function renderChatMessages() {
+      const box = document.getElementById('chat-messages-box');
+      box.innerHTML = chatTranscript.map((m, idx) => {
+        if (m.sender === 'ai') {
+          return `
+            <div class="flex items-start gap-2.5 max-w-[88%]">
+              <div class="w-8 h-8 rounded-full bg-navy-900 text-amber-400 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">L</div>
+              <div class="bg-white border border-slate-200 rounded-2xl rounded-tl-sm p-3.5 shadow-sm space-y-1.5">
+                <p class="text-sm text-navy-900 leading-relaxed">${escapeHtml(m.text)}</p>
+                <button type="button" class="btn-speak-msg text-[11px] font-semibold text-amber-600 hover:text-amber-700 flex items-center gap-1" data-idx="${idx}">
+                  🔊 Nghe Lukas nói (de-DE)
+                </button>
+              </div>
+            </div>
+          `;
+        }
+        return `
+          <div class="flex justify-end">
+            <div class="max-w-[85%] bg-navy-900 text-white rounded-2xl rounded-tr-sm p-3.5 shadow-sm">
+              <p class="text-sm leading-relaxed">${escapeHtml(m.text)}</p>
+            </div>
+          </div>
+        `;
+      }).join('');
+      box.scrollTop = box.scrollHeight;
+    }
+
+    function generateLukasReply(userText) {
+      const lower = userText.toLowerCase();
+      const turnCount = chatTranscript.filter(m => m.sender === 'user').length;
+
+      // Teil 3: Concise Interaction Coach (Agree/Disagree + Short Reason + 1 Proposal + Short Question)
+      if (currentMode === 'teil3') {
+        if (turnCount === 1) {
+          return 'Ja, das finde ich eine gute Idee, weil wir so frühzeitig planen können. Wir könnten zusätzlich eine kleine Aufgabenliste für alle Helfer erstellen. Wer kümmert sich deiner Meinung nach um die Werbung oder Einladungen?';
+        }
+        if (turnCount === 2) {
+          return 'Da stimme ich dir zu, das spart viel Zeit. Vielleicht könnten wir uns auch noch über die Kosten und Verpflegung einigen – ich könnte Getränke organisieren. Was hältst du davon?';
+        }
+        if (turnCount >= 3) {
+          return 'Alles klar, das klingt nach einem sehr realistischen Kompromiss! Dann halten wir unseren Plan so fest. Sollen wir noch etwas Wichtiges besprechen oder sind wir fertig?';
+        }
+      }
+
+      // Teil 2: Diskussion Partner
+      if (currentMode === 'teil2-diskussion') {
+        if (turnCount === 1) {
+          return 'Das ist ein überzeugendes Argument, besonders was die Vor- und Nachteile im Alltag betrifft. Andererseits fragen sich viele Kritiker, wie man das in der Praxis fair umsetzen kann. Welche persönlichen Erfahrungen hast du selbst in diesem Bereich gemacht?';
+        }
+        if (turnCount === 2) {
+          return 'Danke für das anschauliche Beispiel! Ich sehe das ähnlich: Ohne klare Regeln und Eigenverantwortung funktioniert es oft nicht. Welche konkrete Lösung würdest du also für die Zukunft vorschlagen?';
+        }
+        return 'Da hast du völlig recht, das wäre ein sinnvoller Mittelweg für alle Beteiligten. Ich denke, wir haben die wichtigsten Aspekte des Textes gut diskutiert!';
+      }
+
+      // Teil 1: Examiner follow-up
+      if (currentMode === 'teil1') {
+        if (turnCount === 1) {
+          return 'Vielen Dank für Ihre interessante Vorstellung! Sie haben das sehr anschaulich beschrieben. Darf ich noch kurz nachfragen: Was genau hat Sie dabei am meisten geprägt oder überrascht?';
+        }
+        return 'Sehr gut, vielen Dank! Damit schließen wir Teil 1 ab. Klicken Sie gerne oben auf „Kết thúc & Phân tích lỗi“, um Ihr Feedback zu erhalten.';
+      }
+
+      // Conversation Mode
+      if (lower.includes('vietnam')) {
+        return 'Spannend, wie das in Vietnam gehandhabt wird! Hier in Deutschland legen viele Menschen großen Wert auf feste Regeln und Planung. Denkst du, man kann beide Ansätze miteinander verbinden?';
+      }
+      return 'Das klingt sehr nachvollziehbar! Ich sehe das ähnlich, wobei es natürlich immer auf die persönliche Situation ankommt. Wie gehst du selbst im Alltag damit um?';
+    }
+
+    function sendUserChatMessage() {
+      const input = document.getElementById('chat-user-input');
+      const text = input.value.trim();
+      if (!text) return;
+
+      chatTranscript.push({ sender: 'user', text });
+      input.value = '';
+      renderChatMessages();
+
+      setTimeout(() => {
+        const reply = generateLukasReply(text);
+        chatTranscript.push({ sender: 'ai', text: reply });
+        renderChatMessages();
+      }, 450);
+    }
+
+    // =========================================================================
+    // 6. SMART POST-SESSION ANALYSIS (GRAMMAR, IDEA DEV, REDEMITTEL)
+    // =========================================================================
+    function analyzeCurrentSession() {
+      const userUtterances = chatTranscript.filter(m => m.sender === 'user').map(m => m.text);
+      if (userUtterances.length === 0) {
+        showToast('Hãy nói hoặc nhập ít nhất 1 câu tiếng Đức trước khi phân tích!', 'warn');
+        return;
+      }
+
+      const fullUserText = userUtterances.join(' ');
+      const wordCount = fullUserText.split(/\s+/).filter(Boolean).length;
+
+      // Detect grammar & structure patterns
+      const corrections = [];
+      userUtterances.forEach(sentence => {
+        // Check 1: weil/dass/obwohl + verb immediately after subject (common VN error)
+        const weilMatch = sentence.match(/\b(weil|dass|obwohl)\s+(ich|du|er|sie|es|wir|ihr|man)\s+(habe|hat|bin|ist|sind|kann|muss|will|mache|macht|gehe|geht)\b/i);
+        if (weilMatch) {
+          const fixed = sentence.replace(weilMatch[0], `${weilMatch[1]} ${weilMatch[2]} ... ${weilMatch[3]}`);
+          corrections.push({
+            category: 'Satzbau (Cấu trúc câu)',
+            original: sentence,
+            corrected: fixed.replace('... ', ''),
+            explanation: `Sau liên từ phụ thuộc „${weilMatch[1]}“, động từ chia „${weilMatch[3]}“ phải chuyển xuống cuối mệnh đề phụ.`,
+            alternative: `Da ${weilMatch[2]} ..., ...`,
+            b2Upgrade: `Meiner Ansicht nach ist das wichtig, ${weilMatch[1]} ${weilMatch[2]} dadurch bessere Möglichkeiten ${weilMatch[3]}.`
+          });
+        }
+
+        // Check 2: Repetition of "Ich schlage vor"
+        if (/ich schlage vor/i.test(sentence)) {
+          corrections.push({
+            category: 'Ausdruck & Redemittel',
+            original: sentence,
+            corrected: sentence,
+            explanation: 'Câu đúng ngữ pháp nhưng cấu trúc „Ich schlage vor“ dễ bị lặp lại nhiều lần trong Teil 3.',
+            alternative: sentence.replace(/ich schlage vor,?\s*(dass\s*)?/i, 'Wie wäre es, wenn '),
+            b2Upgrade: 'Eine weitere sinnvolle Möglichkeit wäre es, gemeinsam einen konkreten Zeitplan aufzustellen.'
+          });
+        }
+      });
+
+      if (corrections.length === 0) {
+        const sample = userUtterances[0];
+        corrections.push({
+          category: 'Ausdruck & B2-Feinschliff',
+          original: sample,
+          corrected: sample,
+          explanation: 'Câu của bạn rõ ràng và truyền đạt đúng ý (không cần sửa ép thành câu quá phức tạp). Dưới đây là gợi ý mở rộng tự nhiên ở mức B2:',
+          alternative: `Aus meiner Sicht lässt sich sagen, dass ${sample.charAt(0).toLowerCase() + sample.slice(1)}`,
+          b2Upgrade: `Einerseits stimmt es, dass man darauf achten sollte, andererseits spielt auch die praktische Umsetzung eine große Rolle.`
+        });
+      }
+
+      // Idea Development Evaluation (3 Cases)
+      let ideaCaseTitle = '';
+      let ideaCaseBadge = '';
+      let ideaAnalysisVi = '';
+      let ideaImprovedDe = '';
+      let ideaAltDe = '';
+
+      if (wordCount < 14) {
+        ideaCaseBadge = 'Trường hợp 2: Ý tưởng đúng nhưng triển khai còn ngắn';
+        ideaCaseTitle = 'Cần bổ sung lý do (Begründung) và hệ quả/ví dụ';
+        ideaAnalysisVi = 'Ý tưởng gốc của bạn hoàn toàn hợp lý và đúng trọng tâm, nhưng độ dài còn ngắn so với chuẩn B2. Chúng ta giữ nguyên ý gốc của bạn và mở rộng thêm nguyên nhân + kết quả.';
+        ideaImprovedDe = `${userUtterances[0]} Der Hauptgrund dafür liegt darin, dass man dadurch im Alltag viel Zeit spart und langfristig bessere Ergebnisse erzielt.`;
+        ideaAltDe = `Darüber hinaus zeigt meine eigene Erfahrung, dass eine gute Planung viele Probleme von vornherein vermeidet.`;
+      } else {
+        ideaCaseBadge = 'Trường hợp 1: Ý tưởng đã tốt & mạch lạc';
+        ideaCaseTitle = 'Giữ nguyên ý tưởng gốc – Đạt yêu cầu lập luận B2';
+        ideaAnalysisVi = 'Bạn đã trình bày ý tưởng rõ ràng, đúng trọng tâm đề bài và có lý giải hợp lý. Theo nguyên tắc B2, không cần thay đổi ý tưởng hay nhồi nhét từ quá hàn lâm.';
+        ideaImprovedDe = userUtterances[0];
+        ideaAltDe = `Zusammenfassend lässt sich sagen, dass dieses Thema sowohl Vor- als auch Nachteile mit sich bringt.`;
+      }
+
+      // 6 telc B2 Criteria Scores
+      const baseScore = Math.min(92, Math.max(66, 68 + Math.min(18, Math.floor(wordCount / 2)) - (corrections.length > 2 ? 4 : 0)));
+      const criteria = [
+        { name: 'Aufgabenbewältigung (Hoàn thành yêu cầu)', score: Math.min(95, baseScore + 4) },
+        { name: 'Interaktion (Khả năng tương tác)', score: Math.min(94, baseScore + 2) },
+        { name: 'Flüssigkeit (Độ trôi chảy & liên kết)', score: baseScore },
+        { name: 'Wortschatz (Từ vựng & Redemittel B2)', score: Math.max(64, baseScore - 2) },
+        { name: 'Grammatik (Độ chính xác ngữ pháp)', score: Math.max(62, baseScore - 3) },
+        { name: 'Aussprache (Phát âm & Ngữ điệu)', score: Math.min(90, baseScore + 1) }
+      ];
+
+      const panel = document.getElementById('post-session-analysis-panel');
+      panel.classList.remove('hidden');
+      panel.innerHTML = `
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
+          <div>
+            <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 text-xs font-bold">Báo cáo đánh giá năng lực telc B2</span>
+            <h3 class="text-xl font-extrabold text-navy-900 mt-1">Kết quả phân tích bài nói của bạn</h3>
+          </div>
+          <div class="px-4 py-2 rounded-2xl bg-navy-900 text-white text-center">
+            <div class="text-[10px] uppercase tracking-wider text-amber-400 font-bold">Tổng điểm B2</div>
+            <div class="text-2xl font-extrabold">${baseScore}/100</div>
+          </div>
+        </div>
+
+        <!-- 6 Criteria -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          ${criteria.map(c => `
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="flex justify-between text-xs font-bold text-navy-900 mb-1.5">
+                <span>${escapeHtml(c.name)}</span>
+                <span>${c.score}%</span>
+              </div>
+              <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div class="bg-amber-500 h-full rounded-full" style="width:${c.score}%"></div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Idea Development (Section VI) -->
+        <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-200 space-y-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-indigo-700 text-white text-[11px] font-bold">${escapeHtml(ideaCaseBadge)}</span>
+            <span class="text-xs font-bold text-indigo-950">${escapeHtml(ideaCaseTitle)}</span>
+          </div>
+          <p class="text-xs text-slate-700 leading-relaxed">${escapeHtml(ideaAnalysisVi)}</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+            <div class="p-3 rounded-xl bg-white border border-indigo-100 text-xs">
+              <div class="font-bold text-emerald-700 mb-1">✔ Phiên bản giữ ý gốc & mở rộng B2:</div>
+              <p class="text-navy-900 font-medium">„${escapeHtml(ideaImprovedDe)}“</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-indigo-100 text-xs">
+              <div class="font-bold text-indigo-700 mb-1">💡 Hướng triển khai bổ sung tham khảo:</div>
+              <p class="text-navy-900 font-medium">„${escapeHtml(ideaAltDe)}“</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5-Dimension Correction Table (Section V) -->
+        <div class="space-y-2">
+          <h4 class="text-sm font-extrabold text-navy-900">🔍 Bảng phân tích & sửa lỗi chi tiết</h4>
+          <div class="overflow-x-auto border border-slate-200 rounded-xl">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-navy-900 text-white">
+                  <th class="p-3">Original (Câu gốc)</th>
+                  <th class="p-3">Correction (Đã sửa)</th>
+                  <th class="p-3">Explanation (Giải thích tiếng Việt)</th>
+                  <th class="p-3">Alternative & B2 Upgrade</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-200 bg-white">
+                ${corrections.map(c => `
+                  <tr>
+                    <td class="p-3 text-red-700 font-medium align-top">„${escapeHtml(c.original)}“</td>
+                    <td class="p-3 text-emerald-700 font-semibold align-top">„${escapeHtml(c.corrected)}“</td>
+                    <td class="p-3 text-slate-700 align-top leading-relaxed">${escapeHtml(c.explanation)}</td>
+                    <td class="p-3 align-top space-y-1">
+                      <div class="text-slate-600"><span class="font-bold">Alt:</span> „${escapeHtml(c.alternative)}“</div>
+                      <div class="text-navy-900 font-semibold"><span class="text-amber-600 font-bold">B2:</span> „${escapeHtml(c.b2Upgrade)}“</div>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+
+      // Save session to history & update stats
+      const scenarioTitle = document.getElementById('arena-topic-title').textContent;
+      appState.stats.totalSessions += 1;
+      appState.stats.completedExercises += 1;
+      appState.stats.averageScore = Math.round((appState.stats.averageScore + baseScore) / 2);
+
+      appState.history.unshift({
+        id: `hist-${Date.now()}`,
+        date: 'Vừa xong',
+        mode: currentMode,
+        topic: scenarioTitle,
+        score: baseScore,
+        original: userUtterances[0],
+        corrected: corrections[0].corrected,
+        improved: ideaImprovedDe,
+        explanation: corrections[0].explanation,
+        redemittelUsed: ['Meiner Ansicht nach ...']
+      });
+
+      saveState();
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showToast('Đã lưu kết quả vào Lịch sử luyện tập & cập nhật Dashboard!', 'success');
+    }
+
+    // =========================================================================
+    // 7. ERFAHRUNG NOTE BUILDER (SECTION VII)
+    // =========================================================================
+    function populateErfahrungDropdown() {
+      const sel = document.getElementById('erfahrung-topic-select');
+      if (!sel || sel.options.length > 0) return;
+      sel.innerHTML = ERFAHRUNG_TOPICS.map((item, idx) => {
+        const label = idx === 0
+          ? 'Đề mẫu: Haben Sie schon einmal ein Praktikum gemacht?'
+          : `Đề ${idx}: ${TELC_40_TOPICS[idx - 1].t2Title}`;
+        return `<option value="${idx}">${escapeHtml(label)}</option>`;
+      }).join('');
+    }
+
+    function loadErfahrungTopic() {
+      const sel = document.getElementById('erfahrung-topic-select');
+      const idx = parseInt(sel.value, 10) || 0;
+      const item = ERFAHRUNG_TOPICS[idx] || ERFAHRUNG_TOPICS[0];
+
+      document.getElementById('erf-prompt-de').textContent = item.promptDe;
+      document.getElementById('erf-analysis-vi').textContent = item.analysisVi;
+      document.getElementById('erf-feedback-box').classList.add('hidden');
+
+      document.getElementById('erf-note-tbody').innerHTML = item.notes.map(n => `
+        <tr class="hover:bg-slate-50">
+          <td class="p-3 font-bold text-navy-900 bg-slate-50/70">${escapeHtml(n.label)}</td>
+          <td class="p-3 font-semibold text-amber-800">
+            <div class="flex items-center justify-between gap-2">
+              <span>${escapeHtml(n.note)}</span>
+              <button type="button" onclick="speakGerman('${escapeHtml(n.note)}')" class="text-slate-400 hover:text-navy-900" title="Nghe phát âm">🔊</button>
+            </div>
+          </td>
+          <td class="p-3 text-slate-600">${escapeHtml(n.guide)}</td>
+        </tr>
+      `).join('');
+    }
+
+    function evaluateErfahrungDraft() {
+      const draft = document.getElementById('erf-user-draft').value.trim();
+      if (!draft) {
+        showToast('Hãy tự viết hoặc nói câu trả lời dựa trên bảng NOTE trước nhé!', 'warn');
+        return;
+      }
+
+      const sel = document.getElementById('erfahrung-topic-select');
+      const idx = parseInt(sel.value, 10) || 0;
+      const item = ERFAHRUNG_TOPICS[idx] || ERFAHRUNG_TOPICS[0];
+      const words = draft.split(/\s+/).filter(Boolean).length;
+
+      const goodPoints = [];
+      const missingPoints = [];
+
+      if (/weil|da|deshalb|darum/i.test(draft)) {
+        goodPoints.push('Đã biết dùng từ nối chỉ nguyên nhân/kết quả (weil, da, deshalb).');
+      } else {
+        missingPoints.push('Nên bổ sung liên từ chỉ lý do như „weil“ hoặc „deshalb“ để câu mạch lạc hơn.');
+      }
+
+      if (/meiner meinung|meiner ansicht|ich finde|ich glaube|wichtig|sinnvoll/i.test(draft)) {
+        goodPoints.push('Đã nêu rõ quan điểm cá nhân phù hợp trình độ B2.');
+      } else {
+        missingPoints.push('Nên thêm 1 câu đánh giá cá nhân (VD: „Meiner Ansicht nach ist das sehr wichtig, weil ...“).');
+      }
+
+      if (words < 20) {
+        missingPoints.push('Đoạn trả lời hơi ngắn – hãy phát triển thêm ý Nutzen (lợi ích) hoặc Zukunft (dự định tương lai) từ bảng NOTE.');
+      } else {
+        goodPoints.push('Độ dài phù hợp cho phần trình bày Erfahrung trong Teil 2 (khoảng 30-45 giây nói).');
+      }
+
+      const improvedVersion = `${draft} Meiner Ansicht nach ist dieses Thema sehr wichtig, weil man dadurch wertvolle Erfahrungen für die Zukunft sammeln kann.`;
+      const altVersion = `Aus eigener Erfahrung weiß ich, dass ${item.notes[0].note.toLowerCase()}. ${item.notes[2].note}, denn ${item.notes[3].note.toLowerCase()}.`;
+
+      const fb = document.getElementById('erf-feedback-box');
+      fb.classList.remove('hidden');
+      fb.innerHTML = `
+        <h4 class="text-sm font-extrabold text-emerald-900">✅ Bước 5: Đánh giá & Hoàn thiện Erfahrung (Giữ ý gốc của bạn)</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="p-3.5 rounded-xl bg-white border border-emerald-200 space-y-1">
+            <div class="font-bold text-emerald-700">👍 Những điểm bạn đã làm tốt:</div>
+            <ul class="list-disc pl-4 space-y-1 text-slate-700">${goodPoints.map(g => `<li>${escapeHtml(g)}</li>`).join('')}</ul>
+          </div>
+          <div class="p-3.5 rounded-xl bg-white border border-amber-200 space-y-1">
+            <div class="font-bold text-amber-700">📌 Ý cần bổ sung từ bảng NOTE:</div>
+            <ul class="list-disc pl-4 space-y-1 text-slate-700">${(missingPoints.length ? missingPoints : ['Bạn đã bao quát đầy đủ các ý chính!']).map(m => `<li>${escapeHtml(m)}</li>`).join('')}</ul>
+          </div>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-slate-200 text-xs space-y-1.5">
+          <div class="font-bold text-navy-900">✨ Phiên bản cải thiện dựa trên câu gốc của bạn:</div>
+          <p class="text-emerald-800 font-semibold leading-relaxed">„${escapeHtml(improvedVersion)}“</p>
+          <button type="button" onclick="speakGerman('${escapeHtml(improvedVersion)}')" class="text-[11px] font-bold text-amber-600 hover:underline">🔊 Nghe phát âm mẫu (de-DE)</button>
+        </div>
+        <div class="p-3.5 rounded-xl bg-white border border-slate-200 text-xs space-y-1">
+          <div class="font-bold text-indigo-800">💡 Một cách diễn đạt khác tham khảo:</div>
+          <p class="text-slate-700">„${escapeHtml(altVersion)}“</p>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // 8. REDEMITTEL, VOCABULARY & HISTORY RENDERERS
+    // =========================================================================
+    function renderRedemittelLibrary() {
+      const grid = document.getElementById('redemittel-groups-grid');
+      grid.innerHTML = REDEMITTEL_GROUPS.map(g => `
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <h3 class="text-xs font-extrabold text-navy-900 uppercase tracking-wide">${escapeHtml(g.category)}</h3>
+          <div class="space-y-1.5">
+            ${g.items.map(phrase => `
+              <div class="flex items-center justify-between bg-white px-3 py-2 rounded-xl border border-slate-200/80 text-xs">
+                <span class="font-medium text-slate-800">${escapeHtml(phrase)}</span>
+                <button type="button" onclick="speakGerman('${escapeHtml(phrase)}')" class="text-amber-600 hover:text-amber-700 font-bold ml-2 shrink-0">🔊</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderVocabTrainer() {
+      const topic = document.getElementById('vocab-topic-filter').value;
+      const list = B2_VOCAB_TOPICS[topic] || [];
+      const grid = document.getElementById('vocab-cards-grid');
+
+      grid.innerHTML = list.map(v => `
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="flex items-center justify-between gap-2">
+            <span class="px-2 py-0.5 rounded bg-navy-900 text-amber-400 text-[10px] font-bold">${escapeHtml(v.type)}</span>
+            <button type="button" onclick="speakGerman('${escapeHtml(v.example)}')" class="text-xs font-bold text-emerald-700 hover:underline">🔊 Nghe ví dụ</button>
+          </div>
+          <div class="text-sm font-extrabold text-navy-900">${escapeHtml(v.term)}</div>
+          <div class="text-xs font-medium text-slate-600">Nghĩa: ${escapeHtml(v.vi)}</div>
+          <div class="p-2.5 rounded-xl bg-white border border-slate-200 text-xs text-slate-800 italic">
+            „${escapeHtml(v.example)}“
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderFullHistory() {
+      const container = document.getElementById('full-history-list');
+      container.innerHTML = appState.history.map(h => `
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2.5">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-md bg-navy-900 text-white text-xs font-bold">${escapeHtml(h.mode)}</span>
+              <span class="text-sm font-bold text-navy-900">${escapeHtml(h.topic)}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-slate-500">${escapeHtml(h.date)}</span>
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-extrabold">${h.score}/100</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2.5 text-xs">
+            <div class="p-3 rounded-xl bg-white border border-slate-200">
+              <div class="font-bold text-red-700 mb-1">Câu gốc:</div>
+              <p class="text-slate-700">„${escapeHtml(h.original)}“</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-slate-200">
+              <div class="font-bold text-emerald-700 mb-1">Đã sửa chuẩn:</div>
+              <p class="text-slate-800 font-medium">„${escapeHtml(h.corrected)}“</p>
+            </div>
+            <div class="p-3 rounded-xl bg-white border border-slate-200">
+              <div class="font-bold text-indigo-700 mb-1">Phiên bản B2:</div>
+              <p class="text-navy-900 font-semibold">„${escapeHtml(h.improved)}“</p>
+            </div>
+          </div>
+          <div class="text-xs text-slate-600 bg-amber-50/80 border border-amber-200/70 rounded-xl p-2.5">
+            <span class="font-bold text-amber-900">Giải thích:</span> ${escapeHtml(h.explanation)}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // =========================================================================
+    // 9. SAFE INITIALIZATION ON DOMContentLoaded
+    // =========================================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        // Mobile menu toggle
+        const mobileBtn = document.getElementById('mobile-menu-toggle');
+        const sidebarNav = document.getElementById('sidebar-nav');
+        if (mobileBtn && sidebarNav) {
+          mobileBtn.addEventListener('click', () => {
+            sidebarNav.classList.toggle('hidden');
+            sidebarNav.classList.toggle('flex');
+          });
+        }
+
+        // Sidebar navigation clicks
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            switchView(btn.dataset.view);
+            if (window.innerWidth < 1024 && sidebarNav) {
+              sidebarNav.classList.add('hidden');
+              sidebarNav.classList.remove('flex');
+            }
+          });
+        });
+
+        // Practice mode buttons
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+          btn.addEventListener('click', () => selectPracticeMode(btn.dataset.mode));
+        });
+
+        // 40-Topic Search, Dropdown, Random
+        const searchInput = document.getElementById('topic-search-input');
+        if (searchInput) {
+          searchInput.addEventListener('input', (e) => {
+            populateExamTopicDropdown(e.target.value);
+            setupChatScenario();
+          });
+        }
+
+        const examDropdown = document.getElementById('exam-topic-dropdown');
+        if (examDropdown) {
+          examDropdown.addEventListener('change', (e) => {
+            const idx = parseInt(e.target.value, 10);
+            if (!isNaN(idx) && idx >= 0) {
+              currentScenarioIndex = idx;
+              setupChatScenario();
+            }
+          });
+        }
+
+        const randomExamBtn = document.getElementById('btn-random-exam-topic');
+        if (randomExamBtn) {
+          randomExamBtn.addEventListener('click', () => {
+            const rnd = Math.floor(Math.random() * TELC_40_TOPICS.length);
+            document.getElementById('topic-search-input').value = '';
+            populateExamTopicDropdown('');
+            document.getElementById('exam-topic-dropdown').value = String(rnd);
+            currentScenarioIndex = rnd;
+            setupChatScenario();
+            showToast(`🎲 Đã chọn ngẫu nhiên Đề ${rnd + 1}!`, 'info');
+          });
+        }
+
+        // Next scenario & Read Lesetext & Sync to NOTE
+        document.getElementById('btn-next-scenario').addEventListener('click', () => {
+          const list = PRACTICE_SCENARIOS[currentMode] || PRACTICE_SCENARIOS.conversation;
+          currentScenarioIndex = (currentScenarioIndex + 1) % list.length;
+          if (currentMode === 'teil2-diskussion' || currentMode === 'teil3') {
+            document.getElementById('exam-topic-dropdown').value = String(currentScenarioIndex);
+          }
+          setupChatScenario();
+        });
+
+        document.getElementById('btn-read-lesetext').addEventListener('click', () => {
+          const list = PRACTICE_SCENARIOS[currentMode] || [];
+          const sc = list[currentScenarioIndex];
+          if (sc && sc.lesetext) speakGerman(sc.lesetext);
+        });
+
+        document.getElementById('btn-sync-to-note').addEventListener('click', () => {
+          const targetIdx = currentScenarioIndex + 1;
+          switchView('note-builder');
+          const sel = document.getElementById('erfahrung-topic-select');
+          if (sel) {
+            sel.value = String(targetIdx);
+            loadErfahrungTopic();
+          }
+        });
+
+        // Delegate clicks for Redemittel chips & Speak AI messages
+        document.getElementById('arena-redemittel-chips').addEventListener('click', (e) => {
+          const btn = e.target.closest('.chip-insert');
+          if (!btn) return;
+          const inp = document.getElementById('chat-user-input');
+          const chipText = btn.dataset.chip.replace('...', '').trim();
+          inp.value = inp.value ? `${inp.value} ${chipText} ` : `${chipText} `;
+          inp.focus();
+        });
+
+        document.getElementById('chat-messages-box').addEventListener('click', (e) => {
+          const btn = e.target.closest('.btn-speak-msg');
+          if (!btn) return;
+          const idx = parseInt(btn.dataset.idx, 10);
+          if (chatTranscript[idx]) speakGerman(chatTranscript[idx].text);
+        });
+
+        // Chat Send & Enter key
+        document.getElementById('btn-send-chat').addEventListener('click', sendUserChatMessage);
+        document.getElementById('chat-user-input').addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendUserChatMessage();
+          }
+        });
+
+        // Finish Session & Analyze
+        document.getElementById('btn-finish-session').addEventListener('click', analyzeCurrentSession);
+
+        // Microphone (Web Speech API de-DE)
+        recognition = setupSpeechRecognition();
+        const micBtn = document.getElementById('btn-mic-toggle');
+        const voiceBar = document.getElementById('voice-status-bar');
+        if (micBtn) {
+          micBtn.addEventListener('click', () => {
+            if (!recognition) {
+              showToast('Trình duyệt của bạn chưa hỗ trợ nhận diện giọng nói. Bạn hãy gõ văn bản nhé!', 'warn');
+              return;
+            }
+            if (isRecording) {
+              recognition.stop();
+              return;
+            }
+            try {
+              isRecording = true;
+              micBtn.classList.add('mic-recording', 'bg-red-100', 'text-red-600');
+              voiceBar.classList.remove('hidden');
+
+              recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                const inp = document.getElementById('chat-user-input');
+                inp.value = inp.value ? `${inp.value} ${transcript}` : transcript;
+              };
+              recognition.onerror = () => {
+                showToast('Không nhận được âm thanh rõ ràng, vui lòng thử lại.', 'warn');
+              };
+              recognition.onend = () => {
+                isRecording = false;
+                micBtn.classList.remove('mic-recording', 'bg-red-100', 'text-red-600');
+                voiceBar.classList.add('hidden');
+              };
+              recognition.start();
+            } catch (err) {
+              isRecording = false;
+              voiceBar.classList.add('hidden');
+            }
+          });
+        }
+
+        // Erfahrung NOTE Builder Events
+        document.getElementById('erfahrung-topic-select').addEventListener('change', loadErfahrungTopic);
+        document.getElementById('btn-random-erfahrung').addEventListener('click', () => {
+          const sel = document.getElementById('erfahrung-topic-select');
+          const rnd = Math.floor(Math.random() * ERFAHRUNG_TOPICS.length);
+          sel.value = String(rnd);
+          loadErfahrungTopic();
+          showToast('🎲 Đã đổi đề Erfahrung ngẫu nhiên!', 'info');
+        });
+        document.getElementById('btn-evaluate-erf').addEventListener('click', evaluateErfahrungDraft);
+        document.getElementById('btn-clear-erf').addEventListener('click', () => {
+          document.getElementById('erf-user-draft').value = '';
+          document.getElementById('erf-feedback-box').classList.add('hidden');
+        });
+        document.getElementById('btn-erf-mic').addEventListener('click', () => {
+          const rec = setupSpeechRecognition();
+          if (!rec) {
+            showToast('Trình duyệt chưa hỗ trợ Micro. Bạn có thể gõ trực tiếp vào ô bên dưới.', 'warn');
+            return;
+          }
+          showToast('🎤 Đang nghe giọng nói tiếng Đức...', 'info');
+          rec.onresult = (ev) => {
+            const text = ev.results[0][0].transcript;
+            const area = document.getElementById('erf-user-draft');
+            area.value = area.value ? `${area.value} ${text}` : text;
+          };
+          rec.start();
+        });
+
+        // Vocab filter & Reset history
+        document.getElementById('vocab-topic-filter').addEventListener('change', renderVocabTrainer);
+        document.getElementById('btn-reset-history').addEventListener('click', () => {
+          localStorage.removeItem(STORAGE_KEY);
+          appState = JSON.parse(JSON.stringify(DEFAULT_STATE));
+          saveState();
+          renderFullHistory();
+          renderDashboard();
+          showToast('Đã khôi phục dữ liệu mẫu ban đầu.', 'info');
+        });
+
+        // Initial Renders
+        renderDashboard();
+        setupChatScenario();
+        populateErfahrungDropdown();
+        loadErfahrungTopic();
+        renderRedemittelLibrary();
+        renderVocabTrainer();
+        renderFullHistory();
+      } catch (e) {
+        console.error('Initialization error:', e);
+      }
+    });
+  </script>
+</body>
+</html>
